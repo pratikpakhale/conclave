@@ -7,11 +7,13 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: Anton;
+  src: url("./fonts/anton.woff");
+}
+
+.font-anton {
+  font-family: Anton;
 }
 
 body {
@@ -24,4 +26,14 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.component-transition {
+  transition: transform 0.8s ease-out, color 0.8s, font-size 0.8s,
+    box-shadow 0.8s, background-color 0.8s, border-color 0.8s, padding 0.8s,
+    scale 0.8s;
+}
+
+.component-transition:hover {
+  scale: 1.2;
 }

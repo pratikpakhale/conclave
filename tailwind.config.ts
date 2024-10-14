@@ -12,6 +12,10 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      boxShadow: {
+        "hover-landing": "0 0 20px #3a506b",
+        landing: "0 9px 20px #0000000f",
+      },
     },
   },
   plugins: [],

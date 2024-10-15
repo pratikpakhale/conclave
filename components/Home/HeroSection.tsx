@@ -7,8 +7,8 @@ import { Companies } from "@/types/Home";
 
 export default function HeroSection() {
   const [mousePosition, setMousePosition] = useState({
-    x: window.innerWidth / 2,
-    y: window.innerHeight / 2,
+    x: typeof window !== "undefined" && window.innerWidth / 2,
+    y: typeof window !== "undefined" && window.innerHeight / 2,
   });
 
   useEffect(() => {
@@ -37,8 +37,10 @@ export default function HeroSection() {
       </div>
 
       {companies.map((company: Companies, index) => {
-        const moveX = 1 / 2 - mousePosition.x / window.innerWidth;
-        const moveY = 1 / 2 - mousePosition.y / window.innerHeight;
+        const iH = typeof window !== "undefined" ? window.innerHeight : 0;
+        const iW = typeof window !== "undefined" ? window.innerWidth : 0;
+        const moveX = 1 / 2 - mousePosition.x || 0 / iW;
+        const moveY = 1 / 2 - mousePosition.y || 0 / iH;
 
         return (
           <LandingComponent

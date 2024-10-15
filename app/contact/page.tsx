@@ -35,7 +35,7 @@ export default function Page() {
             <div className="flex-1 px-10 md:px-0">
               <div className="w-full flex-1 border-t border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col w-full">
                     <div className="mb-4">What&apos;s your company name?</div>
                     <input
                       type="text"
@@ -47,7 +47,7 @@ export default function Page() {
               </div>
               <div className="w-full border-t border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col w-full">
                     <div className="mb-4">What&apos;s your company email?</div>
                     <input
                       type="email"
@@ -59,7 +59,7 @@ export default function Page() {
               </div>
               <div className="w-full border-t border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col w-full">
                     <div className="mb-4">
                       What positions are you hiring for?
                     </div>
@@ -72,7 +72,7 @@ export default function Page() {
               </div>
               <div className="w-full border-t border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col w-full">
                     <div className="mb-4">Your message</div>
                     <input
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
@@ -89,7 +89,9 @@ export default function Page() {
                     className="absolute right-0 -translate-y-1/2"
                   >
                     <button className="w-[150px] md:w-[180px] aspect-square bg-[#8a84e3] text-white rounded-full absolute flex items-center justify-center">
-                      <p className="z-[2] relative">Contact Placement Officer</p>
+                      <p className="z-[2] relative">
+                        Contact Placement Officer
+                      </p>
                     </button>
                   </motion.div>
                 </div>
@@ -102,10 +104,10 @@ export default function Page() {
                 <div className="mt-2">cgcoffice@iiitdwd.ac.in</div>
               </div>
               <div className="mb-10">
-                <span className="text-gray-700 uppercase">
-                  College
-                </span>
-                <div className="mt-2">Indian Institue of Information Technology Dharwad</div>
+                <span className="text-gray-700 uppercase">College</span>
+                <div className="mt-2">
+                  Indian Institue of Information Technology Dharwad
+                </div>
               </div>
               <div className="mb-4 flex flex-col gap-1">
                 <span className="text-gray-700 uppercase">Socials</span>

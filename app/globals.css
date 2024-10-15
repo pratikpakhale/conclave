@@ -1,6 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.urbanist {
+  font-family: "Urbanist", sans-serif;
+}
 
 @font-face {
   font-family: Anton;
@@ -34,8 +40,14 @@ body {
 }
 
 .component-transition {
-  transition: transform 0.8s ease-out, color 0.8s, font-size 0.8s,
-    box-shadow 0.8s, background-color 0.8s, border-color 0.8s, padding 0.8s,
+  transition:
+    transform 0.8s ease-out,
+    color 0.8s,
+    font-size 0.8s,
+    box-shadow 0.8s,
+    background-color 0.8s,
+    border-color 0.8s,
+    padding 0.8s,
     scale 0.8s;
 }
 

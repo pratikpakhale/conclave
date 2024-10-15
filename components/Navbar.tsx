@@ -5,6 +5,7 @@ import React, { useContext, useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { IoMenu } from "react-icons/io5";
 import { NavbarContext } from "@/context/NavbarContext";
+import Image from "next/image";
 
 export default function Navbar() {
   const { option, setOption } = useContext(NavbarContext);
@@ -17,31 +18,39 @@ export default function Navbar() {
       name: "Home",
     },
     {
-      href: "/#about",
-      name: "About",
+      href: "/#testimonials",
+      name: "Testimonials",
     },
     {
       href: "/#timeline",
       name: "Timeline",
     },
     {
-      href: "/#partners",
-      name: "Partners",
-    },
-    {
       href: "/#speakers",
       name: "Speakers",
+    },
+    {
+      href: "/team",
+      name: "Team",
     },
   ];
 
   return (
     <div className="w-full">
+      <Image
+        src={"/Brandlogo.png"}
+        alt="main logo"
+        className="w-16 aspect-square fixed rounded-2xl border border-[#0b132b] top-6 left-4 z-[50] object-cover"
+        width={0}
+        height={0}
+        sizes="100%"
+      />
       {/* <nav className="w-full px-2 sm:px-4 md:px-10 lg:px-24 xl:px-44 py-4 flex justify-between items-center"> */}
       <nav className="fixed right-4 top-6 z-[100] flex w-fit items-center rounded-full bg-[#0b132b] p-4 text-center shadow-lg backdrop-blur md:left-0 md:right-0 md:mx-auto md:px-2">
         <button
           aria-label="Menu"
           onClick={() => setOpen(!open)}
-          className="flex md:hidden"
+          className="flex md:hidden text-white"
         >
           <IoMenu />
         </button>
@@ -77,11 +86,11 @@ export default function Navbar() {
       >
         <div className="flex w-full items-center justify-between">
           <div></div>
-          <button onClick={() => setOpen(!open)}>
-            <IoMenu />
+          <button className="text-white" onClick={() => setOpen(!open)}>
+            <IoMenu className="text-white" />
           </button>
         </div>
-        <div className="flex w-full flex-col items-center gap-6 py-20">
+        <div className="flex w-full flex-col items-center text-white gap-6 py-20">
           {navs.map((navItem, i) => (
             <Link
               key={i}

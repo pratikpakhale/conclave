@@ -6,9 +6,10 @@ import HeroSection from '@/components/Home/HeroSection';
 import Navbar from '@/components/Navbar';
 
 import SmoothScroll from '@/components/SmoothScroll';
-import TimeLine from "@/components/Home/TimeLine";
-import OverTheYears from "@/components/Home/OverTheYears";
-import Testimonials from "@/components/Testimonials/Testimonials";
+import TimeLine from '@/components/Home/TimeLine';
+import OverTheYears from '@/components/Home/OverTheYears';
+// import Testimonials from "@/components/Testimonials/Testimonials";
+import TestimonialsPage from '@/components/Testimonials';
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
         <Navbar />
         <HeroSection />
         {/* <About /> */}
-        <Testimonials />
+        <TestimonialsPage />
         <TimeLine />
         <OverTheYears />
         <Footer />

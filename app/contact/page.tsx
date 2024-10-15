@@ -18,7 +18,7 @@ export default function Page() {
         <div className="flex-1 flex-col flex">
           <div className="flex px-10 md:px-0 items-end mb-[16rem]">
             <div className="pt-[16rem] flex-1 pr-10 text-[clamp(30px,7vw,72px)] leading-[1.1]">
-              Let&apos;s start a project together
+              Let&apos;s Get in Touch for On-Campus Placement Drives
             </div>
             <div className="flex-none w-[300px] pl-10">
               <Image
@@ -27,7 +27,7 @@ export default function Page() {
                 sizes="100%"
                 className="h-20 w-20 object-cover rounded-full"
                 alt="image"
-                src={"/Photo.jpg"}
+                src={"/Brand-logo-1.png"}
               />
             </div>
           </div>
@@ -36,11 +36,11 @@ export default function Page() {
               <div className="w-full flex-1 border-t border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
                   <div className="flex flex-col">
-                    <div className="mb-4">What&apos;s your name?</div>
+                    <div className="mb-4">What&apos;s your company name?</div>
                     <input
                       type="text"
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
-                      placeholder="John Doe *"
+                      placeholder="Company Name"
                     />
                   </div>
                 </div>
@@ -48,11 +48,11 @@ export default function Page() {
               <div className="w-full border-t border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
                   <div className="flex flex-col">
-                    <div className="mb-4">What&apos;s your email?</div>
+                    <div className="mb-4">What&apos;s your company email?</div>
                     <input
                       type="email"
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
-                      placeholder="john@email.com *"
+                      placeholder="company@email.com *"
                     />
                   </div>
                 </div>
@@ -61,11 +61,11 @@ export default function Page() {
                 <div className="val flex w-full text-[1.3rem]">
                   <div className="flex flex-col">
                     <div className="mb-4">
-                      What services are you looking for?
+                      What positions are you hiring for?
                     </div>
                     <input
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
-                      placeholder="Web Design, Web Development... "
+                      placeholder="Software Developer, Data Analyst..."
                     />
                   </div>
                 </div>
@@ -76,7 +76,7 @@ export default function Page() {
                     <div className="mb-4">Your message</div>
                     <input
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
-                      placeholder="Hello Nikhil, can you help me with... *"
+                      placeholder="Hello, we are looking to initiate a campus drive... *"
                     />
                   </div>
                 </div>
@@ -89,7 +89,7 @@ export default function Page() {
                     className="absolute right-0 -translate-y-1/2"
                   >
                     <button className="w-[150px] md:w-[180px] aspect-square bg-[#8a84e3] text-white rounded-full absolute flex items-center justify-center">
-                      <p className="z-[2] relative">Send it!</p>
+                      <p className="z-[2] relative">Contact Placement Officer</p>
                     </button>
                   </motion.div>
                 </div>
@@ -99,43 +99,36 @@ export default function Page() {
             <div className="w-[300px] pl-10 text-sm flex-none">
               <div className="mb-10">
                 <span className="text-gray-700 uppercase">Contact Details</span>
-                <div className="mt-2">nikhilkarthik241103@gmail.com</div>
+                <div className="mt-2">cgcoffice@iiitdwd.ac.in</div>
               </div>
               <div className="mb-10">
                 <span className="text-gray-700 uppercase">
-                  Business Details
+                  College
                 </span>
-                <div className="mt-2">Location: India</div>
+                <div className="mt-2">Indian Institue of Information Technology Dharwad</div>
               </div>
               <div className="mb-4 flex flex-col gap-1">
                 <span className="text-gray-700 uppercase">Socials</span>
                 <a
                   className="mt-2"
                   target="_blank"
-                  href="https://www.linkedin.com/in/nikhilkarthik24/"
+                  href="https://www.linkedin.com/in/cgc-connect-iiit-dharwad/"
                 >
                   Linkedin
                 </a>
                 <a
                   className="mt-2"
                   target="_blank"
-                  href="https://www.x.com/@nikhilkarthik24/"
+                  href="https://x.com/cgc_iiitdwd"
                 >
                   Twitter
                 </a>
                 <a
                   className="mt-2"
                   target="_blank"
-                  href="https://www.instagram.com/nikhilkarthik_24/"
+                  href="https://www.instagram.com/cgc.iiitdwd/"
                 >
                   Instagram
-                </a>
-                <a
-                  className="mt-2"
-                  target="_blank"
-                  href="https://github.com/C-NikhilKarthik"
-                >
-                  GitHub
                 </a>
               </div>
             </div>
@@ -148,10 +141,6 @@ export default function Page() {
             <h3 className="px-1 text-gray-400">Version</h3>
             <p className="px-1 cursor-pointer ">2024 © Edition</p>
           </span>
-          {/* <span className="flex flex-col gap-4">
-              <h3 className="text-gray-400">Local Time</h3>
-              <p>11:49 PM GMT+2</p>
-            </span> */}
         </div>
         <span className="flex border-b border-b-gray-500 md:border-b-0 flex-col gap-4 pb-4 md:pb-0 md:items-end">
           <h3 className="text-gray-400">Socials</h3>

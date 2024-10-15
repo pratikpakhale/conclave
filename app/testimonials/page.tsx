@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
-import { createTestimonial } from '../actions/createTestimonial';
+import { createTestimonial } from '../actions/testimonials';
 import { useFormStatus } from 'react-dom';
 
 function SubmitButton() {

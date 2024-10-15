@@ -57,3 +57,29 @@ export async function createTestimonial(formData: any) {
     return { success: false, error: error.message };
   }
 }
+
+export async function getTestimonials() {
+  try {
+    const testimonials =
+      await client.fetch(`*[_type == "testimonial" && approved == true]{
+      _id,
+      name,
+      contactNo,
+      email,
+      graduationYear,
+      designation,
+      course,
+      achievements,
+      testimonial,
+      memorableExperience,
+      encouragement,
+      "photoUrl": photo.asset->url,
+      "videoUrl": video.asset->url
+    }`);
+
+    return { success: true, testimonials };
+  } catch (error: any) {
+    console.error('Error fetching testimonials:', error);
+    return { success: false, error: error.message };
+  }
+}

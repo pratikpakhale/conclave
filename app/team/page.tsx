@@ -5,89 +5,107 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Member from "@/components/team/Member";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const projects = [
   {
     title: "Ashith Shetty",
-    src: "IIIT_Dharwad.png",
+    src: "img3.webp",
     color: "#000000",
   },
   {
     title: "Ajay Bhakar",
-    src: "Portfolio.png",
+    src: "img4.webp",
     color: "#8C8C8C",
   },
   {
     title: "Nikhil Karthik",
-    src: "Snapmark.jpeg",
+    src: "img1.webp",
     color: "#EFE8D3",
   },
   {
     title: "Pratik Pakhale",
-    src: "BlogPenn.png",
+    src: "img2.webp",
     color: "#706D63",
   },
-
   {
     title: "Ashith Shetty",
-    src: "IIIT_Dharwad.png",
+    src: "img3.webp",
     color: "#000000",
   },
   {
     title: "Ajay Bhakar",
-    src: "Portfolio.png",
+    src: "img4.webp",
     color: "#8C8C8C",
   },
   {
     title: "Nikhil Karthik",
-    src: "Snapmark.jpeg",
+    src: "img1.webp",
     color: "#EFE8D3",
   },
   {
     title: "Pratik Pakhale",
-    src: "BlogPenn.png",
+    src: "img2.webp",
     color: "#706D63",
   },
-
   {
     title: "Ashith Shetty",
-    src: "IIIT_Dharwad.png",
+    src: "img3.webp",
     color: "#000000",
   },
   {
     title: "Ajay Bhakar",
-    src: "Portfolio.png",
+    src: "img4.webp",
     color: "#8C8C8C",
   },
   {
     title: "Nikhil Karthik",
-    src: "Snapmark.jpeg",
+    src: "img1.webp",
     color: "#EFE8D3",
   },
   {
     title: "Pratik Pakhale",
-    src: "BlogPenn.png",
+    src: "img2.webp",
     color: "#706D63",
   },
-
   {
     title: "Ashith Shetty",
-    src: "IIIT_Dharwad.png",
+    src: "img3.webp",
     color: "#000000",
   },
   {
     title: "Ajay Bhakar",
-    src: "Portfolio.png",
+    src: "img4.webp",
     color: "#8C8C8C",
   },
   {
     title: "Nikhil Karthik",
-    src: "Snapmark.jpeg",
+    src: "img1.webp",
     color: "#EFE8D3",
   },
   {
     title: "Pratik Pakhale",
-    src: "BlogPenn.png",
+    src: "img2.webp",
+    color: "#706D63",
+  },
+  {
+    title: "Ashith Shetty",
+    src: "img3.webp",
+    color: "#000000",
+  },
+  {
+    title: "Ajay Bhakar",
+    src: "img4.webp",
+    color: "#8C8C8C",
+  },
+  {
+    title: "Nikhil Karthik",
+    src: "img1.webp",
+    color: "#EFE8D3",
+  },
+  {
+    title: "Pratik Pakhale",
+    src: "img2.webp",
     color: "#706D63",
   },
 ];
@@ -173,6 +191,7 @@ export default function Page() {
 
   return (
     <main className="">
+      <Navbar />
       <div className="bg-[#ecf5ff] w-full relative">
         <div className="w-full relative text-slate-900 pt-40 items-center bg-[#ecf5ff] flex flex-col">
           <p className="text-5xl text-center font-bold">Team Members</p>
@@ -204,7 +223,7 @@ export default function Page() {
                     variants={scaleAnimation}
                     initial="initial"
                     animate={active ? "enter" : "closed"}
-                    className="fixed top-1/2 left-1/2 bg-white pointer-events-none overflow-hidden z-3 h-[200px] w-[200px]"
+                    className="fixed top-1/2 left-1/2 bg-white pointer-events-none overflow-hidden rounded z-3 h-[200px] w-[200px]"
                   >
                     <div
                       style={{ top: index * -100 + "%" }}
@@ -219,7 +238,7 @@ export default function Page() {
                             key={`modal_${index}`}
                           >
                             <Image
-                              src={`/projects/${src}`}
+                              src={`/team/${src}`}
                               width={300}
                               height={0}
                               alt="image"
@@ -230,14 +249,14 @@ export default function Page() {
                       })}
                     </div>
                   </motion.div>
-                  <motion.div
+                  {/* <motion.div
                     ref={cursor}
                     className="w-[80px] h-[80px] rounded-[50%] bg-[#8a84e3] text-white fixed z-3 flex items-center justify-center pointer-events-none"
                     variants={scaleAnimation}
                     initial="initial"
                     animate={active ? "enter" : "closed"}
-                  ></motion.div>
-                  <motion.div
+                  ></motion.div> */}
+                  {/* <motion.div
                     ref={cursorLabel}
                     className="w-[80px] h-[80px] rounded-[50%] text-white fixed z-3 flex items-center justify-center pointer-events-none bg-transparent"
                     variants={scaleAnimation}
@@ -245,7 +264,7 @@ export default function Page() {
                     animate={active ? "enter" : "closed"}
                   >
                     View
-                  </motion.div>
+                  </motion.div> */}
                 </>
               </div>
             </div>

@@ -21,7 +21,7 @@ export default function TimeLine() {
 
       <div className="relative flex flex-col items-left justify-center w-full">
         <div className="absolute z-[-2] w-[3px] left-[40px] md:left-[90px] h-full bg-[#414141]">
-          <div className="fixed left-auto top-0 right-auto bottom-[50vh] z-[-1] w-[3px] h-[50vh] bg-white bg-[linear-gradient(180deg,#1fa5fd,#1fa5fd_51%,#002fff)]"></div>
+          <div className="fixed left-auto top-0 right-auto bottom-[50vh] z-[-1] w-[3px] h-[50vh] bg-white bg-[linear-gradient(180deg,#6366f1_50%,#0ea5e9,#002fff)]"></div>
         </div>
 
         <TimelineComponent

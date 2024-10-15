@@ -1,11 +1,32 @@
 "use client";
 import { useRef } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import { toast } from "sonner";
 
-export default function Page() {
+import { createContactUs } from "../actions/contactUs";
+
+export default function ContactUsForm() {
+  const router = useRouter();
   const container = useRef(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
+
+  async function handleSubmit(formData: FormData) {
+    if (!formRef.current) return;
+    const result = await createContactUs(formData);
+    if (result.success) {
+      console.log("ContactUs created:", result.contactUs);
+      toast("Contact form Submitted ✅");
+
+      router.push("/");
+    } else {
+      console.error("Error:", result.error);
+      toast("Failed to register your details");
+    }
+  }
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "end end"],
@@ -27,17 +48,22 @@ export default function Page() {
                 sizes="100%"
                 className="h-20 w-20 object-cover rounded-full"
                 alt="image"
-                src={"/Brand-logo-1.png"}
+                src={"/Brandlogo.png"}
               />
             </div>
           </div>
-          <div className="flex flex-col-reverse md:flex-row gap-10">
+          <form
+            ref={formRef}
+            className="w-full flex flex-col-reverse md:flex-row gap-10"
+            action={handleSubmit}
+          >
             <div className="flex-1 px-10 md:px-0">
               <div className="w-full flex-1 border-t border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
-                  <div className="flex flex-col w-full">
+                  <div className="flex flex-col">
                     <div className="mb-4">What&apos;s your company name?</div>
                     <input
+                      name="companyName"
                       type="text"
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                       placeholder="Company Name"
@@ -47,9 +73,10 @@ export default function Page() {
               </div>
               <div className="w-full border-t border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
-                  <div className="flex flex-col w-full">
+                  <div className="flex flex-col">
                     <div className="mb-4">What&apos;s your company email?</div>
                     <input
+                      name="companyEmail"
                       type="email"
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                       placeholder="company@email.com *"
@@ -59,22 +86,24 @@ export default function Page() {
               </div>
               <div className="w-full border-t border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
-                  <div className="flex flex-col w-full">
+                  <div className="flex flex-col">
                     <div className="mb-4">
                       What positions are you hiring for?
                     </div>
                     <input
+                      name="positions"
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                       placeholder="Software Developer, Data Analyst..."
                     />
                   </div>
                 </div>
               </div>
-              <div className="w-full border-t border-t-slate-600 py-10">
+              <div className="w-full border-t border-b border-b-gray-500 border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
-                  <div className="flex flex-col w-full">
+                  <div className="flex flex-col">
                     <div className="mb-4">Your message</div>
                     <input
+                      name="message"
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                       placeholder="Hello, we are looking to initiate a campus drive... *"
                     />
@@ -134,7 +163,7 @@ export default function Page() {
                 </a>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <div className="flex text-white flex-col-reverse md:flex-row gap-4 justify-between p-5">

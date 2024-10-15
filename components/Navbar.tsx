@@ -40,7 +40,7 @@ export default function Navbar() {
       <Image
         src={"/Brandlogo.png"}
         alt="main logo"
-        className="w-16 aspect-square fixed rounded-2xl border border-[#0b132b] top-6 left-4 z-[50] object-cover"
+        className="w-16 aspect-square fixed rounded-2xl border border-[#0b132b] top-6 left-4 z-[90] object-cover"
         width={0}
         height={0}
         sizes="100%"

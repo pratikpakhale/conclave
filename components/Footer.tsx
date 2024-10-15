@@ -1,81 +1,91 @@
 "use client";
-import Image from "next/image";
-import CollegeLogo from "@/public/college-logo.png";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { useRef } from "react";
+import { useScroll, motion, useTransform } from "framer-motion";
 import Link from "next/link";
 
-export default function Footer() {
+export default function Page() {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end end"],
+  });
+  const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [120, 90]);
   return (
-    <div className="w-full bg-[#0b132b] px-8 py-10 sm:px-16">
-      <Link className="block" href={"https://iiitdwd.ac.in"}>
-        <Image
-          className="aspect-[445/119] w-full max-w-[24rem]"
-          alt="Logo"
-          src={CollegeLogo}
-          height={120}
-        />
-      </Link>
-      <div className="mt-4 flex w-full flex-col justify-between gap-8 sm:flex-row sm:gap-1">
-        <div className="flex flex-col gap-4">
-          <div className="">
-            <div className="mb-6">
-              <div className="mb-2 text-xl font-semibold text-slate-300">
-                Contact
-              </div>
-              <div className="mb-1 text-sm text-slate-200">
-                <Link
-                  href="mailto:xyz@iiitdwd.ac.in"
-                  className="transition-colors duration-300 hover:text-slate-100"
-                >
-                  xyz@iiitdwd.ac.in
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="max-w-xl">
-            <div className="mb-6">
-              <div className="mb-2 text-lg font-semibold text-slate-300">
-                Address
-              </div>
-              <div className="text-sm leading-relaxed text-slate-200">
-                Indian Institute of Information Technology (IIIT) Dharwad,
-                Ittigatti Rd, near Sattur Colony, Karnataka 580009 92VG+24 Joga
-                Yellapur, Karnataka
-              </div>
-            </div>
-
-            <div className="mt-4 flex w-full flex-wrap items-center gap-4">
-              <Link
-                href="https://www.linkedin.com/company/hack-2-future/"
-                target="_blank"
-              >
-                <FaLinkedin />
-              </Link>
-              <Link
-                href="https://www.instagram.com/hack2future_1.0/"
-                target="_blank"
-              >
-                <FaInstagram />
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2 max-[884px]:w-full">
-            <p className="mb-2 text-lg text-slate-400">Location</p>
-            <iframe
-              title="Hackathon Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5671.792036388141!2d75.02120041187774!3d15.39292320151374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8d3a4bc7f5c91%3A0xf0fc456099430c57!2sIndian%20Institute%20of%20Information%20Technology%20(IIIT)%2C%20Dharwad!5e0!3m2!1sen!2sin!4v1716397238919!5m2!1sen!2sin"
-              width="250"
-              height="250"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-[40vw] max-w-3xl rounded-xl bg-slate-600 max-[884px]:w-full"
+    <motion.div
+      style={{ y }}
+      ref={container}
+      className="relative bg-[#080618] z-[2] text-white w-full flex flex-col items-center justify-center"
+    >
+      <div className="pt-[200px] w-full max-w-[1800px] bg-[#080618]">
+        <div className="border-b border-b-gray-500 pb-[100px] mx-[40px] md:mx-[200px] relative">
+          <span className="flex items-center">
+            <h2 className="text-[5vw] leading-[1.1]">Let&apos;s work</h2>
+          </span>
+          <h2 className="text-[5vw] leading-[1.1]">together</h2>
+          <motion.div
+            style={{ x }}
+            className="absolute left-0 -translate-x-1/5 -translate-y-1/2"
+          >
+            <Link
+              href={"/contact"}
+              className="w-[150px] md:w-[180px] aspect-square bg-[#8a84e3] text-white rounded-full absolute flex items-center justify-center"
+            >
+              <p className="z-[2] relative">Get in touch</p>
+            </Link>
+          </motion.div>
+          <motion.svg
+            style={{ rotate, scale: 2 }}
+            width="9"
+            height="9"
+            viewBox="0 0 9 9"
+            fill="none"
+            className={"absolute top-[30%] left-full"}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 8.5C8.27614 8.5 8.5 8.27614 8.5 8L8.5 3.5C8.5 3.22386 8.27614 3 8 3C7.72386 3 7.5 3.22386 7.5 3.5V7.5H3.5C3.22386 7.5 3 7.72386 3 8C3 8.27614 3.22386 8.5 3.5 8.5L8 8.5ZM0.646447 1.35355L7.64645 8.35355L8.35355 7.64645L1.35355 0.646447L0.646447 1.35355Z"
+              fill="white"
             />
+          </motion.svg>
+        </div>
+        <div className="flex flex-col md:flex-row gap-5 border-gray-500 border w-fit px-6 py-4 rounded-full mt-[100px] mx-[40px] md:mx-[200px]">
+          <p>contact@iiitdwd.ac.in</p>
+        </div>
+        <div className="flex flex-col-reverse md:flex-row gap-4 justify-between mt-[200px] p-5">
+          <div className="flex gap-[10px] items-end">
+            <span className="flex flex-col gap-4">
+              <h3 className="px-1 text-gray-400">Version</h3>
+              <p className="px-1 cursor-pointer ">2024 © Edition</p>
+            </span>
+            {/* <span className="flex flex-col gap-4">
+              <h3 className="text-gray-400">Local Time</h3>
+              <p>11:49 PM GMT+2</p>
+            </span> */}
           </div>
+          <span className="flex border-b border-b-gray-500 md:border-b-0 flex-col gap-4 pb-4 md:pb-0 md:items-end">
+            <h3 className="text-gray-400">Socials</h3>
+            <div className="flex gap-4 flex-wrap">
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/nikhilkarthik24/"
+              >
+                Linkedin
+              </a>
+              <a target="_blank" href="https://www.x.com/@nikhilkarthik24/">
+                Twitter
+              </a>
+              <a
+                target="_blank"
+                href="https://www.instagram.com/nikhilkarthik_24/"
+              >
+                Instagram
+              </a>
+            </div>
+          </span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

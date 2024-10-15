@@ -50,7 +50,7 @@ export default function OverTheYears() {
     );
   });
   return (
-    <section className="bg-[#ecf5ff]">
+    <section className="bg-[#ecf5ff] hidden md:block">
       {/* <div className="h-[50vh] z-[5] bg-[#ecf5ff] w-full"></div> */}
       <section
         id="over-the-years"

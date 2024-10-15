@@ -8,7 +8,7 @@ import { toast } from "sonner";
 
 import { createContactUs } from "../actions/contactUs";
 
-export default function contactUsForm() {
+export default function ContactUsForm() {
   const router = useRouter();
   const container = useRef(null);
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -48,124 +48,122 @@ export default function contactUsForm() {
                 sizes="100%"
                 className="h-20 w-20 object-cover rounded-full"
                 alt="image"
-                src={"/Brand-logo-1.png"}
+                src={"/Brandlogo.png"}
               />
             </div>
           </div>
-          <div className="flex flex-col-reverse md:flex-row gap-10">
-            <form ref={formRef} className="w-full" action={handleSubmit}>
-              <div className="flex-1 px-10 md:px-0">
-                <div className="w-full flex-1 border-t border-t-slate-600 py-10">
-                  <div className="val flex w-full text-[1.3rem]">
-                    <div className="flex flex-col">
-                      <div className="mb-4">What&apos;s your company name?</div>
-                      <input
-                        name="companyName"
-                        type="text"
-                        className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
-                        placeholder="Company Name"
-                      />
-                    </div>
+          <form
+            ref={formRef}
+            className="w-full flex flex-col-reverse md:flex-row gap-10"
+            action={handleSubmit}
+          >
+            <div className="flex-1 px-10 md:px-0">
+              <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+                <div className="val flex w-full text-[1.3rem]">
+                  <div className="flex flex-col">
+                    <div className="mb-4">What&apos;s your company name?</div>
+                    <input
+                      name="companyName"
+                      type="text"
+                      className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                      placeholder="Company Name"
+                    />
                   </div>
                 </div>
-                <div className="w-full border-t border-t-slate-600 py-10">
-                  <div className="val flex w-full text-[1.3rem]">
-                    <div className="flex flex-col">
-                      <div className="mb-4">
-                        What&apos;s your company email?
-                      </div>
-                      <input
-                        name="companyEmail"
-                        type="email"
-                        className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
-                        placeholder="company@email.com *"
-                      />
-                    </div>
+              </div>
+              <div className="w-full border-t border-t-slate-600 py-10">
+                <div className="val flex w-full text-[1.3rem]">
+                  <div className="flex flex-col">
+                    <div className="mb-4">What&apos;s your company email?</div>
+                    <input
+                      name="companyEmail"
+                      type="email"
+                      className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                      placeholder="company@email.com *"
+                    />
                   </div>
                 </div>
-                <div className="w-full border-t border-t-slate-600 py-10">
-                  <div className="val flex w-full text-[1.3rem]">
-                    <div className="flex flex-col">
-                      <div className="mb-4">
-                        What positions are you hiring for?
-                      </div>
-                      <input
-                        name="positions"
-                        className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
-                        placeholder="Software Developer, Data Analyst..."
-                      />
+              </div>
+              <div className="w-full border-t border-t-slate-600 py-10">
+                <div className="val flex w-full text-[1.3rem]">
+                  <div className="flex flex-col">
+                    <div className="mb-4">
+                      What positions are you hiring for?
                     </div>
+                    <input
+                      name="positions"
+                      className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                      placeholder="Software Developer, Data Analyst..."
+                    />
                   </div>
                 </div>
-                <div className="w-full border-t border-t-slate-600 py-10">
-                  <div className="val flex w-full text-[1.3rem]">
-                    <div className="flex flex-col">
-                      <div className="mb-4">Your message</div>
-                      <input
-                        name="message"
-                        className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
-                        placeholder="Hello, we are looking to initiate a campus drive... *"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="py-40">
-                  <div className="border-b border-b-gray-500 pb-[100px] relative">
-                    <motion.div
-                      style={{ x }}
-                      className="absolute right-0 -translate-y-1/2"
-                    >
-                      <button className="w-[150px] md:w-[180px] aspect-square bg-[#8a84e3] text-white rounded-full absolute flex items-center justify-center">
-                        <p className="z-[2] relative">
-                          Contact Placement Officer
-                        </p>
-                      </button>
-                    </motion.div>
+              </div>
+              <div className="w-full border-t border-b border-b-gray-500 border-t-slate-600 py-10">
+                <div className="val flex w-full text-[1.3rem]">
+                  <div className="flex flex-col">
+                    <div className="mb-4">Your message</div>
+                    <input
+                      name="message"
+                      className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                      placeholder="Hello, we are looking to initiate a campus drive... *"
+                    />
                   </div>
                 </div>
               </div>
 
-              <div className="w-[300px] pl-10 text-sm flex-none">
-                <div className="mb-10">
-                  <span className="text-gray-700 uppercase">
-                    Contact Details
-                  </span>
-                  <div className="mt-2">cgcoffice@iiitdwd.ac.in</div>
-                </div>
-                <div className="mb-10">
-                  <span className="text-gray-700 uppercase">College</span>
-                  <div className="mt-2">
-                    Indian Institue of Information Technology Dharwad
-                  </div>
-                </div>
-                <div className="mb-4 flex flex-col gap-1">
-                  <span className="text-gray-700 uppercase">Socials</span>
-                  <a
-                    className="mt-2"
-                    target="_blank"
-                    href="https://www.linkedin.com/in/cgc-connect-iiit-dharwad/"
+              <div className="py-40">
+                <div className="border-b border-b-gray-500 pb-[100px] relative">
+                  <motion.div
+                    style={{ x }}
+                    className="absolute right-0 -translate-y-1/2"
                   >
-                    Linkedin
-                  </a>
-                  <a
-                    className="mt-2"
-                    target="_blank"
-                    href="https://x.com/cgc_iiitdwd"
-                  >
-                    Twitter
-                  </a>
-                  <a
-                    className="mt-2"
-                    target="_blank"
-                    href="https://www.instagram.com/cgc.iiitdwd/"
-                  >
-                    Instagram
-                  </a>
+                    <button className="w-[150px] md:w-[180px] aspect-square bg-[#8a84e3] text-white rounded-full absolute flex items-center justify-center">
+                      <p className="z-[2] relative">
+                        Contact Placement Officer
+                      </p>
+                    </button>
+                  </motion.div>
                 </div>
               </div>
-            </form>
-          </div>
+            </div>
+
+            <div className="w-[300px] pl-10 text-sm flex-none">
+              <div className="mb-10">
+                <span className="text-gray-700 uppercase">Contact Details</span>
+                <div className="mt-2">cgcoffice@iiitdwd.ac.in</div>
+              </div>
+              <div className="mb-10">
+                <span className="text-gray-700 uppercase">College</span>
+                <div className="mt-2">
+                  Indian Institue of Information Technology Dharwad
+                </div>
+              </div>
+              <div className="mb-4 flex flex-col gap-1">
+                <span className="text-gray-700 uppercase">Socials</span>
+                <a
+                  className="mt-2"
+                  target="_blank"
+                  href="https://www.linkedin.com/in/cgc-connect-iiit-dharwad/"
+                >
+                  Linkedin
+                </a>
+                <a
+                  className="mt-2"
+                  target="_blank"
+                  href="https://x.com/cgc_iiitdwd"
+                >
+                  Twitter
+                </a>
+                <a
+                  className="mt-2"
+                  target="_blank"
+                  href="https://www.instagram.com/cgc.iiitdwd/"
+                >
+                  Instagram
+                </a>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
       <div className="flex text-white flex-col-reverse md:flex-row gap-4 justify-between p-5">

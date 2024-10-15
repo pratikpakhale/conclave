@@ -4,8 +4,8 @@ import React from "react";
 export default function TestimonialCards() {
   return (
     <div className="embla__slide">
-      <div className="h-full slide_number_main  flex relative p-10 border border-[#002fff] text-[#002fff] gap-10">
-        <div className="flex-shrink-0 flex relative item-center justify-center w-[20em]">
+      <div className="h-full slide_number_main flex md:flex-row flex-col relative p-10 border border-[#002fff] text-[#002fff] gap-10">
+        <div className="flex-shrink-0 flex relative item-center justify-center w-full md:w-[20em]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="100%"
@@ -16,17 +16,17 @@ export default function TestimonialCards() {
             <path
               d="M1 441L370 1"
               stroke="currentColor"
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
             ></path>
             <path
               d="M370 441L1 1"
               stroke="currentColor"
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
             ></path>
             <path
               d="M8.35356 334.354L8.50001 334.207L8.50001 334L8.5 108L8.5 107.793L8.35354 107.646L0.499999 99.7929L0.500008 0.499998L370.5 0.50003L370.5 99.7929L362.646 107.646L362.5 107.793L362.5 108L362.5 334L362.5 334.207L362.646 334.354L370.5 342.207L370.5 441.5L0.49997 441.5L0.499978 342.207L8.35356 334.354Z"
               stroke="currentColor"
-              vector-effect="non-scaling-stroke"
+              vectorEffect="non-scaling-stroke"
             ></path>
           </svg>
           <Image
@@ -45,8 +45,8 @@ export default function TestimonialCards() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-between w-full flex-1 h-full">
-          <p className="text-xl">
+        <div className="flex flex-col justify-between w-full gap-2 flex-1 h-full">
+          <p className="text-sm md:text-xl">
             “Building the future requires partners who make you feel like
             you&apos;re in it together. From our very first meeting, the
             Hartmann team has been actively involved, supporting our product

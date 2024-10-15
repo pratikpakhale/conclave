@@ -21,9 +21,9 @@ export default function Page() {
       <div className="pt-[200px] w-full max-w-[1800px] bg-[#080618]">
         <div className="border-b border-b-gray-500 pb-[100px] mx-[40px] md:mx-[200px] relative">
           <span className="flex items-center">
-            <h2 className="text-[5vw] leading-[1.1]">Let&apos;s work</h2>
+            <h2 className="text-[5vw] leading-[1.1]">Let&apos;s get</h2>
           </span>
-          <h2 className="text-[5vw] leading-[1.1]">together</h2>
+          <h2 className="text-[5vw] leading-[1.1]">in touch</h2>
           <motion.div
             style={{ x }}
             className="absolute left-0 -translate-x-1/5 -translate-y-1/2"
@@ -32,7 +32,7 @@ export default function Page() {
               href={"/contact"}
               className="w-[150px] md:w-[180px] aspect-square bg-[#8a84e3] text-white rounded-full absolute flex items-center justify-center"
             >
-              <p className="z-[2] relative">Get in touch</p>
+              <p className="z-[2] relative">Contact</p>
             </Link>
           </motion.div>
           <motion.svg
@@ -51,7 +51,7 @@ export default function Page() {
           </motion.svg>
         </div>
         <div className="flex flex-col md:flex-row gap-5 border-gray-500 border w-fit px-6 py-4 rounded-full mt-[100px] mx-[40px] md:mx-[200px]">
-          <p>contact@iiitdwd.ac.in</p>
+          <p>cgcoffice@iiitdwd.ac.in</p>
         </div>
         <div className="flex flex-col-reverse md:flex-row gap-4 justify-between mt-[200px] p-5">
           <div className="flex gap-[10px] items-end">
@@ -69,16 +69,16 @@ export default function Page() {
             <div className="flex gap-4 flex-wrap">
               <a
                 target="_blank"
-                href="https://www.linkedin.com/in/nikhilkarthik24/"
+                href="https://www.linkedin.com/in/cgc-connect-iiit-dharwad-1a0321333/"
               >
                 Linkedin
               </a>
-              <a target="_blank" href="https://www.x.com/@nikhilkarthik24/">
+              <a target="_blank" href="https://x.com/cgc_iiitdwd">
                 Twitter
               </a>
               <a
                 target="_blank"
-                href="https://www.instagram.com/nikhilkarthik_24/"
+                href="https://www.instagram.com/cgc.iiitdwd/"
               >
                 Instagram
               </a>

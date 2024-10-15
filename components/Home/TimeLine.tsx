@@ -19,8 +19,8 @@ export default function TimeLine() {
         </div>
       </div>
 
-      <div className="relative flex flex-col items-center justify-center w-full">
-        <div className="absolute z-[-2] w-[3px] h-full bg-[#414141]">
+      <div className="relative flex flex-col items-left justify-center w-full">
+        <div className="absolute z-[-2] w-[3px] left-[90px] h-full bg-[#414141]">
           <div className="fixed left-auto top-0 right-auto bottom-[50vh] z-[-1] w-[3px] h-[50vh] bg-white bg-[linear-gradient(180deg,#1fa5fd,#1fa5fd_51%,#002fff)]"></div>
         </div>
 

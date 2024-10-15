@@ -6,7 +6,10 @@ import { companies } from "@/data/Landing";
 import { Companies } from "@/types/Home";
 
 export default function HeroSection() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
+  });
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -23,11 +26,11 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-[100dvh] w-full relative flex items-center justify-center overflow-hidden"
+      className="min-h-[100dvh] z-[1] w-full bg-[#ecf5ff] relative flex items-center justify-center overflow-hidden"
     >
       <div className="z-[50]">
-        <div className="flex p-[10vw] bg-cover bg-[0_0] bg-[url('https://cdn.prod.website-files.com/64626a4a74818ca87606a29e/646da3412c037b5778b74830_gradient-shadow.png')]">
-          <div className="flex border-[#3a506b] py-4 z-[40] bg-white/30 backdrop-blur-md px-10 rounded-lg border-[3px] text-[clamp(24px,6vw,54px)] font-semibold border-dashed">
+        <div className="flex p-[10vw] mask">
+          <div className="flex border-[#002fff] z-[40] px-20 py-4 backdrop-blur-md rounded-lg border-[3px] text-[clamp(24px,6vw,54px)] font-bold bg-[#002fff19]">
             HR Conclave 2024
           </div>
         </div>

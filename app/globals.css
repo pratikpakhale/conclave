@@ -12,6 +12,18 @@
   src: url("./fonts/anton.woff");
 }
 
+.font-FK {
+  font-family: FK, Arial, sans-serif;
+}
+
+@font-face {
+  font-family: FK;
+  src: url("./fonts/FKGroteskNeueTrial.otf") format("opentype");
+}
+* {
+  /* border: 1px red dotted; */
+}
+
 .font-anton {
   font-family: Anton;
 }
@@ -36,4 +48,22 @@ body {
 
 .component-transition:hover {
   scale: 1.2;
+}
+
+.mask {
+  mask: radial-gradient(white, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.mask-years {
+  -webkit-mask-image: url(/mask.svg);
+  mask-image: url(/mask.svg);
+  -webkit-mask-position: 50% center;
+  mask-position: 50% center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+#wrapper {
+  transform: translate(0, 0) !important;
 }

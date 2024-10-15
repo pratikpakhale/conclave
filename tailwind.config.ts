@@ -11,6 +11,11 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        color1: "#2b2d42",
+        color2: "#8d99ae",
+        color3: "#edf2f4",
+        color4: "#ef233c",
+        color5: "#d90429",
       },
       boxShadow: {
         "hover-landing": "0 0 20px #3a506b",

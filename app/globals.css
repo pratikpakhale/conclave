@@ -137,3 +137,19 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.scroll {
+  animation: scroll 20s reverse linear infinite;
+}
+
+@keyframes scroll {
+  100% {
+    transform: translate(calc(-50% - 1.5rem));
+  }
+}
+
+.nav-transition {
+  transition: width, opacity;
+  transition-duration: 800ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

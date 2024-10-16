@@ -6,26 +6,42 @@ import { Companies } from "@/types/Home";
 import LandingComponent from "./LandingCompnent";
 
 export default function HeroSection() {
+  // Set initial state without accessing window properties
   const [mousePosition, setMousePosition] = useState({
-    x: window.innerWidth / 2,
-    y: window.innerHeight / 2,
+    x: 0,
+    y: 0,
   });
 
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
-    };
+    // Check if window is defined (i.e., code is running on the client side)
+    if (typeof window !== "undefined") {
+      // Set initial mouse position based on window dimensions
+      setMousePosition({
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+      });
 
-    window.addEventListener("mousemove", handleMouseMove);
+      const handleMouseMove = (event: MouseEvent) => {
+        setMousePosition({ x: event.clientX, y: event.clientY });
+      };
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+      window.addEventListener("mousemove", handleMouseMove);
+
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+      };
+    }
   }, []);
 
-  // Calculating movement based on cursor position
-  const moveX = 1 / 2 - mousePosition.x / window.innerWidth;
-  const moveY = 1 / 2 - mousePosition.y / window.innerHeight;
+  // Calculate movement based on cursor position
+  const moveX =
+    typeof window !== "undefined"
+      ? 1 / 2 - mousePosition.x / window.innerWidth
+      : 0;
+  const moveY =
+    typeof window !== "undefined"
+      ? 1 / 2 - mousePosition.y / window.innerHeight
+      : 0;
 
   return (
     <>
@@ -38,7 +54,7 @@ export default function HeroSection() {
             transform={`translate3d(${moveX * ((index % 10) + 1) * 20}px, ${
               moveY * (index % 10) * 20
             }px, 0px)`}
-            text={company.name}
+            icon={company.name}
           />
         );
       })}

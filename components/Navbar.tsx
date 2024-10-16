@@ -1,121 +1,169 @@
 "use client";
 
-import Link from "next/link";
-import React, { useContext, useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
-import { IoMenu } from "react-icons/io5";
 import { NavbarContext } from "@/context/NavbarContext";
+import React, { useState, useContext } from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
+import Link from "next/link";
+import Reveal from "./Reveal";
 import Image from "next/image";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
-export default function Navbar() {
+const navs = [
+  {
+    href: "/#home",
+    name: "Home",
+  },
+  {
+    href: "/testimonials",
+    name: "Testimonials",
+  },
+  {
+    href: "/#timeline",
+    name: "Timeline",
+  },
+  {
+    href: "/#speakers",
+    name: "Speakers",
+  },
+  {
+    href: "/team",
+    name: "Team",
+  },
+];
+
+// Header component
+function Navbar() {
   const { option, setOption } = useContext(NavbarContext);
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const lenis = useLenis(({}) => {});
 
-  const navs = [
-    {
-      href: "/#home",
-      name: "Home",
-    },
-    {
-      href: "/testimonials",
-      name: "Testimonials",
-    },
-    {
-      href: "/#timeline",
-      name: "Timeline",
-    },
-    {
-      href: "/#speakers",
-      name: "Speakers",
-    },
-    {
-      href: "/team",
-      name: "Team",
-    },
-  ];
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0; // Use 0 if previous is undefined
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
+
+  const [hidden, setHidden] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full">
-      <Image
-        src={"/Brandlogo.png"}
-        alt="main logo"
-        className="w-16 aspect-square fixed rounded-2xl border border-[#0b132b] top-6 left-4 z-[90] object-cover"
-        width={0}
-        height={0}
-        sizes="100%"
-      />
-      {/* <nav className="w-full px-2 sm:px-4 md:px-10 lg:px-24 xl:px-44 py-4 flex justify-between items-center"> */}
-      <nav className="fixed right-4 top-6 z-[100] flex w-fit items-center rounded-full bg-[#0b132b] p-4 text-center shadow-lg backdrop-blur md:left-0 md:right-0 md:mx-auto md:px-2">
-        <button
-          aria-label="Menu"
-          onClick={() => setOpen(!open)}
-          className="flex md:hidden text-white"
+    <div className="w-full fixed top-0 z-[100] left-0 flex justify-between p-4 nav-transition">
+      <motion.nav className="p-2 flex items-center bg-white w-fit rounded nav-transition">
+        <Reveal delay={0.2} width="fit-content" yPos={true}>
+          <div className="w-10 h-10 rounded">
+            <Image
+              src="/Brandlogo.png"
+              alt="Logo"
+              className="h-full w-full object-cover"
+              width={0}
+              height={0}
+              sizes="100%"
+            />
+          </div>
+        </Reveal>
+        <motion.div
+          variants={{
+            visible: { opacity: 1 },
+            hidden: { opacity: 0 },
+          }}
+          animate={hidden ? "hidden" : "visible"}
+          className="overflow-clip text-sm justify-start origin-[0] items-center"
         >
-          <IoMenu />
-        </button>
-        <div
-          id="nav-highlight"
-          style={{ transform: `translateX(${100 * option}%)` }}
-          className="absolute z-[-1] hidden h-10 w-28 rounded-full bg-[#3a506b] transition-all duration-300 md:flex"
-        ></div>
-        {navs.map((navItem, i) => (
-          <Link
-            key={i}
-            href={navItem.href}
-            className={`hidden w-28 justify-center text-[#e1e5f2] md:flex ${
-              option === i && "font-semibold"
-            }`}
-            onClick={() => {
-              setOption(i);
-              lenis?.scrollTo(navItem.href.slice(1), {
-                lerp: 0.07,
-                duration: 0.6,
-              });
+          <motion.div
+            variants={{
+              visible: { width: "auto" },
+              hidden: { width: 0 },
             }}
+            animate={hidden ? "hidden" : "visible"}
+            className="overflow-clip text-sm flex items-center"
           >
-            {navItem.name}
-          </Link>
-        ))}
-      </nav>
+            <div className="flex gap-[calc(clamp(1rem,-0.1036rem+1.7817vw,1.3rem))]">
+              {navs.map((navItem, i) => (
+                <Link
+                  key={i}
+                  href={navItem.href}
+                  className={`hidden w-20 justify-center md:flex ${
+                    option === i && "font-semibold"
+                  }`}
+                  onClick={() => {
+                    setOption(i);
+                    lenis?.scrollTo(navItem.href.slice(1), {
+                      lerp: 0.07,
+                      duration: 0.6,
+                    });
+                  }}
+                >
+                  {navItem.name}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+      </motion.nav>
+
+      <motion.div className="bg-white absolute left-1/2 -translate-x-1/2 rounded justify-center p-3 w-fit h-fit flex md:hidden flex-col items-center gap-3">
+        <RxHamburgerMenu
+          onClick={() => {
+            setOpen(!open);
+            console.log(open);
+          }}
+          className="flex cursor-pointer z-[1000] w-fit md:hidden"
+        />
+
+        <motion.div
+          variants={{
+            visible: { opacity: 1 },
+            hidden: { opacity: 0 },
+          }}
+          animate={!open ? "hidden" : "visible"}
+          className="text-sm justify-start origin-[0] flex flex-col items-center"
+        >
+          <motion.div
+            variants={{
+              visible: { height: "auto", width: "auto" },
+              hidden: { height: 0, width: 0 },
+            }}
+            animate={!open ? "hidden" : "visible"}
+            className="overflow-clip text-sm flex flex-col items-center"
+          >
+            <div className="flex flex-col items-center gap-[calc(clamp(1rem,-0.1036rem+1.7817vw,1.3rem))]">
+              {navs.map((navItem, i) => (
+                <Link
+                  key={i}
+                  href={navItem.href}
+                  className={`w-32 justify-center flex ${
+                    option === i && "font-semibold"
+                  }`}
+                  onClick={() => {
+                    setOption(i);
+                    lenis?.scrollTo(navItem.href.slice(1), {
+                      lerp: 0.07,
+                      duration: 0.6,
+                    });
+                  }}
+                >
+                  {navItem.name}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
 
       <Link
         href={"/contact"}
-        className="fixed right-4 top-4 px-[clamp(1rem,-0.1036rem+1.7817vw,1.5rem)] py-[clamp(0.5rem,-0.0518rem+0.8909vw,0.75rem)] rounded-[clamp(0.7rem,0.0379rem+1.069vw,1rem)] bg-[#ecf5ff] border-[#002fff] text-[#002fff] text-[clamp(0.7rem,0.0379rem+1.069vw,1rem)] border z-[50] font-semibold"
+        className="py-[clamp(0.5rem,-0.0518rem+0.8909vw,0.75rem)] fixed right-4 top-4 px-[clamp(1rem,-0.1036rem+1.7817vw,1.5rem)] rounded-[clamp(0.7rem,0.0379rem+1.069vw,1rem)] bg-white text-black text-[clamp(0.7rem,0.0379rem+1.069vw,1rem)]"
       >
         Get in Touch
       </Link>
-
-      <div
-        className={`fixed left-0 top-0 z-50 flex h-full w-screen flex-col bg-black/70 px-8 py-10 backdrop-blur-sm transition-all duration-500 ${
-          open ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex w-full items-center justify-between">
-          <div></div>
-          <button className="text-white" onClick={() => setOpen(!open)}>
-            <IoMenu className="text-white" />
-          </button>
-        </div>
-        <div className="flex w-full flex-col items-center text-white gap-6 py-20">
-          {navs.map((navItem, i) => (
-            <Link
-              key={i}
-              className=""
-              onClick={() => {
-                setOpen(!open);
-                lenis?.scrollTo(navItem.href.slice(1), {
-                  lerp: 0.07,
-                  duration: 0.6,
-                });
-              }}
-              href={navItem.href}
-            >
-              {navItem.name}
-            </Link>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
+
+export default Navbar;

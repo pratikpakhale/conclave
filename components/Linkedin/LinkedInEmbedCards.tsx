@@ -4,12 +4,16 @@ type LinkedInEmbedCardsProps = {
   postLink: string;
 };
 
-const LinkedInEmbedCards: React.FC<LinkedInEmbedCardsProps> = ({ postLink }) => {
+const LinkedInEmbedCards: React.FC<LinkedInEmbedCardsProps> = ({
+  postLink,
+}) => {
   const embedUrl = `https://www.linkedin.com/embed/feed/update/${postLink}`;
   const externalUrl = `https://www.linkedin.com/feed/update/${postLink}`;
 
   return (
-    <div className="embla__slide w-[504px] h-[500px] flex flex-col items-center justify-between"> {/* Fixed height */}
+    <div className="embla__slide w-[504px] h-[500px] flex flex-col items-center justify-between">
+      {" "}
+      {/* Fixed height */}
       <iframe
         src={embedUrl}
         height="400px"
@@ -19,7 +23,6 @@ const LinkedInEmbedCards: React.FC<LinkedInEmbedCardsProps> = ({ postLink }) => 
         title="Embedded LinkedIn Post"
         className="border rounded-lg"
       ></iframe>
-
       {/* "Read More" button */}
       <a
         href={externalUrl}

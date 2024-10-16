@@ -1,20 +1,20 @@
-"use client";
-import React, { useState, useEffect, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-// import {
-//   Popover,
-//   PopoverContent,
-//   PopoverTrigger,
-// } from '@/components/ui/popover';
+'use client';
+import React, { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
 
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/components/ui/hover-card";
-import { CalendarIcon } from "@radix-ui/react-icons";
-import "tailwindcss/tailwind.css";
+} from '@/components/ui/hover-card';
+import { CalendarIcon } from '@radix-ui/react-icons';
+import 'tailwindcss/tailwind.css';
 
 const isOverlapping = (pos1, pos2, minDistance) => {
   const dx = pos1.left - pos2.left;
@@ -34,7 +34,7 @@ const generateTestimonials = (count, minDistance) => {
       };
       attempts++;
     } while (
-      testimonials.some((t) =>
+      testimonials.some(t =>
         isOverlapping(t.position, position, minDistance)
       ) &&
       attempts < 100
@@ -49,18 +49,18 @@ const generateTestimonials = (count, minDistance) => {
       }. They had a great experience and wanted to share their thoughts.`,
       joinedDate: `${
         [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December",
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
         ][Math.floor(Math.random() * 12)]
       } ${2020 + Math.floor(Math.random() * 4)}`,
       position,
@@ -88,25 +88,25 @@ const TestimonialsPage = () => {
   }, [testimonials]);
 
   return (
-    <div className="bg-[#ecf5ff]">
-      <div className="text-[#002fff] text-center py-16 pl-10 tracking-[-0.03em] leading-[0.9]">
-        <div className="text-[clamp(3.5em,6vw,4em)]">
+    <div className='bg-[#ecf5ff] h-[80vh]'>
+      <div className='text-[#002fff] text-center pt-16 pl-10 tracking-[-0.03em] leading-[0.9]'>
+        <div className='text-[clamp(3.5em,6vw,4em)]'>
           Inspiring Testimonials
         </div>
-        <div className="text-[clamp(2.5em,6vw,3em)]">
+        <div className='text-[clamp(2.5em,6vw,3em)]'>
           from our esteemed alumni.
         </div>
       </div>
-      <div className="relative h-screen w-full bg-[#ecf5ff] flex items-center justify-center overflow-hidden">
-        <h1 className="absolute text-4xl font-bold text-center text-[#002fff] z-50">
+      <div className='relative h-full w-full bg-[#ecf5ff] flex items-center justify-center overflow-hidden'>
+        <h1 className='absolute text-4xl font-bold text-center text-[#002fff] z-50'>
           In Their Own Words
         </h1>
 
-        <div className="absolute inset-0 flex items-center justify-center">
-          {testimonials.map((testimonial) => (
+        <div className='absolute inset-0 flex items-center justify-center'>
+          {testimonials.map(testimonial => (
             <motion.div
               key={testimonial.id}
-              className="absolute"
+              className='absolute'
               style={{
                 top: `${testimonial.position.top}%`,
                 left: `${testimonial.position.left}%`,
@@ -129,91 +129,97 @@ const TestimonialsPage = () => {
               }}
               transition={{
                 duration: testimonial.motion.duration,
-                ease: "easeInOut",
+                ease: 'easeInOut',
                 repeat: Infinity,
-                repeatType: "mirror",
+                repeatType: 'mirror',
               }}
             >
-              <HoverCard>
-                <HoverCardTrigger asChild>
-                  <Avatar
-                    className={`cursor-pointer z-10 ${
-                      activeTestimonial?.id === testimonial.id
-                        ? "ring-2 ring-blue-500 ring-offset-2"
-                        : ""
-                    }`}
-                  >
-                    <AvatarImage
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                    />
-                    <AvatarFallback>
-                      {testimonial.name.slice(0, 2)}
-                    </AvatarFallback>
-                  </Avatar>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-64 sm:w-80 z-[100]">
-                  <div className="flex justify-between space-x-4">
-                    <Avatar>
-                      <AvatarImage src={testimonial.avatar} />
-                      <AvatarFallback>
-                        {testimonial.name.slice(0, 2)}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className="space-y-1">
-                      <h4 className="text-sm font-semibold">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-sm">{testimonial.text}</p>
-                      <div className="flex items-center pt-2">
-                        <CalendarIcon className="mr-2 h-4 w-4 opacity-70" />{" "}
-                        <span className="text-xs text-muted-foreground">
-                          Joined {testimonial.joinedDate}
-                        </span>
+              <Popover open={activeTestimonial?.id === testimonial.id}>
+                <HoverCard>
+                  <PopoverTrigger>
+                    <HoverCardTrigger asChild>
+                      <Avatar
+                        className={`cursor-pointer z-10 ${
+                          activeTestimonial?.id === testimonial.id
+                            ? 'ring-2 ring-blue-500 ring-offset-2'
+                            : ''
+                        }`}
+                      >
+                        <AvatarImage
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                        />
+                        <AvatarFallback>
+                          {testimonial.name.slice(0, 2)}
+                        </AvatarFallback>
+                      </Avatar>
+                    </HoverCardTrigger>
+                  </PopoverTrigger>
+                  <HoverCardContent className='w-64 sm:w-80 z-[100]'>
+                    <div className='flex justify-between space-x-4'>
+                      <Avatar>
+                        <AvatarImage src={testimonial.avatar} />
+                        <AvatarFallback>
+                          {testimonial.name.slice(0, 2)}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className='space-y-1'>
+                        <h4 className='text-sm font-semibold'>
+                          {testimonial.name}
+                        </h4>
+                        <p className='text-sm'>{testimonial.text}</p>
+                        <div className='flex items-center pt-2'>
+                          <CalendarIcon className='mr-2 h-4 w-4 opacity-70' />{' '}
+                          <span className='text-xs text-muted-foreground'>
+                            Joined {testimonial.joinedDate}
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </HoverCardContent>
-              </HoverCard>
+                  </HoverCardContent>
+                  <PopoverContent>
+                    <AnimatePresence>
+                      {activeTestimonial && (
+                        <motion.div
+                          key={`active-${activeTestimonial.id}`}
+                          //absolute top-10 left-auto right-auto
+                          className=' transform -translate-x-1/2 bg-white p-4 sm:p-6 rounded-xl shadow-lg max-w-xs sm:max-w-md z-[60] text-center'
+                          initial={{ opacity: 0, y: '100%' }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: '100%' }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <div className='flex flex-col items-center space-y-4'>
+                            <Avatar className='w-12 h-12 sm:w-16 sm:h-16'>
+                              <AvatarImage src={activeTestimonial.avatar} />
+                              <AvatarFallback>
+                                {activeTestimonial.name.slice(0, 2)}
+                              </AvatarFallback>
+                            </Avatar>
+                            <div>
+                              <h2 className='text-lg sm:text-xl font-bold'>
+                                {activeTestimonial.name}
+                              </h2>
+                              <p className='mt-2 text-sm sm:text-base text-gray-600'>
+                                {activeTestimonial.text}
+                              </p>
+                              <div className='flex items-center justify-center mt-2'>
+                                <CalendarIcon className='mr-2 h-4 w-4 opacity-70' />
+                                <span className='text-xs sm:text-sm text-muted-foreground'>
+                                  Joined {activeTestimonial.joinedDate}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </PopoverContent>
+                </HoverCard>
+              </Popover>
             </motion.div>
           ))}
         </div>
-
-        <AnimatePresence>
-          {activeTestimonial && (
-            <motion.div
-              key={`active-${activeTestimonial.id}`}
-              className="absolute top-10 left-auto right-auto transform -translate-x-1/2 bg-white p-4 sm:p-6 rounded-xl shadow-lg max-w-xs sm:max-w-md z-[60] text-center"
-              initial={{ opacity: 0, y: "100%" }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: "100%" }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="flex flex-col items-center space-y-4">
-                <Avatar className="w-12 h-12 sm:w-16 sm:h-16">
-                  <AvatarImage src={activeTestimonial.avatar} />
-                  <AvatarFallback>
-                    {activeTestimonial.name.slice(0, 2)}
-                  </AvatarFallback>
-                </Avatar>
-                <div>
-                  <h2 className="text-lg sm:text-xl font-bold">
-                    {activeTestimonial.name}
-                  </h2>
-                  <p className="mt-2 text-sm sm:text-base text-gray-600">
-                    {activeTestimonial.text}
-                  </p>
-                  <div className="flex items-center justify-center mt-2">
-                    <CalendarIcon className="mr-2 h-4 w-4 opacity-70" />
-                    <span className="text-xs sm:text-sm text-muted-foreground">
-                      Joined {activeTestimonial.joinedDate}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </div>
   );

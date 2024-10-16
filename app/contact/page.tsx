@@ -67,6 +67,7 @@ export default function ContactUsForm() {
                       type="text"
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                       placeholder="Company Name"
+                      required
                     />
                   </div>
                 </div>
@@ -80,6 +81,7 @@ export default function ContactUsForm() {
                       type="email"
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                       placeholder="company@email.com *"
+                      required
                     />
                   </div>
                 </div>
@@ -94,6 +96,7 @@ export default function ContactUsForm() {
                       name="positions"
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                       placeholder="Software Developer, Data Analyst..."
+                      required
                     />
                   </div>
                 </div>
@@ -106,6 +109,7 @@ export default function ContactUsForm() {
                       name="message"
                       className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                       placeholder="Hello, we are looking to initiate a campus drive... *"
+                      required
                     />
                   </div>
                 </div>

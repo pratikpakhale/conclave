@@ -78,7 +78,7 @@ function Navbar() {
             hidden: { opacity: 0 },
           }}
           animate={hidden ? "hidden" : "visible"}
-          className="overflow-clip text-sm justify-start border border-color1 origin-[0] bg-text-col px-2 py-3 rounded items-center"
+          className="overflow-clip hidden md:block text-sm justify-start border border-color1 origin-[0] bg-text-col px-2 py-3 rounded items-center"
         >
           <motion.div
             variants={{
@@ -112,7 +112,7 @@ function Navbar() {
         </motion.div>
       </motion.nav>
 
-      <motion.div className="bg-slate-900/[0.4] border border-slate-800 absolute left-1/2 -translate-x-1/2 rounded justify-center p-3 w-fit h-fit flex md:hidden flex-col items-center gap-3">
+      <motion.div className="bg-text-col border border-slate-800 absolute left-1/2 -translate-x-1/2 rounded justify-center p-3 w-fit h-fit flex md:hidden flex-col items-center gap-3">
         <RxHamburgerMenu
           onClick={() => {
             setOpen(!open);

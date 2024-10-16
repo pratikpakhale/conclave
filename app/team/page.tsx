@@ -2,7 +2,10 @@
 import React from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { Team_Members } from "@/data/team";
+import { Invitation_Team_Members, foodCommitteeMembers, studentVolunteerTeam, transportationHospitalityTeam } from "@/data/team";
+import { Registration_Team_Members } from "@/data/team";
+import { Program_Team_Members } from "@/data/team";
+import { stageCommitteeMembers } from "@/data/team";
 import Accordion from "@/components/team/Accordion";
 
 export default function Page() {
@@ -14,23 +17,31 @@ export default function Page() {
           <p className="text-5xl text-center font-bold">Team Members</p>
           <Accordion
             Heading="Invitation, Media and Management Committee "
-            List={Team_Members}
+            List={Invitation_Team_Members}
           />
           <Accordion
-            Heading="Invitation, Media and Management Committee "
-            List={Team_Members}
+            Heading="Registration, Feedback and FollowUp Committee  "
+            List={Registration_Team_Members}
           />
           <Accordion
-            Heading="Invitation, Media and Management Committee "
-            List={Team_Members}
+            Heading="Program and Agenda Committee"
+            List={Program_Team_Members}
           />
           <Accordion
-            Heading="Invitation, Media and Management Committee "
-            List={Team_Members}
+            Heading="Stage and Memento Committee"
+            List={stageCommitteeMembers}
           />
           <Accordion
-            Heading="Invitation, Media and Management Committee "
-            List={Team_Members}
+            Heading="Food Committee"
+            List={foodCommitteeMembers}
+          />
+          <Accordion
+            Heading="Transportation and Hospitality Committee "
+            List={transportationHospitalityTeam}
+          />
+          <Accordion
+            Heading="Student Coordination and Volunteers Committee "
+            List={studentVolunteerTeam}
           />
         </div>
         {/* <div className="bg-text-col h-40 w-full"></div> */}

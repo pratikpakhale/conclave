@@ -31,7 +31,7 @@ const navs = [
     name: "Committee",
   },
   {
-    href:"#home",
+    href:"/developers",
     name:"Team"
   }
 ];

@@ -61,6 +61,15 @@ const config: Config = {
           "5": "hsl(var(--chart-5))",
         },
       },
+      rotate: {
+        'y-180': '180deg',
+      },
+      perspective: {
+        '1000': '1000px',
+      },
+      backfaceVisibility: {
+        hidden: 'hidden',
+      },
       boxShadow: {
         "hover-landing": "0 0 20px #3a506b",
         landing: "0 9px 20px #0000000f",

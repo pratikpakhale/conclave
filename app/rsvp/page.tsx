@@ -1,8 +1,8 @@
-'use client';
-import React, { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
-import { toast } from 'sonner';
-
+"use client";
+import React, { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { createHrRegistration } from "../actions/hrRegistration";
 
 type TimeLeft = {
   days: number;
@@ -13,7 +13,7 @@ type TimeLeft = {
 
 function CountdownTimer() {
   const calculateTimeLeft = (): TimeLeft | {} => {
-    const eventDate = new Date('2024-11-10T00:00:00');
+    const eventDate = new Date("2024-11-10T00:00:00");
     const currentTime = new Date();
     const difference = eventDate.getTime() - currentTime.getTime();
 
@@ -39,7 +39,12 @@ function CountdownTimer() {
     return () => clearInterval(timer);
   }, []);
 
-  const { days = 0, hours = 0, minutes = 0, seconds = 0 } = timeLeft as TimeLeft;
+  const {
+    days = 0,
+    hours = 0,
+    minutes = 0,
+    seconds = 0,
+  } = timeLeft as TimeLeft;
 
   return (
     <div className="text-center p-4 bg-gray-800 rounded-lg text-gray-200 mt-6">
@@ -59,16 +64,19 @@ export default function HRConclaveRSVP() {
   const router = useRouter();
   const [fileNames, setFileNames] = useState<{ photo?: string }>({});
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  async function handleSubmit(formData: FormData) {
     if (!formRef.current) return;
-
-    const formData = new FormData(formRef.current);
-
-    // Handle form submission logic
-    toast('RSVP Submitted ✅');
-    router.push('/');
-  };
+    const result = await createHrRegistration(formData);
+    if (result.success) {
+      // Handle form submission logic
+      console.log("Registration created:", result.registration);
+      toast("RSVP Submitted ✅");
+      router.push("/");
+    } else {
+      console.error("Error:", result.error);
+      toast("Failed to register");
+    }
+  }
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -86,7 +94,7 @@ export default function HRConclaveRSVP() {
   return (
     <div
       className={`p-6 relative min-h-screen flex items-center justify-center bg-[#0A0A0A] transition-opacity duration-1000 ease-out ${
-        isMounted ? 'opacity-100' : 'opacity-0'
+        isMounted ? "opacity-100" : "opacity-0"
       }`}
     >
       <div className="absolute inset-0 bg-[#0A0A0A] opacity-50"></div>
@@ -110,7 +118,7 @@ export default function HRConclaveRSVP() {
 
         <CountdownTimer />
 
-        <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 mt-6">
+        <form ref={formRef} action={handleSubmit} className="space-y-6 mt-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block mb-2" htmlFor="fullName">
@@ -179,7 +187,7 @@ export default function HRConclaveRSVP() {
               <input
                 type="text"
                 id="mobile"
-                name="mobile"
+                name="contactNo"
                 required
                 className="w-full p-2 rounded-lg bg-gray-700 text-gray-200"
               />
@@ -219,7 +227,8 @@ export default function HRConclaveRSVP() {
                     />
                   </svg>
                   <p className="mb-2 text-sm text-gray-400">
-                    <span className="font-semibold">Click to upload</span> or drag and drop
+                    <span className="font-semibold">Click to upload</span> or
+                    drag and drop
                   </p>
                   <p className="text-xs text-gray-400">
                     SVG, PNG, JPG or GIF (MAX. 800x400px)
@@ -235,7 +244,9 @@ export default function HRConclaveRSVP() {
               </label>
             </div>
             {fileNames.photo && (
-              <p className="mt-2 text-white">Uploaded Photo: {fileNames.photo}</p>
+              <p className="mt-2 text-white">
+                Uploaded Photo: {fileNames.photo}
+              </p>
             )}
           </div>
 
@@ -248,8 +259,8 @@ export default function HRConclaveRSVP() {
               className="w-4 h-4 rounded border-gray-600 bg-gray-700"
             />
             <label htmlFor="consent" className="ml-2 text-sm text-gray-400">
-              I agree to allow IIIT Dharwad to use my details for the event and future
-              correspondence.
+              I agree to allow IIIT Dharwad to use my details for the event and
+              future correspondence.
             </label>
           </div>
 

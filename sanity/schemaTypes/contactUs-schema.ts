@@ -1,6 +1,6 @@
 const contactUs = {
-  name: "contacts",
-  title: "ContactUs",
+  name: "contactUs",
+  title: "Contact Us",
   type: "document",
   fields: [
     {
@@ -21,7 +21,7 @@ const contactUs = {
     {
       name: "message",
       title: "HR Message",
-      type: "number",
+      type: "string",
     },
   ],
 };

@@ -21,7 +21,6 @@ export async function createContactUs(formData: any) {
       companyEmail: formData.get("companyEmail"),
       positions: formData.get("positions"),
       message: formData.get("message"),
-      approved: false,
     });
     return { success: true, contactUs };
   } catch (error: any) {
@@ -33,7 +32,7 @@ export async function createContactUs(formData: any) {
 export async function getContactUs() {
   try {
     const contacts =
-      await client.fetch(`*[_type == "contacts" && approved == true]{
+      await client.fetch(`*[_type == "contactUs" && approved == true]{
       _id,
       companyName,
       companyEmail,

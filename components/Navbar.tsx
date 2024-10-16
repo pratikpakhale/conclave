@@ -19,8 +19,8 @@ const navs = [
     name: "Testimonials",
   },
   {
-    href: "/#timeline",
-    name: "Timeline",
+    href:"rsvp",
+    name: "RSVP",
   },
   {
     href: "/attendees",
@@ -28,8 +28,12 @@ const navs = [
   },
   {
     href: "/team",
-    name: "Team",
+    name: "Committee",
   },
+  {
+    href:"#home",
+    name:"Team"
+  }
 ];
 
 // Header component

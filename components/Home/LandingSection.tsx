@@ -6,7 +6,7 @@ import HeroSection from "./HeroSection";
 export function LandingSection() {
   return (
     <div className="h-[100dvh] relative w-full bg-[#080618] flex flex-col items-center justify-center overflow-hidden">
-      {/* <HeroSection /> */}
+      <HeroSection />
       <div className="translate-y-[20%]">
         <h1 className="text-[clamp(44px,10vw,100px)] font-bold text-center text-white relative z-20">
           Conclave 2024

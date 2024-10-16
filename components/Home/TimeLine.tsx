@@ -3,6 +3,7 @@ import TimelineComponent from "./TimelineComponent";
 // import Header from "../Header";
 
 export default function TimeLine() {
+export default function TimeLine() {
   return (
     <section
       // ref={ref}

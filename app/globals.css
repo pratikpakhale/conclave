@@ -21,6 +21,16 @@
   font-family: FK;
   src: url("./fonts/FKGroteskNeueTrial.otf") format("opentype");
 }
+
+.font-grotesk {
+  font-family: Grotesk, sans-serif;
+}
+
+@font-face {
+  font-family: Grotesk;
+  src: url("./fonts/hk-grotesk-medium.otf") format("opentype");
+}
+
 * {
   /* border: 1px red dotted; */
 }
@@ -153,3 +163,7 @@ body {
   transition-duration: 800ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* .masking {
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 80%, transparent 100%);
+} */

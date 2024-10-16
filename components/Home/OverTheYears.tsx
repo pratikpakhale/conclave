@@ -3,8 +3,7 @@ import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { data1 } from "@/data/over-the-years/column1";
-import { data2 } from "@/data/over-the-years/column2";
+import { data1, data2, data3, data4 } from "@/data/over-the-years";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,32 +51,15 @@ export default function OverTheYears() {
     );
   });
   return (
-    <section className="bg-[#ecf5ff] hidden md:block">
+    <section className="hidden md:block">
       {/* <div className="h-[50vh] z-[5] bg-[#ecf5ff] w-full"></div> */}
-      <section
-        id="over-the-years"
-        className="bg-[#ecf5ff] h-[160vh] pb-[70vh] relative"
-      >
+      <section id="over-the-years" className="h-[130vh] top-[-70vh] relative">
         <div
           id="mask"
-          className="flex w-full items-center justify-center overflow-hidden sticky z-[5] top-0 h-[170%] mask-years"
+          className="flex w-full items-center justify-center overflow-hidden sticky z-[5] top-0 h-[150%] mask-years"
         >
           <div className="bg-black h-full w-full flex grayscale relative object-cover z-[5] gap-[2vw] p-[2vw] overflow-hidden justify-center items-center">
             <div className="min-w-40 w-[30%] h-full flex flex-col gap-[2vw] relative">
-              {data2?.map((item, index) => (
-                <div key={index} className="opac rounded-lg w-full">
-                  <Image
-                    className="h-auto w-full object-cover"
-                    alt="image1"
-                    src={`/over-the-years/` + item}
-                    height={0}
-                    width={0}
-                    sizes="100%"
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="min-w-40 w-[30%] h-full flex flex-col gap-[2vw] relative">
               {data1?.map((item, index) => (
                 <div key={index} className="opac rounded-lg w-full">
                   <Image
@@ -106,7 +88,21 @@ export default function OverTheYears() {
               ))}
             </div>
             <div className="min-w-40 w-[30%] h-full flex flex-col gap-[2vw] relative">
-              {data1?.map((item, index) => (
+              {data3?.map((item, index) => (
+                <div key={index} className="opac rounded-lg w-full">
+                  <Image
+                    className="h-auto w-full object-cover"
+                    alt="image1"
+                    src={`/over-the-years/` + item}
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="min-w-40 w-[30%] h-full flex flex-col gap-[2vw] relative">
+              {data4?.map((item, index) => (
                 <div key={index} className="opac rounded-lg w-full">
                   <Image
                     className="h-auto w-full object-cover"

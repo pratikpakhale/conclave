@@ -34,42 +34,18 @@ export default function Accordion({
   const [modal, setModal] = useState({ active: false, index: 0 });
   const { active, index } = modal;
   const modalContainer = useRef<HTMLDivElement | null>(null);
-  const cursor = useRef<HTMLDivElement | null>(null);
-  const cursorLabel = useRef<HTMLDivElement | null>(null);
 
   const xMoveContainer = useRef<gsap.QuickToFunc | null>(null);
   const yMoveContainer = useRef<gsap.QuickToFunc | null>(null);
-  const xMoveCursor = useRef<gsap.QuickToFunc | null>(null);
-  const yMoveCursor = useRef<gsap.QuickToFunc | null>(null);
-  const xMoveCursorLabel = useRef<gsap.QuickToFunc | null>(null);
-  const yMoveCursorLabel = useRef<gsap.QuickToFunc | null>(null);
 
   useEffect(() => {
-    //Move Container
+    // Move Container with cursor
     xMoveContainer.current = gsap.quickTo(modalContainer.current, "left", {
-      duration: 0.8,
+      duration: 0.2, // Faster response to follow the cursor
       ease: "power3",
     });
     yMoveContainer.current = gsap.quickTo(modalContainer.current, "top", {
-      duration: 0.8,
-      ease: "power3",
-    });
-    //Move cursor
-    xMoveCursor.current = gsap.quickTo(cursor.current, "left", {
-      duration: 0.5,
-      ease: "power3",
-    });
-    yMoveCursor.current = gsap.quickTo(cursor.current, "top", {
-      duration: 0.5,
-      ease: "power3",
-    });
-    //Move cursor label
-    xMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "left", {
-      duration: 0.45,
-      ease: "power3",
-    });
-    yMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "top", {
-      duration: 0.45,
+      duration: 0.2,
       ease: "power3",
     });
   }, []);
@@ -77,10 +53,6 @@ export default function Accordion({
   const moveItems = (x: number, y: number) => {
     xMoveContainer.current?.(x);
     yMoveContainer.current?.(y);
-    xMoveCursor.current?.(x);
-    yMoveCursor.current?.(y);
-    xMoveCursorLabel.current?.(x);
-    yMoveCursorLabel.current?.(y);
   };
 
   const manageModal = (
@@ -99,10 +71,10 @@ export default function Accordion({
         onMouseMove={(e) => {
           moveItems(e.clientX, e.clientY);
         }}
-        className="w-full mx-auto max-w-[1200px] px-10 flex flex-col gap-20"
+        className="w-full mx-auto max-w-[1200px] relative px-10 flex flex-col gap-20"
       >
-        <div className="w-full border-b">
-          <div className="w-full text-2xl font-semibold flex justify-between items-center">
+        <div className="w-full border-b relative">
+          <div className="w-full text-2xl relative font-semibold flex justify-between items-center">
             <div className="">{Heading} </div>
             <button className="" onClick={() => setOpen(!open)}>
               {open ? "-" : "+"}
@@ -115,7 +87,7 @@ export default function Accordion({
               hidden: { opacity: 0 },
             }}
             animate={!open ? "hidden" : "visible"}
-            className="text-sm justify-start origin-[0] pt-4 flex flex-col w-full items-center"
+            className="text-sm justify-start relative origin-[0] pt-4 flex flex-col w-full items-center"
           >
             <motion.div
               variants={{
@@ -125,8 +97,8 @@ export default function Accordion({
               animate={!open ? "hidden" : "visible"}
               className="overflow-clip text-sm flex flex-col w-full items-center"
             >
-              <div className="flex flex-col items-center w-full gap-[calc(clamp(1rem,-0.1036rem+1.7817vw,1.3rem))]">
-                <div className="flex flex-col font-clash text-[#233554] w-full border-t border-light-text">
+              <div className="flex flex-col relative items-center w-full gap-[calc(clamp(1rem,-0.1036rem+1.7817vw,1.3rem))]">
+                <div className="flex flex-col font-clash relative text-[#233554] w-full border-t border-light-text">
                   {List.map((member, index) => (
                     <Member
                       index={index}
@@ -144,7 +116,11 @@ export default function Accordion({
                       variants={scaleAnimation}
                       initial="initial"
                       animate={active ? "enter" : "closed"}
-                      className="fixed top-1/2 left-1/2 bg-white pointer-events-none overflow-hidden rounded z-3 h-[200px] w-[200px]"
+                      className="fixed bg-white pointer-events-none overflow-hidden rounded z-50 h-[200px] w-[200px]"
+                      style={{
+                        transform: "translate(-50%, -50%)", // Center the modal on the cursor
+                        position: "fixed", // Position relative to the viewport
+                      }}
                     >
                       <div
                         style={{ top: index * -100 + "%" }}
@@ -170,22 +146,6 @@ export default function Accordion({
                         })}
                       </div>
                     </motion.div>
-                    {/* <motion.div
-                    ref={cursor}
-                    className="w-[80px] h-[80px] rounded-[50%] bg-[#8a84e3] text-white fixed z-3 flex items-center justify-center pointer-events-none"
-                    variants={scaleAnimation}
-                    initial="initial"
-                    animate={active ? "enter" : "closed"}
-                  ></motion.div> */}
-                    {/* <motion.div
-                    ref={cursorLabel}
-                    className="w-[80px] h-[80px] rounded-[50%] text-white fixed z-3 flex items-center justify-center pointer-events-none bg-transparent"
-                    variants={scaleAnimation}
-                    initial="initial"
-                    animate={active ? "enter" : "closed"}
-                  >
-                    View
-                  </motion.div> */}
                   </>
                 </div>
               </div>

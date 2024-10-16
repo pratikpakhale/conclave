@@ -223,8 +223,8 @@ const LinkedInCarousel: React.FC<PropType> = ({ options }) => {
               key={index}
               className={`aspect-square rounded-full border-2 cursor-pointer h-[10px]  ${
                 index === selectedIndex
-                  ? "border-[#002fff] bg-[#3f5fef]"
-                  : "border-[#002fff]"
+                  ? "border-text-col/70 bg-text-col"
+                  : "border-[text-col/70"
               }`}
               onClick={() => onDotButtonClick(index)}
             />

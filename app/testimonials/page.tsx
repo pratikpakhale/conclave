@@ -101,122 +101,136 @@ export default function TestimonialForm() {
         </h1>
 
         <form ref={formRef} action={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Form Fields */}
-            <div>
-              <label className="block mb-2" htmlFor="fullName">
-                Full Name:
-              </label>
-              <input
-                type="text"
-                id="fullName"
-                name="name"
-                required
-                className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-              />
+            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+              <div className="val flex w-full text-[1.3rem]">
+                <div className="flex flex-col w-full">
+                  <div className="mb-4">Full Name</div>
+                  <input
+                    name="name"
+                    className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                    placeholder="John Doe"
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="block mb-2" htmlFor="contactNo">
-                Contact No:
-              </label>
-              <input
-                type="text"
-                id="contactNo"
-                name="contactNo"
-                required
-                className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-              />
+
+            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+              <div className="val flex w-full text-[1.3rem]">
+                <div className="flex flex-col w-full">
+                  <div className="mb-4">Contact No</div>
+                  <input
+                    name="contactNo"
+                    className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                    placeholder="+91 1234567890"
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="block mb-2" htmlFor="email">
-                Email:
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-              />
+
+            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+              <div className="val flex w-full text-[1.3rem]">
+                <div className="flex flex-col w-full">
+                  <div className="mb-4">Email</div>
+                  <input
+                    name="email"
+                    className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                    placeholder="johndoe@gmail.com"
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="block mb-2" htmlFor="graduationYear">
-                Graduation Year:
-              </label>
-              <input
-                type="text"
-                id="graduationYear"
-                name="graduationYear"
-                required
-                className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-              />
+
+            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+              <div className="val flex w-full text-[1.3rem]">
+                <div className="flex flex-col w-full">
+                  <div className="mb-4">Graduation Year</div>
+                  <input
+                    name="graduationYear"
+                    className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                    placeholder="2023"
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="block mb-2" htmlFor="designation">
-                Designation:
-              </label>
-              <input
-                type="text"
-                id="designation"
-                name="designation"
-                required
-                className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-              />
+
+            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+              <div className="val flex w-full text-[1.3rem]">
+                <div className="flex flex-col w-full">
+                  <div className="mb-4">Designation</div>
+                  <input
+                    name="designation"
+                    className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                    placeholder="Software Developer"
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="block mb-2" htmlFor="course">
-                Course:
-              </label>
-              <input
-                type="text"
-                id="course"
-                name="course"
-                required
-                className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-              />
+
+            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+              <div className="val flex w-full text-[1.3rem]">
+                <div className="flex flex-col w-full">
+                  <div className="mb-4">Course</div>
+                  <input
+                    name="course"
+                    className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                    placeholder="B.Tech Computer Science"
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="block mb-2" htmlFor="achievements">
-                Achievements:
-              </label>
-              <textarea
-                id="achievements"
-                name="achievements"
-                className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-              />
+
+            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+              <div className="val flex w-full text-[1.3rem]">
+                <div className="flex flex-col w-full">
+                  <div className="mb-4">Achievements</div>
+                  <textarea
+                    name="achievements"
+                    className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                    placeholder="Achievements..."
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="block mb-2" htmlFor="testimonial">
-                Testimonial:
-              </label>
-              <textarea
-                id="testimonial"
-                name="testimonial"
-                required
-                className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-              />
+
+            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+              <div className="val flex w-full text-[1.3rem]">
+                <div className="flex flex-col w-full">
+                  <div className="mb-4">Testimonial</div>
+                  <textarea
+                    name="testimonial"
+                    className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                    placeholder="Your testimonial here..."
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="block mb-2" htmlFor="memorableExperience">
-                Memorable Experience:
-              </label>
-              <textarea
-                id="memorableExperience"
-                name="memorableExperience"
-                required
-                className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-              />
+
+            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+              <div className="val flex w-full text-[1.3rem]">
+                <div className="flex flex-col w-full">
+                  <div className="mb-4">Memorable Experience</div>
+                  <textarea
+                    name="memorableExperience"
+                    className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                    placeholder="Memorable experience during your time..."
+                  />
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="block mb-2" htmlFor="encouragement">
-                Encouragement:
-              </label>
-              <textarea
-                id="encouragement"
-                name="encouragement"
-                required
-                className="w-full p-2 rounded-lg bg-gray-700 text-gray-300"
-              />
+
+            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+              <div className="val flex w-full text-[1.3rem]">
+                <div className="flex flex-col w-full">
+                  <div className="mb-4">Encouragement</div>
+                  <textarea
+                    name="encouragement"
+                    className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
+                    placeholder="Encouragement to juniors..."
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
@@ -253,33 +267,27 @@ export default function TestimonialForm() {
                         d="M9 11v4m-2-2h4"
                       />
                     </svg>
-                    <p className="mb-2 text-sm text-gray-400">
-                      <span className="font-semibold">Click to upload</span> or
-                      drag and drop
+                    <p className="text-sm text-gray-400">
+                      Click to upload or drag and drop
                     </p>
                     <p className="text-xs text-gray-400">
-                      SVG, PNG, JPG or GIF (MAX. 800x400px)
+                      {fileNames.photo || "Max size: 10MB"}
                     </p>
                   </div>
                   <input
                     id="photo"
-                    type="file"
                     name="photo"
-                    onChange={handleFileChange}
+                    type="file"
                     className="hidden"
+                    onChange={handleFileChange}
                   />
                 </label>
               </div>
-              {fileNames.photo && (
-                <p className="mt-2 text-white">
-                  Uploaded Photo: {fileNames.photo}
-                </p>
-              )}
             </div>
 
             <div>
               <label className="block mb-2" htmlFor="video">
-                Video (Optional but Encouraged):
+                Video (Optional but encouraged):
               </label>
               <div className="flex items-center justify-center w-full">
                 <label
@@ -301,50 +309,26 @@ export default function TestimonialForm() {
                         d="M15 10l4.447-2.224A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.553.895L15 14M15 10v4m0-4L11 8H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6m0-8v8"
                       />
                     </svg>
-                    <p className="mb-2 text-sm text-gray-400">
-                      <span className="font-semibold">Click to upload</span> or
-                      drag and drop
+                    <p className="text-sm text-gray-400">
+                      Click to upload or drag and drop
                     </p>
                     <p className="text-xs text-gray-400">
-                      MP4, AVI (MAX. 100MB)
+                      {fileNames.video || "Max size: 50MB"}
                     </p>
                   </div>
                   <input
                     id="video"
-                    type="file"
                     name="video"
-                    onChange={handleFileChange}
+                    type="file"
                     className="hidden"
+                    onChange={handleFileChange}
                   />
                 </label>
               </div>
-              {fileNames.video && (
-                <p className="mt-2 text-white">
-                  Uploaded Video: {fileNames.video}
-                </p>
-              )}
             </div>
           </div>
 
-          {/* Consent Checkbox */}
-          <div className="flex items-start">
-            <div className="flex items-center h-5">
-              <input
-                id="consent"
-                name="consent"
-                type="checkbox"
-                required
-                className="w-4 h-4 rounded border-gray-600 bg-gray-700"
-              />
-            </div>
-            <label htmlFor="consent" className="ml-2 text-sm text-gray-300">
-              I consent to the use of my information for testimonial purposes.
-            </label>
-          </div>
-
-          <div className="flex justify-center">
-            <SubmitButton />
-          </div>
+          <SubmitButton />
         </form>
       </div>
     </div>

@@ -46,7 +46,7 @@ export default function ContactUsForm() {
                 height={0}
                 width={0}
                 sizes="100%"
-                className="h-20 w-20 object-cover rounded-full"
+                className="h-32 w-32 object-cover rounded-full"
                 alt="image"
                 src={"/Brandlogo.png"}
               />

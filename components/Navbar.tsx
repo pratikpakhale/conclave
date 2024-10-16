@@ -8,6 +8,7 @@ import Link from "next/link";
 import Reveal from "./Reveal";
 import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { Button } from "./ui/moving-border";
 
 const navs = [
   {
@@ -19,7 +20,7 @@ const navs = [
     name: "Testimonials",
   },
   {
-    href:"rsvp",
+    href: "rsvp",
     name: "RSVP",
   },
   {
@@ -31,9 +32,9 @@ const navs = [
     name: "Committee",
   },
   {
-    href:"/developers",
-    name:"Team"
-  }
+    href: "/developers",
+    name: "Team",
+  },
 ];
 
 // Header component
@@ -58,9 +59,9 @@ function Navbar() {
 
   return (
     <div className="w-full fixed top-0 z-[100] left-0 flex justify-between p-4 nav-transition">
-      <motion.nav className="p-2 fixed flex left-1/2 -translate-x-1/2 items-center bg-text-col w-fit rounded nav-transition">
+      <motion.nav className="p-2 fixed flex gap-4 items-center w-fit rounded nav-transition">
         <Reveal delay={0.2} width="fit-content" yPos={true}>
-          <div className="w-10 h-10 rounded">
+          <div className="w-12 h-12 rounded-lg overflow-hidden">
             <Image
               src="/Brandlogo.png"
               alt="Logo"
@@ -77,7 +78,7 @@ function Navbar() {
             hidden: { opacity: 0 },
           }}
           animate={hidden ? "hidden" : "visible"}
-          className="overflow-clip text-sm justify-start origin-[0] items-center"
+          className="overflow-clip hidden md:block text-sm justify-start border border-color1 origin-[0] bg-text-col px-2 py-3 rounded items-center"
         >
           <motion.div
             variants={{
@@ -111,7 +112,7 @@ function Navbar() {
         </motion.div>
       </motion.nav>
 
-      <motion.div className="bg-text-col absolute left-1/2 -translate-x-1/2 rounded justify-center p-3 w-fit h-fit flex md:hidden flex-col items-center gap-3">
+      <motion.div className="bg-text-col border border-slate-800 absolute left-1/2 -translate-x-1/2 rounded justify-center p-3 w-fit h-fit flex md:hidden flex-col items-center gap-3">
         <RxHamburgerMenu
           onClick={() => {
             setOpen(!open);
@@ -160,11 +161,13 @@ function Navbar() {
         </motion.div>
       </motion.div>
 
-      <Link
-        href={"/contact"}
-        className="py-[clamp(0.5rem,-0.0518rem+0.8909vw,0.75rem)] border border-color1 fixed right-4 top-4 px-[clamp(1rem,-0.1036rem+1.7817vw,1.5rem)] rounded-[clamp(0.7rem,0.0379rem+1.069vw,1rem)] bg-text-col text-black text-[clamp(0.7rem,0.0379rem+1.069vw,1rem)]"
-      >
-        Get in Touch
+      <Link className="fixed right-4 top-4" href={"/contact"}>
+        <Button
+          borderRadius="1.75rem"
+          className="text-text-col border-sky-500/10 cursor-pointer "
+        >
+          Get in Touch
+        </Button>
       </Link>
     </div>
   );

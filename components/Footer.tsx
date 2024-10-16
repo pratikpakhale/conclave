@@ -22,10 +22,10 @@ export default function Page() {
     >
       <div className="pt-[400px] w-full max-w-[1800px] bg-[#080618]">
         {/* Two Column Layout - switch to single column on mobile */}
-        <div className="mx-[40px] md:mx-[200px] relative grid grid-cols-2 gap-10">
+        <div className="mx-[40px] md:mx-[200px] relative grid md:grid-cols-2 grid-cols-1 md:gap-10 gap-40">
           {/* Left Column (Existing Contact Content) */}
 
-          <div className="w-full border-b border-b-gray-500 pb-[100px]">
+          <div className="w-full border-b relative border-b-gray-500 pb-[100px]">
             <span className="flex items-center">
               <h2 className="text-[5vw] leading-[1.1]">Let&apos;s get</h2>
             </span>

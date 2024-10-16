@@ -17,7 +17,7 @@ export default function Home() {
     <div className='w-full flex flex-col font-urbanist'>
       <SmoothScroll>
         <Navbar />
-        <LandingSection />
+        {/* <LandingSection /> */}
         {/* <HeroSection /> */}
         {/* <About /> */}
         <TestimonialsPage />

@@ -12,7 +12,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from '@/components/ui/hover-card';
-import { Mail } from 'lucide-react';
+import { Mail, GraduationCap, Briefcase } from 'lucide-react';
 import 'tailwindcss/tailwind.css';
 
 const isOverlapping = (pos1, pos2, minDistance) => {
@@ -23,9 +23,12 @@ const isOverlapping = (pos1, pos2, minDistance) => {
 
 const generateTestimonials = (count, minDistance) => {
   const testimonials = [];
+  const maxAttempts = 100;
+
   for (let i = 0; i < count; i++) {
     let position;
     let attempts = 0;
+
     do {
       position = {
         top: Math.random() * 70 + 15,
@@ -36,8 +39,14 @@ const generateTestimonials = (count, minDistance) => {
       testimonials.some(t =>
         isOverlapping(t.position, position, minDistance)
       ) &&
-      attempts < 100
+      attempts < maxAttempts
     );
+
+    if (attempts === maxAttempts) {
+      console.warn(
+        `Could not find non-overlapping position for testimonial ${i + 1}`
+      );
+    }
 
     testimonials.push({
       id: i + 1,
@@ -46,7 +55,7 @@ const generateTestimonials = (count, minDistance) => {
       email: `user${i + 1}@example.com`,
       graduationYear: 2020 + Math.floor(Math.random() * 4),
       designation: `Software Engineer ${i + 1}`,
-      course: `Computer Science`,
+      course: 'Computer Science',
       testimonial: `As a graduate of the Computer Science program, I can confidently say that the education I received was top-notch. The curriculum was challenging yet rewarding, and the professors were always available to provide guidance. The hands-on projects and internship opportunities prepared me well for my current role as a Software Engineer. I'm grateful for the skills and knowledge I gained during my time at the university.`,
       video:
         'https://videos.pexels.com/video-files/5538137/5538137-hd_1920_1080_25fps.mp4',
@@ -62,34 +71,50 @@ const generateTestimonials = (count, minDistance) => {
 };
 
 const TestimonialCard = ({ testimonial }) => (
-  <div className='relative overflow-hidden rounded-lg shadow-lg bg-white max-w-xs sm:max-w-md'>
-    <video
-      className='absolute inset-0 w-full h-full object-cover opacity-20'
-      autoPlay
-      loop
-      muted
-      playsInline
-      src={testimonial.video}
-    />
-    <div className='relative z-10 p-6'>
-      <div className='flex items-center mb-4'>
-        <Avatar className='w-12 h-12 mr-4'>
-          <AvatarImage src={testimonial.photo} alt={testimonial.name} />
-          <AvatarFallback>{testimonial.name.slice(0, 2)}</AvatarFallback>
-        </Avatar>
-        <div>
-          <h3 className='text-lg font-semibold'>{testimonial.name}</h3>
-          <div className='flex items-center text-sm text-gray-600'>
-            <Mail className='w-4 h-4 mr-2' />
-            {testimonial.email}
-          </div>
+  <div className='relative overflow-hidden rounded-lg shadow-lg bg-white w-full max-w-2xl'>
+    <div className='flex flex-col md:flex-row'>
+      <div className='relative w-full md:w-1/3 h-48 md:h-auto'>
+        <video
+          className='absolute inset-0 w-full h-full object-cover'
+          autoPlay
+          loop
+          muted
+          playsInline
+          src={testimonial?.video}
+          onError={e => {
+            e.target.onerror = null;
+            e.target.style.display = 'none';
+          }}
+        />
+        <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-70'></div>
+        <div className='absolute inset-0 flex items-center justify-center'>
+          <Avatar className='w-24 h-24 border-4 border-white shadow-lg'>
+            <AvatarImage src={testimonial.photo} alt={testimonial.name} />
+            <AvatarFallback>{testimonial.name.slice(0, 2)}</AvatarFallback>
+          </Avatar>
         </div>
       </div>
-      <p className='text-sm mb-4'>{testimonial.testimonial}</p>
-      <div className='flex justify-between text-xs text-gray-500'>
-        <span>{testimonial.graduationYear}</span>
-        <span>{testimonial.designation}</span>
-        <span>{testimonial.course}</span>
+      <div className='w-full md:w-2/3 p-6'>
+        <h3 className='text-2xl font-bold mb-2'>{testimonial.name}</h3>
+        <div className='flex items-center text-sm text-gray-600 mb-4'>
+          <Mail className='w-4 h-4 mr-2' />
+          {testimonial.email}
+        </div>
+        <p className='text-sm mb-4 line-clamp-4'>{testimonial.testimonial}</p>
+        <div className='flex flex-wrap gap-4 text-xs text-gray-500'>
+          <div className='flex items-center'>
+            <GraduationCap className='w-4 h-4 mr-1' />
+            <span>{testimonial.graduationYear}</span>
+          </div>
+          <div className='flex items-center'>
+            <Briefcase className='w-4 h-4 mr-1' />
+            <span>{testimonial.designation}</span>
+          </div>
+          <div className='flex items-center'>
+            <GraduationCap className='w-4 h-4 mr-1' />
+            <span>{testimonial.course}</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -97,31 +122,32 @@ const TestimonialCard = ({ testimonial }) => (
 
 const TestimonialsPage = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(null);
+  const [hoveredTestimonial, setHoveredTestimonial] = useState(null);
   const testimonials = useMemo(() => generateTestimonials(50, 10), []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * testimonials.length);
-      setActiveTestimonial(testimonials[randomIndex]);
+      if (!hoveredTestimonial) {
+        const randomIndex = Math.floor(Math.random() * testimonials.length);
+        setActiveTestimonial(testimonials[randomIndex]);
+      }
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [testimonials]);
+  }, [testimonials, hoveredTestimonial]);
 
   return (
     <div className='bg-[#ecf5ff] min-h-screen'>
       <div className='text-[#002fff] text-center pt-16 pl-10 tracking-[-0.03em] leading-[0.9]'>
-        <div className='text-[clamp(3.5em,6vw,4em)]'>
-          Inspiring Testimonials
-        </div>
-        <div className='text-[clamp(2.5em,6vw,3em)]'>
+        <h1 className='text-[clamp(3.5em,6vw,4em)]'>Inspiring Testimonials</h1>
+        <h2 className='text-[clamp(2.5em,6vw,3em)]'>
           from our esteemed alumni.
-        </div>
+        </h2>
       </div>
       <div className='relative h-[80vh] w-full bg-[#ecf5ff] flex items-center justify-center overflow-hidden'>
-        <h1 className='absolute text-4xl font-bold text-center text-[#002fff] z-50'>
+        <h2 className='absolute text-4xl font-bold text-center text-[#002fff] z-50'>
           In Their Own Words
-        </h1>
+        </h2>
 
         <div className='absolute inset-0 flex items-center justify-center'>
           {testimonials.map(testimonial => (
@@ -131,7 +157,11 @@ const TestimonialsPage = () => {
               style={{
                 top: `${testimonial.position.top}%`,
                 left: `${testimonial.position.left}%`,
-                zIndex: activeTestimonial?.id === testimonial.id ? 50 : 10,
+                zIndex:
+                  hoveredTestimonial?.id === testimonial.id ||
+                  activeTestimonial?.id === testimonial.id
+                    ? 50
+                    : 10,
               }}
               animate={{
                 x: [
@@ -146,7 +176,11 @@ const TestimonialsPage = () => {
                   `${-testimonial.motion.y}%`,
                   0,
                 ],
-                scale: activeTestimonial?.id === testimonial.id ? 1.2 : 1,
+                // scale:
+                //   hoveredTestimonial?.id === testimonial.id ||
+                //   activeTestimonial?.id === testimonial.id
+                //     ? 1.2
+                //     : 1,
               }}
               transition={{
                 duration: testimonial.motion.duration,
@@ -155,16 +189,24 @@ const TestimonialsPage = () => {
                 repeatType: 'mirror',
               }}
             >
-              <Popover open={activeTestimonial?.id === testimonial.id}>
-                <HoverCard>
+              <Popover
+                open={
+                  activeTestimonial?.id === testimonial.id &&
+                  !hoveredTestimonial
+                }
+              >
+                <HoverCard open={hoveredTestimonial?.id === testimonial.id}>
                   <PopoverTrigger>
                     <HoverCardTrigger asChild>
                       <Avatar
                         className={`cursor-pointer z-10 ${
+                          hoveredTestimonial?.id === testimonial.id ||
                           activeTestimonial?.id === testimonial.id
                             ? 'ring-2 ring-blue-500 ring-offset-2'
                             : ''
                         }`}
+                        onMouseEnter={() => setHoveredTestimonial(testimonial)}
+                        onMouseLeave={() => setHoveredTestimonial(null)}
                       >
                         <AvatarImage
                           src={testimonial.photo}
@@ -176,15 +218,15 @@ const TestimonialsPage = () => {
                       </Avatar>
                     </HoverCardTrigger>
                   </PopoverTrigger>
-                  <HoverCardContent className='w-80 z-[100]'>
-                    <TestimonialCard testimonial={testimonial} />
+                  <HoverCardContent className='w-full z-[100]'>
+                    <TestimonialCard testimonial={activeTestimonial} />
                   </HoverCardContent>
-                  <PopoverContent>
+                  <PopoverContent className='w-full max-w-2xl'>
                     <AnimatePresence>
                       {activeTestimonial && (
                         <motion.div
                           key={`active-${activeTestimonial.id}`}
-                          className='transform -translate-x-1/2 bg-white rounded-xl shadow-lg max-w-md z-[60]'
+                          className='bg-white rounded-xl shadow-lg z-[60]'
                           initial={{ opacity: 0, y: '100%' }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: '100%' }}

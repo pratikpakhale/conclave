@@ -19,7 +19,7 @@ const isOverlapping = (pos1, pos2, minDistance) => {
 
 const generateTestimonials = (count, minDistance) => {
   const testimonials = [];
-  const maxAttempts = 100;
+  const maxAttempts = 1000;
 
   for (let i = 0; i < count; i++) {
     let position;
@@ -39,10 +39,10 @@ const generateTestimonials = (count, minDistance) => {
     );
 
     if (attempts === maxAttempts) {
-      console.warn(
-        `Could not find non-overlapping position for testimonial ${i + 1}`
-      );
-      continue; // Skip this testimonial if we can't find a suitable position
+      // console.warn(
+      //   `Could not find non-overlapping position for testimonial ${i + 1}`
+      // );
+      // continue; // Skip this testimonial if we can't find a suitable position
     }
 
     // Rest of the testimonial generation code...
@@ -118,30 +118,69 @@ const TestimonialCard = ({ testimonial }) => (
   </div>
 );
 
-const TestimonialsPage = ({ boundaries }) => {
+const generateConnections = (testimonials, targetDensity = 0.02) => {
+  const connections = [];
+  const n = testimonials.length;
+  const maxPossibleConnections = (n * (n - 1)) / 2;
+  const targetConnections = Math.floor(maxPossibleConnections * targetDensity);
+
+  const connectionPool = [];
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      connectionPool.push([i, j]);
+    }
+  }
+
+  for (let i = connectionPool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [connectionPool[i], connectionPool[j]] = [
+      connectionPool[j],
+      connectionPool[i],
+    ];
+  }
+
+  while (connections.length < targetConnections && connectionPool.length > 0) {
+    connections.push(connectionPool.pop());
+  }
+
+  return connections;
+};
+
+const Connection = ({ start, end }) => {
+  const avatarSize = 40;
+  return (
+    <motion.line
+      x1={`calc(${start.x} + ${avatarSize / 2}px)`}
+      y1={`calc(${start.y} + ${avatarSize / 2}px)`}
+      x2={`calc(${end.x} + ${avatarSize / 2}px)`}
+      y2={`calc(${end.y} + ${avatarSize / 2}px)`}
+      stroke='url(#gradient)'
+      strokeWidth={1}
+      strokeLinecap='round'
+      strokeOpacity={0.3}
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{ duration: 1.5, ease: 'easeInOut' }}
+      style={{
+        filter: 'drop-shadow(0 0 5px rgba(0, 47, 255, 0.5))',
+        opacity: 0.6,
+      }}
+    />
+  );
+};
+
+const TestimonialsPage = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(null);
   const [hoveredTestimonial, setHoveredTestimonial] = useState(null);
-  const textRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
   const hoverTimeoutRef = useRef(null);
 
-  // useEffect(() => {
-  //   if (textRef.current) {
-  //     const rect = textRef.current.getBoundingClientRect();
-  //     const containerRect =
-  //       textRef.current.parentElement.getBoundingClientRect();
-
-  //     setSafeZone({
-  //       top: ((rect.top - containerRect.top) / containerRect.height) * 100,
-  //       bottom:
-  //         ((rect.bottom - containerRect.top) / containerRect.height) * 100,
-  //       left: ((rect.left - containerRect.left) / containerRect.width) * 100,
-  //       right: ((rect.right - containerRect.left) / containerRect.width) * 100,
-  //     });
-  //   }
-  // }, []);
-
-  const testimonials = useMemo(() => generateTestimonials(50, 10), []);
+  const testimonials = useMemo(() => generateTestimonials(100, 10), []);
+  console.log(testimonials);
+  const connections = useMemo(
+    () => generateConnections(testimonials),
+    [testimonials]
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -172,16 +211,37 @@ const TestimonialsPage = ({ boundaries }) => {
       <div className='text-[#002fff] text-center pt-16 pl-10 tracking-[-0.03em] leading-[0.9]'>
         <h1 className='text-[clamp(3.5em,6vw,4em)]'>Inspiring Testimonials</h1>
         <h2 className='text-[clamp(2.5em,6vw,3em)]'>
-          from our esteemed alumni.
+          from our esteemed alumni network
         </h2>
       </div>
       <div className='relative h-[80vh] w-full bg-[#ecf5ff] flex items-center justify-center overflow-hidden'>
-        {/* <h2
-          ref={textRef}
-          className='absolute text-4xl font-bold text-center text-[#002fff] z-50'
-        >
-          In Their Own Words
-        </h2> */}
+        <svg className='absolute inset-0 w-full h-full'>
+          <defs>
+            <linearGradient id='gradient' x1='0%' y1='0%' x2='100%' y2='100%'>
+              <stop
+                offset='0%'
+                style={{ stopColor: '#002fff', stopOpacity: 1 }}
+              />
+              <stop
+                offset='100%'
+                style={{ stopColor: '#00ff99', stopOpacity: 1 }}
+              />
+            </linearGradient>
+          </defs>
+          {connections.map(([startIndex, endIndex], index) => (
+            <Connection
+              key={`connection-${index}`}
+              start={{
+                x: testimonials[startIndex].position.left + '%',
+                y: testimonials[startIndex].position.top + '%',
+              }}
+              end={{
+                x: testimonials[endIndex].position.left + '%',
+                y: testimonials[endIndex].position.top + '%',
+              }}
+            />
+          ))}
+        </svg>
 
         <div className='absolute inset-0 flex items-center justify-center'>
           {testimonials.map(testimonial => (
@@ -245,7 +305,7 @@ const TestimonialsPage = ({ boundaries }) => {
                   </Avatar>
                 </PopoverTrigger>
                 <PopoverContent
-                  collisionBoundary={boundaries}
+                  // collisionBoundary={boundaries}
                   className='w-full max-w-2xl'
                   onMouseEnter={() => handleMouseEnter(testimonial)}
                   onMouseLeave={handleMouseLeave}

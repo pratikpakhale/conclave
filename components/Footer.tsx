@@ -22,20 +22,18 @@ export default function Page() {
     >
       <div className="pt-[400px] w-full max-w-[1800px] bg-[#080618]">
         {/* Two Column Layout - switch to single column on mobile */}
-        <div className="mx-[40px] md:mx-[200px] relative flex flex-col md:flex-row gap-10">
+        <div className="mx-[40px] md:mx-[200px] relative grid grid-cols-2 gap-10">
           {/* Left Column (Existing Contact Content) */}
-          <div className="w-full md:w-1/2 border-b border-b-gray-500 pb-[100px]">
+
+          <div className="w-full border-b border-b-gray-500 pb-[100px]">
             <span className="flex items-center">
               <h2 className="text-[5vw] leading-[1.1]">Let&apos;s get</h2>
             </span>
             <h2 className="text-[5vw] leading-[1.1]">in touch</h2>
-            <motion.div
-              style={{ x }}
-              className="absolute left-0 -translate-x-1/5 -translate-y-1/2"
-            >
+            <motion.div style={{ x }} className="absolute bottom-0 left-0">
               <Link
                 href={"/contact"}
-                className="w-[150px] md:w-[180px] aspect-square bg-[#8a84e3] text-white rounded-full absolute flex items-center justify-center"
+                className="w-[150px] md:w-[180px] aspect-square -translate-x-1/5 -translate-y-1/2 bg-[#8a84e3] text-white rounded-full absolute flex items-center justify-center"
               >
                 <p className="z-[2] relative">Contact</p>
               </Link>
@@ -57,12 +55,12 @@ export default function Page() {
           </div>
 
           {/* Right Column (Carousel) */}
-          <div className="w-full md:w-1/2">
-            <LinkedInCarousel />  {/* Carousel component */}
+          <div className="w-full">
+            <LinkedInCarousel /> {/* Carousel component */}
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-5 border-gray-500 border w-fit px-6 py-4 rounded-full mt-[100px] mx-[40px] md:mx-[200px]">
+        <div className="flex flex-col md:flex-row gap-5 border-gray-500 border w-fit px-6 py-4 rounded-full mt-[200px] mx-[40px] md:mx-[200px]">
           <p>cgcoffice@iiitdwd.ac.in</p>
         </div>
 
@@ -85,10 +83,7 @@ export default function Page() {
               <a target="_blank" href="https://x.com/cgc_iiitdwd">
                 Twitter
               </a>
-              <a
-                target="_blank"
-                href="https://www.instagram.com/cgc.iiitdwd/"
-              >
+              <a target="_blank" href="https://www.instagram.com/cgc.iiitdwd/">
                 Instagram
               </a>
             </div>

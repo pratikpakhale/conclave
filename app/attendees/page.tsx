@@ -3,10 +3,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Member from "@/components/team/Member";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { Team_Members } from "@/data/team";
+import Attendee from "@/components/team/Attendee";
+import { Attendees } from "@/data/attendees";
 
 const scaleAnimation = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -90,12 +90,12 @@ export default function Page() {
   return (
     <main className="">
       <Navbar />
-      <div className="bg-[#ecf5ff] w-full relative">
-        <div className="w-full relative text-slate-900 pt-40 items-center bg-[#ecf5ff] flex flex-col">
-          <p className="text-5xl text-center font-bold">Team Members</p>
+      <div className="bg-text-col w-full relative">
+        <div className="w-full relative text-color1 pt-40 items-center bg-text-col flex flex-col">
+          <p className="text-5xl text-center font-bold">Attendees</p>
           <section
             id="work"
-            className="py-20 w-full z-[5] overflow-hidden bg-[#ecf5ff] px-2 sm:px-4 md:px-10 lg:px-24 xl:px-44 relative flex flex-col"
+            className="py-20 w-full z-[5] overflow-hidden bg-text-col px-2 sm:px-4 md:px-10 lg:px-24 xl:px-44 relative flex flex-col"
           >
             <div
               onMouseMove={(e) => {
@@ -105,13 +105,13 @@ export default function Page() {
             >
               {/* <p className="work-header pt-20">Selected Work</p> */}
 
-              <div className="flex flex-col font-clash text-[#233554] border-t border-light-text">
-                {Team_Members.map((member, index) => (
-                  <Member
+              <div className="flex flex-col font-clash text-color1 border-t border-light-text">
+                {Attendees.map((project, index) => (
+                  <Attendee
+                    linkedin={project?.linkedin}
+                    position={project?.company}
                     index={index}
-                    position={member?.position}
-                    title={member?.title}
-                    linkedin={member?.linkedin}
+                    title={project.title}
                     manageModal={manageModal}
                     key={index}
                   />
@@ -129,8 +129,8 @@ export default function Page() {
                       style={{ top: index * -100 + "%" }}
                       className="relative h-full w-full transition-[top_0.5s_cubic-bezier(0.76,0,0.24,1)]"
                     >
-                      {Team_Members.map((member, index) => {
-                        const { src, color } = member;
+                      {Attendees.map((project, index) => {
+                        const { src, color } = project;
                         return (
                           <div
                             className="h-full w-full flex items-center justify-center"

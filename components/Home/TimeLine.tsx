@@ -6,7 +6,7 @@ export default function TimeLine() {
   return (
     <section
       id="timeline"
-      className="w-full px-2 z-[-3] mb-44 sm:px-4 text-slate-100 items-center bg-[#080618] md:px-10 lg:px-24 xl:px-44 flex flex-col"
+      className="w-full px-2 z-[-3] sm:px-4 text-text-col items-center bg-[#080618] md:px-10 lg:px-24 xl:px-44 flex flex-col"
     >
       {/* <Header text="Timeline" /> */}
       <div className="bg-[#080618] px-4 py-20 w-full flex items-center gap-4 flex-col">
@@ -19,9 +19,9 @@ export default function TimeLine() {
         </div>
       </div>
 
-      <div className="relative flex flex-col items-left justify-center w-full">
+      <div className="relative flex flex-col items-left justify-center py-20 w-full">
         <div className="absolute z-[-2] w-[3px] left-[40px] md:left-[90px] h-full bg-[#414141]">
-          <div className="fixed left-auto top-0 right-auto bottom-[50vh] z-[-1] w-[3px] h-[50vh] bg-white bg-[linear-gradient(180deg,#6366f1_50%,#0ea5e9,#002fff)]"></div>
+          <div className="fixed left-auto top-0 right-auto bottom-[50vh] z-[-1] w-[3px] h-[50vh] bg-[linear-gradient(180deg,#6366f1_50%,#0ea5e9,#002fff)]"></div>
         </div>
 
         <TimelineComponent

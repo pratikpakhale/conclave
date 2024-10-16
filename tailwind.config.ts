@@ -1,5 +1,10 @@
 import type { Config } from "tailwindcss";
+const defaultTheme = require("tailwindcss/defaultTheme");
 
+const colors = require("tailwindcss/colors");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 const config: Config = {
   darkMode: ["class"],
   content: [
@@ -13,6 +18,8 @@ const config: Config = {
         urbanist: ["Urbanist", "sans-serif"],
       },
       colors: {
+        color1: "#080618",
+        "text-col": "#ecf5ff",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -63,8 +70,36 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      animation: {
+        "infinite-scroll": "infinite-scroll 25s linear infinite",
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+      },
+      keyframes: {
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), addVariablesForColors],
 };
+
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
+
 export default config;

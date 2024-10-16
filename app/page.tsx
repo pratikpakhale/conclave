@@ -9,8 +9,8 @@ import SmoothScroll from "@/components/SmoothScroll";
 import TimeLine from "@/components/Home/TimeLine";
 import OverTheYears from "@/components/Home/OverTheYears";
 // import Testimonials from "@/components/Testimonials/Testimonials";
-import TestimonialsPage from "@/components/Testimonials";
 import { LandingSection } from "@/components/Home/LandingSection";
+import { TestimonialMain } from "@/components/Home/Testimonials/TestimonialMain";
 
 export default function Home() {
   return (
@@ -20,11 +20,12 @@ export default function Home() {
         <LandingSection />
         {/* <HeroSection /> */}
         {/* <About /> */}
-        <TestimonialsPage />
+        {/* <TestimonialsPage /> */}
+        <TestimonialMain />
         <TimeLine />
         <OverTheYears />
-        <Footer />
       </SmoothScroll>
+      <Footer />
     </div>
   );
 }

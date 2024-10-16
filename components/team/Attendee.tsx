@@ -10,7 +10,8 @@ interface ProjectProps {
   linkedin: string;
   manageModal: (active: boolean, index: number, x: number, y: number) => void;
 }
-export default function Member({
+
+export default function Attendee({
   index,
   title,
   position,

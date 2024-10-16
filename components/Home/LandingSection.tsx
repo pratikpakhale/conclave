@@ -5,10 +5,10 @@ import HeroSection from "./HeroSection";
 
 export function LandingSection() {
   return (
-    <div className="h-[100dvh] relative w-full bg-[#080618] flex flex-col items-center justify-center overflow-hidden">
+    <div className="h-[100dvh] relative w-full bg-color1 flex flex-col items-center justify-center overflow-hidden">
       <HeroSection />
       <div className="translate-y-[20%]">
-        <h1 className="text-[clamp(44px,10vw,100px)] font-bold text-center text-white relative z-20">
+        <h1 className="text-[clamp(44px,10vw,100px)] font-bold text-center text-text-col relative z-20">
           Conclave 2024
         </h1>
         <div className="w-[80rem] h-72 relative">
@@ -29,7 +29,7 @@ export function LandingSection() {
           />
 
           {/* Radial Gradient to prevent sharp edges */}
-          <div className="absolute inset-0 w-full h-full bg-[#080618] [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+          <div className="absolute inset-0 w-full h-full bg-color1 [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
         </div>
       </div>
     </div>

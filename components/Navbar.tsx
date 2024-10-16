@@ -23,8 +23,8 @@ const navs = [
     name: "Timeline",
   },
   {
-    href: "/#speakers",
-    name: "Speakers",
+    href: "/attendees",
+    name: "Attendees",
   },
   {
     href: "/team",
@@ -54,7 +54,7 @@ function Navbar() {
 
   return (
     <div className="w-full fixed top-0 z-[100] left-0 flex justify-between p-4 nav-transition">
-      <motion.nav className="p-2 flex items-center bg-white w-fit rounded nav-transition">
+      <motion.nav className="p-2 fixed flex left-1/2 -translate-x-1/2 items-center bg-text-col w-fit rounded nav-transition">
         <Reveal delay={0.2} width="fit-content" yPos={true}>
           <div className="w-10 h-10 rounded">
             <Image
@@ -107,7 +107,7 @@ function Navbar() {
         </motion.div>
       </motion.nav>
 
-      <motion.div className="bg-white absolute left-1/2 -translate-x-1/2 rounded justify-center p-3 w-fit h-fit flex md:hidden flex-col items-center gap-3">
+      <motion.div className="bg-text-col absolute left-1/2 -translate-x-1/2 rounded justify-center p-3 w-fit h-fit flex md:hidden flex-col items-center gap-3">
         <RxHamburgerMenu
           onClick={() => {
             setOpen(!open);
@@ -158,7 +158,7 @@ function Navbar() {
 
       <Link
         href={"/contact"}
-        className="py-[clamp(0.5rem,-0.0518rem+0.8909vw,0.75rem)] fixed right-4 top-4 px-[clamp(1rem,-0.1036rem+1.7817vw,1.5rem)] rounded-[clamp(0.7rem,0.0379rem+1.069vw,1rem)] bg-white text-black text-[clamp(0.7rem,0.0379rem+1.069vw,1rem)]"
+        className="py-[clamp(0.5rem,-0.0518rem+0.8909vw,0.75rem)] border border-color1 fixed right-4 top-4 px-[clamp(1rem,-0.1036rem+1.7817vw,1.5rem)] rounded-[clamp(0.7rem,0.0379rem+1.069vw,1rem)] bg-text-col text-black text-[clamp(0.7rem,0.0379rem+1.069vw,1rem)]"
       >
         Get in Touch
       </Link>

@@ -19,7 +19,7 @@ const navs = [
     name: "Testimonials",
   },
   {
-    href:"rsvp",
+    href: "rsvp",
     name: "RSVP",
   },
   {
@@ -30,10 +30,6 @@ const navs = [
     href: "/team",
     name: "Committee",
   },
-  {
-    href:"#home",
-    name:"Team"
-  }
 ];
 
 // Header component
@@ -58,9 +54,9 @@ function Navbar() {
 
   return (
     <div className="w-full fixed top-0 z-[100] left-0 flex justify-between p-4 nav-transition">
-      <motion.nav className="p-2 fixed flex left-1/2 -translate-x-1/2 items-center bg-text-col w-fit rounded nav-transition">
+      <motion.nav className="p-2 fixed flex left-1/2 -translate-x-1/2 gap-4 items-center w-fit rounded nav-transition">
         <Reveal delay={0.2} width="fit-content" yPos={true}>
-          <div className="w-10 h-10 rounded">
+          <div className="w-12 h-12 rounded-lg overflow-hidden">
             <Image
               src="/Brandlogo.png"
               alt="Logo"
@@ -77,7 +73,7 @@ function Navbar() {
             hidden: { opacity: 0 },
           }}
           animate={hidden ? "hidden" : "visible"}
-          className="overflow-clip text-sm justify-start origin-[0] items-center"
+          className="overflow-clip text-sm justify-start origin-[0] bg-text-col px-2 py-3 rounded items-center"
         >
           <motion.div
             variants={{

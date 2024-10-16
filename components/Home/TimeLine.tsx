@@ -2,10 +2,9 @@ import React from 'react';
 import TimelineComponent from './TimelineComponent';
 // import Header from "../Header";
 
-export default function TimeLine({ ref }) {
+export default function TimeLine() {
   return (
     <section
-      ref={ref}
       id='timeline'
       className='w-full px-2 z-[-3]  sm:px-4 text-slate-100 items-center bg-[#080618] md:px-10 lg:px-24 xl:px-44 flex flex-col'
     >

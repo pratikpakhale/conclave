@@ -1,5 +1,5 @@
-// 'use client';
-
+'use client';
+import { useRef } from 'react';
 // import About from '@/components/Home/About';
 import Footer from '@/components/Footer';
 // import HeroSection from "@/components/Home/HeroSection";
@@ -13,6 +13,9 @@ import TestimonialsPage from '@/components/Testimonials';
 import { LandingSection } from '@/components/Home/LandingSection';
 
 export default function Home() {
+  const upperBoundary = useRef(null);
+  const lowerBoundary = useRef(null);
+
   return (
     <div className='w-full flex flex-col font-urbanist'>
       <SmoothScroll>
@@ -20,8 +23,10 @@ export default function Home() {
         {/* <LandingSection /> */}
         {/* <HeroSection /> */}
         {/* <About /> */}
-        <TestimonialsPage />
-        <TimeLine />
+        <TestimonialsPage
+          boundaries={[upperBoundary.current, lowerBoundary.current]}
+        />
+        <TimeLine ref={lowerBoundary} />
         <OverTheYears />
         <Footer />
       </SmoothScroll>

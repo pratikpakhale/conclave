@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -7,11 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from '@/components/ui/hover-card';
+
 import { Mail, GraduationCap, Briefcase } from 'lucide-react';
 import 'tailwindcss/tailwind.css';
 
@@ -25,6 +21,23 @@ const generateTestimonials = (count, minDistance) => {
   const testimonials = [];
   const maxAttempts = 100;
 
+  // Define the safe zone (adjust these values as needed)
+  const safeZone = {
+    top: 40,
+    bottom: 60,
+    left: 30,
+    right: 70,
+  };
+
+  const isInSafeZone = position => {
+    return (
+      position.top > safeZone.top &&
+      position.top < safeZone.bottom &&
+      position.left > safeZone.left &&
+      position.left < safeZone.right
+    );
+  };
+
   for (let i = 0; i < count; i++) {
     let position;
     let attempts = 0;
@@ -36,9 +49,10 @@ const generateTestimonials = (count, minDistance) => {
       };
       attempts++;
     } while (
-      testimonials.some(t =>
+      (testimonials.some(t =>
         isOverlapping(t.position, position, minDistance)
-      ) &&
+      ) ||
+        isInSafeZone(position)) &&
       attempts < maxAttempts
     );
 
@@ -46,8 +60,10 @@ const generateTestimonials = (count, minDistance) => {
       console.warn(
         `Could not find non-overlapping position for testimonial ${i + 1}`
       );
+      continue; // Skip this testimonial if we can't find a suitable position
     }
 
+    // Rest of the testimonial generation code...
     testimonials.push({
       id: i + 1,
       name: `User ${i + 1}`,
@@ -89,7 +105,7 @@ const TestimonialCard = ({ testimonial }) => (
         <div className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-70'></div>
         <div className='absolute inset-0 flex items-center justify-center'>
           <Avatar className='w-24 h-24 border-4 border-white shadow-lg'>
-            <AvatarImage src={testimonial.photo} alt={testimonial.name} />
+            <AvatarImage src={testimonial?.photo} alt={testimonial.name} />
             <AvatarFallback>{testimonial.name.slice(0, 2)}</AvatarFallback>
           </Avatar>
         </div>
@@ -120,21 +136,58 @@ const TestimonialCard = ({ testimonial }) => (
   </div>
 );
 
-const TestimonialsPage = () => {
+const TestimonialsPage = ({ boundaries }) => {
   const [activeTestimonial, setActiveTestimonial] = useState(null);
   const [hoveredTestimonial, setHoveredTestimonial] = useState(null);
-  const testimonials = useMemo(() => generateTestimonials(50, 10), []);
+  const [safeZone, setSafeZone] = useState(null);
+  const textRef = useRef(null);
+  const [isHovering, setIsHovering] = useState(false);
+  const hoverTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    if (textRef.current) {
+      const rect = textRef.current.getBoundingClientRect();
+      const containerRect =
+        textRef.current.parentElement.getBoundingClientRect();
+
+      setSafeZone({
+        top: ((rect.top - containerRect.top) / containerRect.height) * 100,
+        bottom:
+          ((rect.bottom - containerRect.top) / containerRect.height) * 100,
+        left: ((rect.left - containerRect.left) / containerRect.width) * 100,
+        right: ((rect.right - containerRect.left) / containerRect.width) * 100,
+      });
+    }
+  }, []);
+
+  const testimonials = useMemo(
+    () => generateTestimonials(50, 10, safeZone),
+    [safeZone]
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!hoveredTestimonial) {
+      if (!isHovering) {
         const randomIndex = Math.floor(Math.random() * testimonials.length);
         setActiveTestimonial(testimonials[randomIndex]);
       }
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [testimonials, hoveredTestimonial]);
+  }, [testimonials, isHovering]);
+
+  const handleMouseEnter = testimonial => {
+    clearTimeout(hoverTimeoutRef.current);
+    setIsHovering(true);
+    setHoveredTestimonial(testimonial);
+  };
+
+  const handleMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setIsHovering(false);
+      setHoveredTestimonial(null);
+    }, 300);
+  };
 
   return (
     <div className='bg-[#ecf5ff] min-h-screen'>
@@ -145,7 +198,10 @@ const TestimonialsPage = () => {
         </h2>
       </div>
       <div className='relative h-[80vh] w-full bg-[#ecf5ff] flex items-center justify-center overflow-hidden'>
-        <h2 className='absolute text-4xl font-bold text-center text-[#002fff] z-50'>
+        <h2
+          ref={textRef}
+          className='absolute text-4xl font-bold text-center text-[#002fff] z-50'
+        >
           In Their Own Words
         </h2>
 
@@ -176,11 +232,6 @@ const TestimonialsPage = () => {
                   `${-testimonial.motion.y}%`,
                   0,
                 ],
-                // scale:
-                //   hoveredTestimonial?.id === testimonial.id ||
-                //   activeTestimonial?.id === testimonial.id
-                //     ? 1.2
-                //     : 1,
               }}
               transition={{
                 duration: testimonial.motion.duration,
@@ -191,53 +242,52 @@ const TestimonialsPage = () => {
             >
               <Popover
                 open={
-                  activeTestimonial?.id === testimonial.id &&
-                  !hoveredTestimonial
+                  (activeTestimonial?.id === testimonial.id && !isHovering) ||
+                  hoveredTestimonial?.id === testimonial.id
                 }
               >
-                <HoverCard open={hoveredTestimonial?.id === testimonial.id}>
-                  <PopoverTrigger>
-                    <HoverCardTrigger asChild>
-                      <Avatar
-                        className={`cursor-pointer z-10 ${
-                          hoveredTestimonial?.id === testimonial.id ||
-                          activeTestimonial?.id === testimonial.id
-                            ? 'ring-2 ring-blue-500 ring-offset-2'
-                            : ''
-                        }`}
-                        onMouseEnter={() => setHoveredTestimonial(testimonial)}
-                        onMouseLeave={() => setHoveredTestimonial(null)}
+                <PopoverTrigger>
+                  <Avatar
+                    className={`cursor-pointer z-10 ${
+                      hoveredTestimonial?.id === testimonial.id ||
+                      activeTestimonial?.id === testimonial.id
+                        ? 'ring-2 ring-blue-500 ring-offset-2'
+                        : ''
+                    }`}
+                    onMouseEnter={() => handleMouseEnter(testimonial)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <AvatarImage
+                      src={testimonial.photo}
+                      alt={testimonial.name}
+                    />
+                    <AvatarFallback>
+                      {testimonial.name.slice(0, 2)}
+                    </AvatarFallback>
+                  </Avatar>
+                </PopoverTrigger>
+                <PopoverContent
+                  collisionBoundary={boundaries}
+                  className='w-full max-w-2xl'
+                  onMouseEnter={() => handleMouseEnter(testimonial)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <AnimatePresence>
+                    {(activeTestimonial?.id === testimonial.id ||
+                      hoveredTestimonial?.id === testimonial.id) && (
+                      <motion.div
+                        key={`active-${testimonial.id}`}
+                        className='bg-white rounded-xl shadow-lg z-[60]'
+                        initial={{ opacity: 0, y: '100%' }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: '100%' }}
+                        transition={{ duration: 0.5 }}
                       >
-                        <AvatarImage
-                          src={testimonial.photo}
-                          alt={testimonial.name}
-                        />
-                        <AvatarFallback>
-                          {testimonial.name.slice(0, 2)}
-                        </AvatarFallback>
-                      </Avatar>
-                    </HoverCardTrigger>
-                  </PopoverTrigger>
-                  <HoverCardContent className='w-full z-[100]'>
-                    <TestimonialCard testimonial={activeTestimonial} />
-                  </HoverCardContent>
-                  <PopoverContent className='w-full max-w-2xl'>
-                    <AnimatePresence>
-                      {activeTestimonial && (
-                        <motion.div
-                          key={`active-${activeTestimonial.id}`}
-                          className='bg-white rounded-xl shadow-lg z-[60]'
-                          initial={{ opacity: 0, y: '100%' }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: '100%' }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          <TestimonialCard testimonial={activeTestimonial} />
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </PopoverContent>
-                </HoverCard>
+                        <TestimonialCard testimonial={testimonial} />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </PopoverContent>
               </Popover>
             </motion.div>
           ))}

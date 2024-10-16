@@ -259,8 +259,10 @@ const TestimonialsPage = () => {
 
   const handleMouseEnter = testimonial => {
     clearTimeout(hoverTimeoutRef.current);
-    setIsHovering(true);
-    setHoveredTestimonial(testimonial);
+    hoverTimeoutRef.current = setTimeout(() => {
+      setIsHovering(true);
+      setHoveredTestimonial(testimonial);
+    }, 350); // Adjust the delay time as needed
   };
 
   const handleMouseLeave = () => {

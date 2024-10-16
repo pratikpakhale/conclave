@@ -7,13 +7,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from '@/components/ui/hover-card';
-import { CalendarIcon } from '@radix-ui/react-icons';
+import { Mail } from 'lucide-react';
 import 'tailwindcss/tailwind.css';
 
 const isOverlapping = (pos1, pos2, minDistance) => {
@@ -43,26 +42,14 @@ const generateTestimonials = (count, minDistance) => {
     testimonials.push({
       id: i + 1,
       name: `User ${i + 1}`,
-      avatar: `https://api.dicebear.com/6.x/avataaars/svg?seed=User${i + 1}`,
-      text: `This is a sample testimonial text for User ${
-        i + 1
-      }. They had a great experience and wanted to share their thoughts.`,
-      joinedDate: `${
-        [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December',
-        ][Math.floor(Math.random() * 12)]
-      } ${2020 + Math.floor(Math.random() * 4)}`,
+      photo: `https://api.dicebear.com/6.x/avataaars/svg?seed=User${i + 1}`,
+      email: `user${i + 1}@example.com`,
+      graduationYear: 2020 + Math.floor(Math.random() * 4),
+      designation: `Software Engineer ${i + 1}`,
+      course: `Computer Science`,
+      testimonial: `As a graduate of the Computer Science program, I can confidently say that the education I received was top-notch. The curriculum was challenging yet rewarding, and the professors were always available to provide guidance. The hands-on projects and internship opportunities prepared me well for my current role as a Software Engineer. I'm grateful for the skills and knowledge I gained during my time at the university.`,
+      video:
+        'https://videos.pexels.com/video-files/5538137/5538137-hd_1920_1080_25fps.mp4',
       position,
       motion: {
         x: (Math.random() - 0.5) * 5,
@@ -73,6 +60,40 @@ const generateTestimonials = (count, minDistance) => {
   }
   return testimonials;
 };
+
+const TestimonialCard = ({ testimonial }) => (
+  <div className='relative overflow-hidden rounded-lg shadow-lg bg-white max-w-xs sm:max-w-md'>
+    <video
+      className='absolute inset-0 w-full h-full object-cover opacity-20'
+      autoPlay
+      loop
+      muted
+      playsInline
+      src={testimonial.video}
+    />
+    <div className='relative z-10 p-6'>
+      <div className='flex items-center mb-4'>
+        <Avatar className='w-12 h-12 mr-4'>
+          <AvatarImage src={testimonial.photo} alt={testimonial.name} />
+          <AvatarFallback>{testimonial.name.slice(0, 2)}</AvatarFallback>
+        </Avatar>
+        <div>
+          <h3 className='text-lg font-semibold'>{testimonial.name}</h3>
+          <div className='flex items-center text-sm text-gray-600'>
+            <Mail className='w-4 h-4 mr-2' />
+            {testimonial.email}
+          </div>
+        </div>
+      </div>
+      <p className='text-sm mb-4'>{testimonial.testimonial}</p>
+      <div className='flex justify-between text-xs text-gray-500'>
+        <span>{testimonial.graduationYear}</span>
+        <span>{testimonial.designation}</span>
+        <span>{testimonial.course}</span>
+      </div>
+    </div>
+  </div>
+);
 
 const TestimonialsPage = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(null);
@@ -88,7 +109,7 @@ const TestimonialsPage = () => {
   }, [testimonials]);
 
   return (
-    <div className='bg-[#ecf5ff] h-[80vh]'>
+    <div className='bg-[#ecf5ff] min-h-screen'>
       <div className='text-[#002fff] text-center pt-16 pl-10 tracking-[-0.03em] leading-[0.9]'>
         <div className='text-[clamp(3.5em,6vw,4em)]'>
           Inspiring Testimonials
@@ -97,7 +118,7 @@ const TestimonialsPage = () => {
           from our esteemed alumni.
         </div>
       </div>
-      <div className='relative h-full w-full bg-[#ecf5ff] flex items-center justify-center overflow-hidden'>
+      <div className='relative h-[80vh] w-full bg-[#ecf5ff] flex items-center justify-center overflow-hidden'>
         <h1 className='absolute text-4xl font-bold text-center text-[#002fff] z-50'>
           In Their Own Words
         </h1>
@@ -146,7 +167,7 @@ const TestimonialsPage = () => {
                         }`}
                       >
                         <AvatarImage
-                          src={testimonial.avatar}
+                          src={testimonial.photo}
                           alt={testimonial.name}
                         />
                         <AvatarFallback>
@@ -155,62 +176,21 @@ const TestimonialsPage = () => {
                       </Avatar>
                     </HoverCardTrigger>
                   </PopoverTrigger>
-                  <HoverCardContent className='w-64 sm:w-80 z-[100]'>
-                    <div className='flex justify-between space-x-4'>
-                      <Avatar>
-                        <AvatarImage src={testimonial.avatar} />
-                        <AvatarFallback>
-                          {testimonial.name.slice(0, 2)}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className='space-y-1'>
-                        <h4 className='text-sm font-semibold'>
-                          {testimonial.name}
-                        </h4>
-                        <p className='text-sm'>{testimonial.text}</p>
-                        <div className='flex items-center pt-2'>
-                          <CalendarIcon className='mr-2 h-4 w-4 opacity-70' />{' '}
-                          <span className='text-xs text-muted-foreground'>
-                            Joined {testimonial.joinedDate}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+                  <HoverCardContent className='w-80 z-[100]'>
+                    <TestimonialCard testimonial={testimonial} />
                   </HoverCardContent>
                   <PopoverContent>
                     <AnimatePresence>
                       {activeTestimonial && (
                         <motion.div
                           key={`active-${activeTestimonial.id}`}
-                          //absolute top-10 left-auto right-auto
-                          className=' transform -translate-x-1/2 bg-white p-4 sm:p-6 rounded-xl shadow-lg max-w-xs sm:max-w-md z-[60] text-center'
+                          className='transform -translate-x-1/2 bg-white rounded-xl shadow-lg max-w-md z-[60]'
                           initial={{ opacity: 0, y: '100%' }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: '100%' }}
                           transition={{ duration: 0.5 }}
                         >
-                          <div className='flex flex-col items-center space-y-4'>
-                            <Avatar className='w-12 h-12 sm:w-16 sm:h-16'>
-                              <AvatarImage src={activeTestimonial.avatar} />
-                              <AvatarFallback>
-                                {activeTestimonial.name.slice(0, 2)}
-                              </AvatarFallback>
-                            </Avatar>
-                            <div>
-                              <h2 className='text-lg sm:text-xl font-bold'>
-                                {activeTestimonial.name}
-                              </h2>
-                              <p className='mt-2 text-sm sm:text-base text-gray-600'>
-                                {activeTestimonial.text}
-                              </p>
-                              <div className='flex items-center justify-center mt-2'>
-                                <CalendarIcon className='mr-2 h-4 w-4 opacity-70' />
-                                <span className='text-xs sm:text-sm text-muted-foreground'>
-                                  Joined {activeTestimonial.joinedDate}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
+                          <TestimonialCard testimonial={activeTestimonial} />
                         </motion.div>
                       )}
                     </AnimatePresence>

@@ -31,6 +31,10 @@ const navs = [
     href: "/team",
     name: "Committee",
   },
+  {
+    href: "/developers",
+    name: "Team",
+  },
 ];
 
 // Header component

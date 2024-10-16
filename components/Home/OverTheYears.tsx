@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { data1 } from "@/data/over-the-years/column1";
+import { data2 } from "@/data/over-the-years/column2";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,219 +64,60 @@ export default function OverTheYears() {
         >
           <div className="bg-black h-full w-full flex grayscale relative object-cover z-[5] gap-[2vw] p-[2vw] overflow-hidden justify-center items-center">
             <div className="min-w-40 w-[30%] h-full flex flex-col gap-[2vw] relative">
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-              <div className="opac rounded-lg w-full h-[200px]">
-                <Image
-                  className="h-full w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
+              {data2?.map((item, index) => (
+                <div key={index} className="opac rounded-lg w-full">
+                  <Image
+                    className="h-auto w-full object-cover"
+                    alt="image1"
+                    src={`/over-the-years/` + item}
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                  />
+                </div>
+              ))}
             </div>
-
             <div className="min-w-40 w-[30%] h-full flex flex-col gap-[2vw] relative">
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-              <div className="opac rounded-lg w-full h-[200px]">
-                <Image
-                  className="h-full w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
+              {data1?.map((item, index) => (
+                <div key={index} className="opac rounded-lg w-full">
+                  <Image
+                    className="h-auto w-full object-cover"
+                    alt="image1"
+                    src={`/over-the-years/` + item}
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                  />
+                </div>
+              ))}
             </div>
-
             <div className="min-w-40 w-[30%] h-full flex flex-col gap-[2vw] relative">
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-              <div className="opac rounded-lg w-full h-[200px]">
-                <Image
-                  className="h-full w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
+              {data2?.map((item, index) => (
+                <div key={index} className="opac rounded-lg w-full">
+                  <Image
+                    className="h-auto w-full object-cover"
+                    alt="image1"
+                    src={`/over-the-years/` + item}
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                  />
+                </div>
+              ))}
             </div>
-
             <div className="min-w-40 w-[30%] h-full flex flex-col gap-[2vw] relative">
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-              <div className="opac rounded-lg w-full">
-                <Image
-                  className="h-auto w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
-              <div className="opac rounded-lg w-full h-[200px]">
-                <Image
-                  className="h-full w-full object-cover"
-                  alt="image1"
-                  src={"/independence_day_78_4.jpg"}
-                  height={0}
-                  width={0}
-                  sizes="100%"
-                />
-              </div>
+              {data1?.map((item, index) => (
+                <div key={index} className="opac rounded-lg w-full">
+                  <Image
+                    className="h-auto w-full object-cover"
+                    alt="image1"
+                    src={`/over-the-years/` + item}
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

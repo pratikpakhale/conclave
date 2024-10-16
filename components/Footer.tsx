@@ -52,6 +52,10 @@ export default function Page() {
                 fill="white"
               />
             </motion.svg>
+
+            <div className="flex flex-col md:flex-row gap-5 border-gray-500 border w-fit px-6 py-4 rounded-full mt-[100px]">
+              <p>cgcoffice@iiitdwd.ac.in</p>
+            </div>
           </div>
 
           {/* Right Column (Carousel) */}
@@ -60,11 +64,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-5 border-gray-500 border w-fit px-6 py-4 rounded-full mt-[200px] mx-[40px] md:mx-[200px]">
-          <p>cgcoffice@iiitdwd.ac.in</p>
-        </div>
-
-        <div className="flex flex-col-reverse md:flex-row gap-4 justify-between mt-[200px] p-5">
+        <div className="flex flex-col-reverse md:flex-row gap-4 justify-between mt-[100px] p-5">
           <div className="flex gap-[10px] items-end">
             <span className="flex flex-col gap-4">
               <h3 className="px-1 text-gray-400">Version</h3>

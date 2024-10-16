@@ -21,23 +21,6 @@ const generateTestimonials = (count, minDistance) => {
   const testimonials = [];
   const maxAttempts = 100;
 
-  // Define the safe zone (adjust these values as needed)
-  const safeZone = {
-    top: 40,
-    bottom: 60,
-    left: 30,
-    right: 70,
-  };
-
-  const isInSafeZone = position => {
-    return (
-      position.top > safeZone.top &&
-      position.top < safeZone.bottom &&
-      position.left > safeZone.left &&
-      position.left < safeZone.right
-    );
-  };
-
   for (let i = 0; i < count; i++) {
     let position;
     let attempts = 0;
@@ -49,10 +32,9 @@ const generateTestimonials = (count, minDistance) => {
       };
       attempts++;
     } while (
-      (testimonials.some(t =>
+      testimonials.some(t =>
         isOverlapping(t.position, position, minDistance)
-      ) ||
-        isInSafeZone(position)) &&
+      ) &&
       attempts < maxAttempts
     );
 
@@ -139,31 +121,27 @@ const TestimonialCard = ({ testimonial }) => (
 const TestimonialsPage = ({ boundaries }) => {
   const [activeTestimonial, setActiveTestimonial] = useState(null);
   const [hoveredTestimonial, setHoveredTestimonial] = useState(null);
-  const [safeZone, setSafeZone] = useState(null);
   const textRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
   const hoverTimeoutRef = useRef(null);
 
-  useEffect(() => {
-    if (textRef.current) {
-      const rect = textRef.current.getBoundingClientRect();
-      const containerRect =
-        textRef.current.parentElement.getBoundingClientRect();
+  // useEffect(() => {
+  //   if (textRef.current) {
+  //     const rect = textRef.current.getBoundingClientRect();
+  //     const containerRect =
+  //       textRef.current.parentElement.getBoundingClientRect();
 
-      setSafeZone({
-        top: ((rect.top - containerRect.top) / containerRect.height) * 100,
-        bottom:
-          ((rect.bottom - containerRect.top) / containerRect.height) * 100,
-        left: ((rect.left - containerRect.left) / containerRect.width) * 100,
-        right: ((rect.right - containerRect.left) / containerRect.width) * 100,
-      });
-    }
-  }, []);
+  //     setSafeZone({
+  //       top: ((rect.top - containerRect.top) / containerRect.height) * 100,
+  //       bottom:
+  //         ((rect.bottom - containerRect.top) / containerRect.height) * 100,
+  //       left: ((rect.left - containerRect.left) / containerRect.width) * 100,
+  //       right: ((rect.right - containerRect.left) / containerRect.width) * 100,
+  //     });
+  //   }
+  // }, []);
 
-  const testimonials = useMemo(
-    () => generateTestimonials(50, 10, safeZone),
-    [safeZone]
-  );
+  const testimonials = useMemo(() => generateTestimonials(50, 10), []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -198,12 +176,12 @@ const TestimonialsPage = ({ boundaries }) => {
         </h2>
       </div>
       <div className='relative h-[80vh] w-full bg-[#ecf5ff] flex items-center justify-center overflow-hidden'>
-        <h2
+        {/* <h2
           ref={textRef}
           className='absolute text-4xl font-bold text-center text-[#002fff] z-50'
         >
           In Their Own Words
-        </h2>
+        </h2> */}
 
         <div className='absolute inset-0 flex items-center justify-center'>
           {testimonials.map(testimonial => (

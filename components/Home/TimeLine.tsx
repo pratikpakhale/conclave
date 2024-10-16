@@ -7,7 +7,7 @@ export default function TimeLine({ ref }) {
     <section
       ref={ref}
       id='timeline'
-      className='w-full px-2 z-[-3] mb-44 sm:px-4 text-slate-100 items-center bg-[#080618] md:px-10 lg:px-24 xl:px-44 flex flex-col'
+      className='w-full px-2 z-[-3]  sm:px-4 text-slate-100 items-center bg-[#080618] md:px-10 lg:px-24 xl:px-44 flex flex-col'
     >
       {/* <Header text="Timeline" /> */}
       <div className='bg-[#080618] px-4 py-20 w-full flex items-center gap-4 flex-col'>

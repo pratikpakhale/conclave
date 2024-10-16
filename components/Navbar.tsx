@@ -10,7 +10,7 @@ import Image from "next/image";
 export default function Navbar() {
   const { option, setOption } = useContext(NavbarContext);
   const [open, setOpen] = useState(false);
-  const lenis = useLenis(({ scroll }) => {});
+  const lenis = useLenis(({}) => {});
 
   const navs = [
     {
@@ -18,7 +18,7 @@ export default function Navbar() {
       name: "Home",
     },
     {
-      href: "/#testimonials",
+      href: "/testimonials",
       name: "Testimonials",
     },
     {
@@ -78,6 +78,13 @@ export default function Navbar() {
           </Link>
         ))}
       </nav>
+
+      <Link
+        href={"/contact"}
+        className="fixed right-4 top-4 px-[clamp(1rem,-0.1036rem+1.7817vw,1.5rem)] py-[clamp(0.5rem,-0.0518rem+0.8909vw,0.75rem)] rounded-[clamp(0.7rem,0.0379rem+1.069vw,1rem)] bg-[#ecf5ff] border-[#002fff] text-[#002fff] text-[clamp(0.7rem,0.0379rem+1.069vw,1rem)] border z-[50] font-semibold"
+      >
+        Get in Touch
+      </Link>
 
       <div
         className={`fixed left-0 top-0 z-50 flex h-full w-screen flex-col bg-black/70 px-8 py-10 backdrop-blur-sm transition-all duration-500 ${

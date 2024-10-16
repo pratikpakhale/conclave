@@ -2,12 +2,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-// import {
-//   Popover,
-//   PopoverContent,
-//   PopoverTrigger,
-// } from '@/components/ui/popover';
-
 import {
   HoverCard,
   HoverCardContent,
@@ -16,16 +10,47 @@ import {
 import { CalendarIcon } from "@radix-ui/react-icons";
 import "tailwindcss/tailwind.css";
 
-const isOverlapping = (pos1, pos2, minDistance) => {
+// Define types for position and motion properties
+interface Position {
+  top: number;
+  left: number;
+}
+
+interface MotionProps {
+  x: number;
+  y: number;
+  duration: number;
+}
+
+interface Testimonial {
+  id: number;
+  name: string;
+  avatar: string;
+  text: string;
+  joinedDate: string;
+  position: Position;
+  motion: MotionProps;
+}
+
+// Function to check if positions are overlapping
+const isOverlapping = (
+  pos1: Position,
+  pos2: Position,
+  minDistance: number
+): boolean => {
   const dx = pos1.left - pos2.left;
   const dy = pos1.top - pos2.top;
   return Math.sqrt(dx * dx + dy * dy) < minDistance;
 };
 
-const generateTestimonials = (count, minDistance) => {
-  const testimonials = [];
+// Generate testimonials with random positioning and motion
+const generateTestimonials = (
+  count: number,
+  minDistance: number
+): Testimonial[] => {
+  const testimonials: Testimonial[] = [];
   for (let i = 0; i < count; i++) {
-    let position;
+    let position: Position;
     let attempts = 0;
     do {
       position = {
@@ -74,8 +99,9 @@ const generateTestimonials = (count, minDistance) => {
   return testimonials;
 };
 
-const TestimonialsPage = () => {
-  const [activeTestimonial, setActiveTestimonial] = useState(null);
+const TestimonialsPage: React.FC = () => {
+  const [activeTestimonial, setActiveTestimonial] =
+    useState<Testimonial | null>(null);
   const testimonials = useMemo(() => generateTestimonials(50, 10), []);
 
   useEffect(() => {
@@ -137,7 +163,7 @@ const TestimonialsPage = () => {
               <HoverCard>
                 <HoverCardTrigger asChild>
                   <Avatar
-                    className={`cursor-pointer z-10 ${
+                    className={`cursor-pointer z-[5] ${
                       activeTestimonial?.id === testimonial.id
                         ? "ring-2 ring-blue-500 ring-offset-2"
                         : ""
@@ -152,7 +178,7 @@ const TestimonialsPage = () => {
                     </AvatarFallback>
                   </Avatar>
                 </HoverCardTrigger>
-                <HoverCardContent className="w-64 sm:w-80 z-[100]">
+                <HoverCardContent className="w-64 sm:w-80 z-[100] relative bg-[#edf2f7] border border-[#002fff] text-[#002fff] rounded-none">
                   <div className="flex justify-between space-x-4">
                     <Avatar>
                       <AvatarImage src={testimonial.avatar} />
@@ -183,7 +209,7 @@ const TestimonialsPage = () => {
           {activeTestimonial && (
             <motion.div
               key={`active-${activeTestimonial.id}`}
-              className="absolute top-10 left-auto right-auto transform -translate-x-1/2 bg-white p-4 sm:p-6 rounded-xl shadow-lg max-w-xs sm:max-w-md z-[60] text-center"
+              className="absolute top-10 left-auto right-auto transform -translate-x-1/2 bg-[#ecf5ff] border border-[#002fff] text-[#002fff] p-4 sm:p-6 rounded-xl shadow-lg max-w-xs sm:max-w-md z-[60] rounded-none text-center"
               initial={{ opacity: 0, y: "100%" }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: "100%" }}

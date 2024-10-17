@@ -188,7 +188,7 @@ const TestimonialCard = ({ testimonial }) => {
   );
 };
 
-const generateConnections = (testimonials, targetDensity = 0.015) => {
+const generateConnections = (testimonials, targetDensity = 0.075) => {
   const connections = [];
   const n = testimonials.length;
   const maxPossibleConnections = (n * (n - 1)) / 2;
@@ -245,7 +245,7 @@ const TestimonialsPage = () => {
   const [isHovering, setIsHovering] = useState(false);
   const hoverTimeoutRef = useRef(null);
 
-  const testimonials = useMemo(() => generateTestimonials(100, 10), []);
+  const testimonials = useMemo(() => generateTestimonials(40, 10), []);
   // console.log(testimonials);
   const connections = useMemo(
     () => generateConnections(testimonials),

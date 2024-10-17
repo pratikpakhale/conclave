@@ -9,6 +9,12 @@ import {
 } from '@/components/ui/popover';
 
 import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@/components/ui/hover-card';
+
+import {
   Mail,
   GraduationCap,
   Briefcase,
@@ -365,14 +371,14 @@ const TestimonialsPage = () => {
                 repeatType: 'mirror',
               }}
             >
-              <Popover
+              <HoverCard
                 open={
                   !isScrolling &&
                   ((activeTestimonial?.id === testimonial.id && !isHovering) ||
                     hoveredTestimonial?.id === testimonial.id)
                 }
               >
-                <PopoverTrigger>
+                <HoverCardTrigger>
                   <Avatar
                     className={`cursor-pointer z-10 ${
                       hoveredTestimonial?.id === testimonial.id ||
@@ -391,8 +397,8 @@ const TestimonialsPage = () => {
                       {testimonial.name.slice(0, 2)}
                     </AvatarFallback>
                   </Avatar>
-                </PopoverTrigger>
-                <PopoverContent
+                </HoverCardTrigger>
+                <HoverCardContent
                   // collisionBoundary={boundaries}
                   className='w-full max-w-2xl'
                   onMouseEnter={() => handleMouseEnter(testimonial)}
@@ -413,8 +419,8 @@ const TestimonialsPage = () => {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </PopoverContent>
-              </Popover>
+                </HoverCardContent>
+              </HoverCard>
             </motion.div>
           ))}
         </div>

@@ -44,20 +44,37 @@ export default function HeroSection() {
       : 0;
 
   return (
-    <>
-      {companies.map((company: Companies, index) => {
-        return (
-          <LandingComponent
-            key={index}
-            right={company.right}
-            top={company.top}
-            transform={`translate3d(${moveX * ((index % 10) + 1) * 20}px, ${
-              moveY * (index % 10) * 20
-            }px, 0px)`}
-            icon={company.name}
-          />
-        );
-      })}
-    </>
+    <div className="absolute w-full h-full">
+      <div className="">
+        {companies.map((company: Companies, index) => {
+          return (
+            <LandingComponent
+              key={index}
+              right={company.right}
+              top={company.top}
+              transform={`translate3d(${moveX * ((index % 5) + 1) * 40}px, ${
+                moveY * ((index % 5) + 1) * 40
+              }px, 0px)`}
+              icon={company.name}
+            />
+          );
+        })}
+      </div>
+
+      {/* <div className="max-w-sm w-full absolute left-1/2 -translate-x-1/2 bottom-0 grid grid-cols-3 gap-2 md:hidden">
+        {companies.map((company: Companies, index) => {
+          const Icon = company?.name; // Assuming company has a name property for the icon
+
+          return (
+            <a
+              key={index} // Use iconName if available; otherwise fall back to index
+              className={`hover:text-[#537299] cursor-pointer rounded-lg hover:scale-150 flex justify-center hover:z-[6] component-transition z-[5] text-[#3b373790]`}
+            >
+              {Icon && <Icon size={44} />}
+            </a>
+          );
+        })}
+      </div> */}
+    </div>
   );
 }

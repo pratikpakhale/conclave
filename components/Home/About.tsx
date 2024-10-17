@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="w-full px-2 sm:px-4 md:px-10 lg:px-24 xl:px-44 flex flex-col py-20 bg-[#e1e5f2]"
+      className="w-full px-2 sm:px-4 md:px-10 lg:px-24 xl:px-44 flex flex-col py-20 bg-color1"
     >
       <Header text="About Us" />
       <div className="relative">

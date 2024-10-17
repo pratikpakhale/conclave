@@ -66,7 +66,7 @@ export default function Accordion({
   };
 
   return (
-    <section className="pt-12 w-full z-[5] overflow-hidden bg-[#ecf5ff] px-2 sm:px-4 md:px-10 lg:px-24 xl:px-44 relative flex flex-col">
+    <section className="pt-12 w-full z-[5] overflow-hidden bg-text-col px-2 sm:px-4 md:px-10 lg:px-24 xl:px-44 relative flex flex-col">
       <div
         onMouseMove={(e) => {
           moveItems(e.clientX, e.clientY);
@@ -74,11 +74,12 @@ export default function Accordion({
         className="w-full mx-auto max-w-[1200px] relative px-10 flex flex-col gap-20"
       >
         <div className="w-full border-b relative">
-          <div className="w-full text-2xl relative font-semibold flex justify-between items-center">
+          <div
+            onClick={() => setOpen(!open)}
+            className="w-full text-2xl relative cursor-pointer font-semibold flex justify-between items-center"
+          >
             <div className="">{Heading} </div>
-            <button className="" onClick={() => setOpen(!open)}>
-              {open ? "-" : "+"}
-            </button>
+            <button className="">{open ? "-" : "+"}</button>
           </div>
 
           <motion.div

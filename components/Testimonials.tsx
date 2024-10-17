@@ -105,7 +105,7 @@ const TestimonialCard = ({ testimonial }) => {
   }, [isMuted]);
 
   return (
-    <div className="relative overflow-hidden rounded-lg shadow-lg bg-white w-full max-w-2xl">
+    <div className="relative overflow-hidden rounded-[clamp(0.7rem,0.0379rem+1.069vw,1rem)] shadow-lg bg-white w-full max-w-2xl">
       <div className="flex flex-col md:flex-row">
         <div className="relative w-full md:w-1/3 h-48 md:h-auto">
           <video
@@ -121,7 +121,7 @@ const TestimonialCard = ({ testimonial }) => {
             }}
           />
           <div
-            className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 transition-opacity duration-300 ${isMuted ? "opacity-70" : "opacity-0"}`}
+            className={`absolute inset-0 bg-gradient-to-r from-color1 to-slate-900 transition-opacity duration-300 ${isMuted ? "opacity-70" : "opacity-0"}`}
           ></div>
           <div
             className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isAvatarVisible ? "opacity-100" : "opacity-0"}`}
@@ -271,24 +271,24 @@ const TestimonialsPage = () => {
   };
 
   return (
-    <div className="bg-[#ecf5ff] min-h-screen">
-      <div className="text-[#002fff] text-center pt-16 pl-10 tracking-[-0.03em] leading-[0.9]">
+    <div className="bg-text-col min-h-screen">
+      <div className="text-color1 text-center pt-16 pl-10 tracking-[-0.03em] leading-[0.9]">
         <h1 className="text-[clamp(3.5em,6vw,4em)]">Inspiring Testimonials</h1>
         <h2 className="text-[clamp(2.5em,6vw,3em)]">
           from our esteemed alumni network
         </h2>
       </div>
-      <div className="relative h-[80vh] w-full bg-[#ecf5ff] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[80vh] w-full bg-text-col flex items-center justify-center overflow-hidden">
         <svg className="absolute inset-0 w-full h-full">
           <defs>
             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop
                 offset="0%"
-                style={{ stopColor: "#002fff", stopOpacity: 1 }}
+                style={{ stopColor: "#151517", stopOpacity: 1 }}
               />
               <stop
                 offset="100%"
-                style={{ stopColor: "#00ff99", stopOpacity: 1 }}
+                style={{ stopColor: "#151517", stopOpacity: 1 }}
               />
             </linearGradient>
           </defs>
@@ -379,7 +379,7 @@ const TestimonialsPage = () => {
                       hoveredTestimonial?.id === testimonial.id) && (
                       <motion.div
                         key={`active-${testimonial.id}`}
-                        className="bg-white rounded-xl shadow-lg z-[60]"
+                        className="bg-white rounded-[clamp(0.7rem,0.0379rem+1.069vw,1rem)] shadow-lg z-[60]"
                         initial={{ opacity: 0, y: "100%" }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: "100%" }}

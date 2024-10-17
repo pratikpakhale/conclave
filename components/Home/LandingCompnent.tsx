@@ -6,7 +6,7 @@ export default function LandingComponent(props: LandingComponents) {
 
   return (
     <a
-      className={`absolute -translate-y-1/2 hover:text-[#537299] cursor-pointer rounded-lg hover:scale-150 hover:z-[1000] component-transition hover:shadow-hover-landing shadow-landing z-10 text-[#ecf5ff7b]`}
+      className={`absolute -translate-y-1/2 hover:text-[#537299] cursor-pointer rounded-lg hover:scale-150 hover:z-[6] component-transition z-[5] text-[#3b373790]`}
       style={{
         transformStyle: "preserve-3d",
         backfaceVisibility: "hidden",

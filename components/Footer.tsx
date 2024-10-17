@@ -18,9 +18,9 @@ export default function Page() {
     <motion.div
       style={{ y }}
       ref={container}
-      className="relative bg-[#080618] z-[2] text-white w-full flex flex-col items-center justify-center"
+      className="relative bg-color1 z-[6] text-white w-full flex flex-col items-center justify-center"
     >
-      <div className="pt-[400px] w-full max-w-[1800px] bg-[#080618]">
+      <div className="pt-[400px] w-full max-w-[1800px] bg-color1">
         {/* Two Column Layout - switch to single column on mobile */}
         <div className="mx-[40px] md:mx-[200px] relative grid md:grid-cols-2 grid-cols-1 md:gap-10 gap-40">
           {/* Left Column (Existing Contact Content) */}
@@ -59,9 +59,7 @@ export default function Page() {
           </div>
 
           {/* Right Column (Carousel) */}
-          <div className="w-full">
-            <LinkedInCarousel /> {/* Carousel component */}
-          </div>
+          <div className="w-full">{/* <LinkedInCarousel /> */}</div>
         </div>
 
         <div className="flex flex-col-reverse md:flex-row gap-4 justify-between mt-[100px] p-5">

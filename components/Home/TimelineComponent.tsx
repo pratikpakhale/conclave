@@ -5,7 +5,7 @@ export default function TimelineComponent(props: TimelineType) {
   return (
     <div className="grid relative w-full grid-cols-[80px_1fr] md:grid-cols-[180px_1fr_2fr]">
       <div className="w-full flex justify-center">
-        <div className="sticky top-[50vh] translate-x-[1px] w-4 h-4 rounded-full shadow-[0_0_0_8px_#0a0a0a] bg-white"></div>
+        <div className="sticky top-[50vh] translate-x-[1px] w-4 h-4 rounded-full shadow-[0_0_0_8px_#151517] bg-white"></div>
       </div>
       <div className="w-full hidden py-8 md:py-10 md:block">
         <p className="sticky text-text-col top-[50vh] text-4xl leading-[1.2] font-semibold tracking-[-0.03em]">

@@ -28,11 +28,12 @@
 
 @font-face {
   font-family: Grotesk;
-  src: url("./fonts/hk-grotesk-medium.otf") format("opentype");
+  src: url("./fonts/oakesgrotesk.otf") format("opentype");
 }
 
 * {
   /* border: 1px red dotted; */
+  box-sizing: border-box;
 }
 
 .font-anton {
@@ -110,7 +111,100 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --border--16px: clamp(1rem, -0.05rem + 1.1667vw, 1.7rem);
+    --font--h1: clamp(4.5rem, 0rem + 5vw, 7.5rem);
+    --font--h2: clamp(3rem, 0rem + 3.3333vw, 5rem);
+    --font--h3: clamp(2.5rem, -0.05rem + 2.8333vw, 4.2rem);
+    --font--h4: clamp(1.8rem, 0.05rem + 1.1667vw, 2.8rem);
+    --font--label: clamp(0.875rem, -0.0625rem + 1.0417vw, 1.5rem);
+    --size--24px: clamp(1.5rem, 0rem + 1.6667vw, 2.5rem);
+    --size--48px: clamp(3rem, 0rem + 3.3333vw, 5rem);
+    --spacing--4px: clamp(0.25rem, 0.025rem + 0.25vw, 0.4rem);
+    --spacing--8px: clamp(0.5rem, 0.05rem + 0.5vw, 0.8rem);
+    --spacing--12px: clamp(0.75rem, -0.075rem + 0.9167vw, 1.3rem);
+    --spacing--16px: clamp(1rem, -0.05rem + 1.1667vw, 1.7rem);
+    --spacing--20px: clamp(1.25rem, -0.025rem + 1.4167vw, 2.1rem);
+    --spacing--24px: clamp(1.5rem, 0rem + 1.6667vw, 2.5rem);
+    --spacing--28px: clamp(1.75rem, 0.175rem + 1.75vw, 2.8rem);
+    --spacing--48px: clamp(3rem, 0rem + 3.3333vw, 5rem);
+    --spacing--120px: clamp(7.5rem, 0rem + 8.3333vw, 12.5rem);
+    --spacing--160px: clamp(10rem, -0.05rem + 11.1667vw, 16.7rem);
   }
+
+  @media screen and (max-width: 991px) {
+    :root {
+      --font--h1: calc(4.5rem * 900 / 1440);
+      --font--h2: calc(5.5rem * 900 / 1440);
+      --font--benefits: calc(10rem * 900 / 1440);
+    }
+  }
+
+  @media screen and (max-width: 720px) {
+    :root {
+      --font--h1: calc(5rem * 720 / 1440);
+      --font--h2: calc(4.5rem * 720 / 1440);
+      --font--h3: calc(4rem * 800 / 1440);
+      --font--h4: calc(2.5rem * 1000 / 1440);
+      --font--h5: calc(1.75rem * 1000 / 1440);
+      --font--benefits: calc(10rem * 700 / 1440);
+      --spacing-sizing--20px: calc(1.25rem * 500 / 1440);
+      --spacing-sizing--24px: calc(1.5rem * 500 / 1440);
+      --spacing-sizing--32px: calc(2rem * 500 / 1440);
+      --spacing-sizing--36px: calc(2.25rem * 500 / 1440);
+      --spacing-sizing--40px: calc(2.5rem * 500 / 1440);
+      --spacing-sizing--80px: calc(5rem * 500 / 1440);
+      --spacing-sizing--120px: calc(7.5rem * 500 / 1440);
+      --spacing-sizing--160px: calc(10rem * 500 / 1440);
+      --spacing-sizing--row-470px: calc(29.375rem * 500 / 1440);
+    }
+  }
+
+  @media screen and (min-width: 991px) {
+    :root {
+      --border--16px: clamp(0.7rem, 0.0379rem + 1.069vw, 1rem);
+      --font--h1: clamp(3.1rem, 0.01rem + 4.9889vw, 4.5rem);
+      --font--h2: clamp(2.1rem, 0.1136rem + 3.2071vw, 3rem);
+      --font--h3: clamp(1.7rem, -0.0657rem + 2.8508vw, 2.5rem);
+      --font--h4: clamp(1.4rem, 0.0757rem + 2.1381vw, 2rem);
+      --font--label: clamp(0.6rem, -0.007rem + 0.98vw, 0.875rem);
+      --size--24px: clamp(1rem, -0.1036rem + 1.7817vw, 1.5rem);
+      --size--48px: clamp(2.1rem, 0.1136rem + 3.2071vw, 3rem);
+      --spacing--4px: clamp(0.2rem, 0.0896rem + 0.1782vw, 0.25rem);
+      --spacing--8px: clamp(0.3rem, -0.1414rem + 0.7127vw, 0.5rem);
+      --spacing--12px: clamp(0.5rem, -0.0518rem + 0.8909vw, 0.75rem);
+      --spacing--16px: clamp(0.7rem, 0.0379rem + 1.069vw, 1rem);
+      --spacing--20px: clamp(0.9rem, 0.1275rem + 1.2472vw, 1.25rem);
+      --spacing--24px: clamp(1rem, -0.1036rem + 1.7817vw, 1.5rem);
+      --spacing--28px: clamp(1.2rem, -0.0179rem + 1.9643vw, 1.75rem);
+      --spacing--48px: clamp(2.1rem, 0.1136rem + 3.2071vw, 3rem);
+      --spacing--120px: clamp(5.2rem, 0.1236rem + 8.196vw, 7.5rem);
+      --spacing--160px: clamp(6.9rem, 0.0579rem + 11.0468vw, 10rem);
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    :root {
+      --border--16px: clamp(1rem, -0.05rem + 1.1667vw, 1.7rem);
+      --font--h1: clamp(4.5rem, 0rem + 5vw, 7.5rem);
+      --font--h2: clamp(3rem, 0rem + 3.3333vw, 5rem);
+      --font--h3: clamp(2.5rem, -0.05rem + 2.8333vw, 4.2rem);
+      --font--h4: clamp(1.8rem, 0.05rem + 1.1667vw, 2.8rem);
+      --font--label: clamp(0.875rem, -0.0625rem + 1.0417vw, 1.5rem);
+      --size--24px: clamp(1.5rem, 0rem + 1.6667vw, 2.5rem);
+      --size--48px: clamp(3rem, 0rem + 3.3333vw, 5rem);
+      --spacing--4px: clamp(0.25rem, 0.025rem + 0.25vw, 0.4rem);
+      --spacing--8px: clamp(0.5rem, 0.05rem + 0.5vw, 0.8rem);
+      --spacing--12px: clamp(0.75rem, -0.075rem + 0.9167vw, 1.3rem);
+      --spacing--16px: clamp(1rem, -0.05rem + 1.1667vw, 1.7rem);
+      --spacing--20px: clamp(1.25rem, -0.025rem + 1.4167vw, 2.1rem);
+      --spacing--24px: clamp(1.5rem, 0rem + 1.6667vw, 2.5rem);
+      --spacing--28px: clamp(1.75rem, 0.175rem + 1.75vw, 2.8rem);
+      --spacing--48px: clamp(3rem, 0rem + 3.3333vw, 5rem);
+      --spacing--120px: clamp(7.5rem, 0rem + 8.3333vw, 12.5rem);
+      --spacing--160px: clamp(10rem, -0.05rem + 11.1667vw, 16.7rem);
+    }
+  }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -167,3 +261,35 @@ body {
 /* .masking {
   mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 80%, transparent 100%);
 } */
+
+.main {
+  transform: translate3d(0px, 0px, 0px);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  position: relative;
+  display: flex;
+  left: 0px;
+  top: 0px;
+  pointer-events: none;
+  z-index: 5;
+}
+.masker {
+  background-image: url("/main-mask.png");
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  z-index: 5;
+  padding: 10vw 16vw;
+  display: flex;
+  position: relative;
+  /* mask-image: radial-gradient(circle, black 25%, transparent 75%); */
+}
+
+.image {
+  filter: sepia(81%) saturate(82%) hue-rotate(240deg);
+}
+.image:hover {
+  filter: none; /* turn the image green by desaturating it and shifting the colors by 120 degrees towards green, then increase the saturation to show only the green color */
+}
+
+/* spacing variables */

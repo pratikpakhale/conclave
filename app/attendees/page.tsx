@@ -6,7 +6,7 @@ export default function page() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      <div className="bg-text-col h-full w-full relative">
+      <div className="bg-text-col h-full w-full md:px-10 lg:px-24 xl:px-44 px-2 sm:px-4 relative">
         <div className="w-full relative text-color1 pt-40 items-center bg-text-col flex flex-col">
           <div className="max-w-7xl w-full">
             {/* <p className="text-5xl w-full text-center font-bold">Attendees</p> */}

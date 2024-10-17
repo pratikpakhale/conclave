@@ -99,6 +99,8 @@
 // }
 
 "use client";
+import Navbar from "@/components/Navbar";
+import Image from "next/image";
 import React from "react";
 
 const developers = [
@@ -127,6 +129,7 @@ const developers = [
 export default function DeveloperPage() {
   return (
     <div className="bg-black min-h-screen flex flex-col items-center justify-center px-4">
+      <Navbar />
       <h1 className="text-4xl text-white mb-8 text-center">
         Meet the Development Team
       </h1>
@@ -140,12 +143,15 @@ export default function DeveloperPage() {
           >
             {/* Image with initial indigo overlay filter */}
             <div className="relative overflow-hidden rounded-lg">
-              <img
+              <Image
+                height={0}
+                width={0}
+                sizes="100%"
                 src={developer.image}
                 alt={developer.name}
-                className="w-full h-[28rem] object-cover rounded-lg transition-all duration-300 ease-in-out filter brightness-75 sepia hue-rotate-120 group-hover:filter-none group-hover:brightness-100"
+                className="w-full h-[28rem] object-cover rounded-lg image transition-[filter] duration-500"
               />
-              <div className="absolute inset-0 bg-indigo-400 mix-blend-multiply opacity-90 group-hover:opacity-0 rounded-lg transition-opacity duration-300 ease-in-out"></div>
+              {/* <div className="absolute inset-0 image transition-[filter] duration-500"></div> */}
             </div>
 
             {/* Developer Details */}

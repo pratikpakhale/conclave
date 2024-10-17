@@ -33,7 +33,7 @@ export default function ContactUsForm() {
   });
   const x = useTransform(scrollYProgress, [0, 1], [-150, -300]);
   return (
-    <section className="bg-[#080618] min-h-[100dvh]">
+    <section className="bg-color1 min-h-[100dvh]">
       <Navbar />
       <div className="max-w-5xl flex flex-col mx-auto text-white">
         <div className="flex-1 flex-col flex">

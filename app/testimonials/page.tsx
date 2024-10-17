@@ -14,7 +14,7 @@ function SubmitButton() {
     <button
       disabled={pending}
       type="submit"
-      className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg"
+      className="bg-text-col hover:bg-white text-color1 w-full font-semibold py-2 px-4 rounded-lg"
     >
       {pending ? (
         <span className="flex items-center justify-center">
@@ -87,13 +87,13 @@ export default function TestimonialForm() {
 
   return (
     <div
-      className={`p-4 relative min-h-screen flex flex-col pt-24 items-center justify-center bg-[#080618] transition-opacity duration-1000 ease-out ${isMounted ? "opacity-100" : "opacity-0"}`}
+      className={`p-4 relative min-h-screen flex flex-col pt-24 items-center justify-center bg-color1 transition-opacity duration-1000 ease-out ${isMounted ? "opacity-100" : "opacity-0"}`}
     >
       <Navbar />
 
-      <div className="absolute inset-0 bg-[#080618] opacity-50"></div>
+      <div className="absolute inset-0 bg-color1"></div>
       <div
-        className={`relative shadow-2xl rounded-xl p-8 w-full max-w-4xl text-white 
+        className={`relative rounded-xl p-8 w-full max-w-4xl text-white 
                              transform transition-all duration-1000 ease-out ${isMounted ? "translate-y-0 scale-100 opacity-100" : "translate-y-20 scale-95 opacity-0"}`}
       >
         <h1 className="text-3xl font-bold mb-6 text-center">
@@ -103,7 +103,7 @@ export default function TestimonialForm() {
         <form ref={formRef} action={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Form Fields */}
-            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+            <div className="w-full flex-1 border-t border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Full Name</div>
@@ -116,7 +116,7 @@ export default function TestimonialForm() {
               </div>
             </div>
 
-            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+            <div className="w-full flex-1 border-t border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Contact No</div>
@@ -129,7 +129,7 @@ export default function TestimonialForm() {
               </div>
             </div>
 
-            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+            <div className="w-full flex-1 border-t border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Email</div>
@@ -142,7 +142,7 @@ export default function TestimonialForm() {
               </div>
             </div>
 
-            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+            <div className="w-full flex-1 border-t border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Graduation Year</div>
@@ -155,7 +155,7 @@ export default function TestimonialForm() {
               </div>
             </div>
 
-            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+            <div className="w-full flex-1 border-t border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Designation</div>
@@ -168,7 +168,7 @@ export default function TestimonialForm() {
               </div>
             </div>
 
-            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+            <div className="w-full flex-1 border-t border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Course</div>
@@ -181,7 +181,7 @@ export default function TestimonialForm() {
               </div>
             </div>
 
-            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+            <div className="w-full flex-1 border-t border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Achievements</div>
@@ -194,7 +194,7 @@ export default function TestimonialForm() {
               </div>
             </div>
 
-            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+            <div className="w-full flex-1 border-t border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Testimonial</div>
@@ -207,7 +207,7 @@ export default function TestimonialForm() {
               </div>
             </div>
 
-            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+            <div className="w-full flex-1 border-t border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Memorable Experience</div>
@@ -220,7 +220,7 @@ export default function TestimonialForm() {
               </div>
             </div>
 
-            <div className="w-full flex-1 border-t border-t-slate-600 py-10">
+            <div className="w-full flex-1 border-t border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Encouragement</div>
@@ -243,7 +243,7 @@ export default function TestimonialForm() {
               <div className="flex items-center justify-center w-full">
                 <label
                   htmlFor="photo"
-                  className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer bg-gray-700 hover:bg-gray-600 transition"
+                  className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer bg-gray-700/20 hover:bg-gray-700/40 transition"
                 >
                   <div className="flex flex-col items-center justify-center pt-5 pb-6">
                     <svg
@@ -292,7 +292,7 @@ export default function TestimonialForm() {
               <div className="flex items-center justify-center w-full">
                 <label
                   htmlFor="video"
-                  className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer bg-gray-700 hover:bg-gray-600 transition"
+                  className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer bg-gray-700/20 hover:bg-gray-700/40 transition"
                 >
                   <div className="flex flex-col items-center justify-center pt-5 pb-6">
                     <svg

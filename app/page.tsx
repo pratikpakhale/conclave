@@ -10,9 +10,12 @@ import TimeLine from "@/components/Home/TimeLine";
 import OverTheYears from "@/components/Home/OverTheYears";
 // import Testimonials from "@/components/Testimonials/Testimonials";
 import { LandingSection } from "@/components/Home/LandingSection";
-// import { TestimonialMain } from "@/components/Home/Testimonials/TestimonialMain";
+import { TestimonialMain } from "@/components/Home/Testimonials/TestimonialMain";
 import TestimonialsPage from "@/components/Testimonials";
 import { useEffect, useState } from "react";
+import About from "@/components/Home/About";
+import Connect from "@/components/Home/Connect";
+import LinkedInMain from "@/components/Linkedin/LinkedInMain";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,8 +38,10 @@ export default function Home() {
       <div className="z-[5] w-full">
         <LandingSection />
         {/* <HeroSection /> */}
-        {/* <About /> */}
-        {/* <TestimonialsPage /> */}
+        <About />
+        <Connect />
+        <LinkedInMain />
+        <TestimonialsPage />
         {/* <TestimonialMain /> */}
         <TimeLine />
         <OverTheYears />

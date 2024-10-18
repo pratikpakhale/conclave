@@ -27,9 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} font-grotesk antialiased`}
-      >
+      <body className={` font-grotesk antialiased`}>
         {children}
         <Toaster />
       </body>

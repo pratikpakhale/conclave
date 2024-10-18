@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,12 +23,12 @@
 }
 
 .font-grotesk {
-  font-family: Grotesk, sans-serif;
+  font-family: "Hanken Grotesk", sans-serif;
 }
 
 @font-face {
   font-family: Grotesk;
-  src: url("./fonts/oakesgrotesk.otf") format("opentype");
+  src: url("./fonts/Oakes-Grotesk.ttf") format("truetype");
 }
 
 * {
@@ -293,3 +293,37 @@ body {
 }
 
 /* spacing variables */
+
+.plane {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 0 auto;
+  /* transform-style: preserve-3d; */
+  animation: rotate3D 5s infinite linear; /* 3D rotation animation */
+}
+
+/* Rotation animation */
+@keyframes rotate3D {
+  0% {
+    transform: rotateY(0);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.dots {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px; /* Adjust dot size */
+  height: 10px;
+  background-color: black; /* Adjust dot color */
+  border-radius: 50%;
+  transform-origin: 0 -80px; /* Adjust the radius of the circle */
+}

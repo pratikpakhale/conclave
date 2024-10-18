@@ -9,6 +9,12 @@ import {
 } from "@/components/ui/popover";
 
 import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+
+import {
   Mail,
   GraduationCap,
   Briefcase,
@@ -105,7 +111,7 @@ const TestimonialCard = ({ testimonial }) => {
   }, [isMuted]);
 
   return (
-    <div className="relative overflow-hidden rounded-[clamp(0.7rem,0.0379rem+1.069vw,1rem)] shadow-lg bg-white w-full max-w-2xl">
+    <div className="relative overflow-hidden rounded-lg shadow-lg bg-white w-full max-w-2xl">
       <div className="flex flex-col md:flex-row">
         <div className="relative w-full md:w-1/3 h-48 md:h-auto">
           <video
@@ -121,7 +127,7 @@ const TestimonialCard = ({ testimonial }) => {
             }}
           />
           <div
-            className={`absolute inset-0 bg-gradient-to-r from-color1 to-slate-900 transition-opacity duration-300 ${isMuted ? "opacity-70" : "opacity-0"}`}
+            className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 transition-opacity duration-300 ${isMuted ? "opacity-70" : "opacity-0"}`}
           ></div>
           <div
             className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isAvatarVisible ? "opacity-100" : "opacity-0"}`}
@@ -182,7 +188,7 @@ const TestimonialCard = ({ testimonial }) => {
   );
 };
 
-const generateConnections = (testimonials, targetDensity = 0.015) => {
+const generateConnections = (testimonials, targetDensity = 0.075) => {
   const connections = [];
   const n = testimonials.length;
   const maxPossibleConnections = (n * (n - 1)) / 2;
@@ -239,12 +245,31 @@ const TestimonialsPage = () => {
   const [isHovering, setIsHovering] = useState(false);
   const hoverTimeoutRef = useRef(null);
 
-  const testimonials = useMemo(() => generateTestimonials(100, 10), []);
+  const testimonials = useMemo(() => generateTestimonials(40, 10), []);
   // console.log(testimonials);
   const connections = useMemo(
     () => generateConnections(testimonials),
     [testimonials]
   );
+
+  const [isScrolling, setIsScrolling] = useState(false);
+  const scrollTimeoutRef = useRef(null);
+
+  const handleScroll = () => {
+    setIsScrolling(true);
+    clearTimeout(scrollTimeoutRef.current);
+    scrollTimeoutRef.current = setTimeout(() => {
+      setIsScrolling(false);
+    }, 500); // Adjust this delay as needed
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeoutRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -258,9 +283,13 @@ const TestimonialsPage = () => {
   }, [testimonials, isHovering]);
 
   const handleMouseEnter = (testimonial) => {
-    clearTimeout(hoverTimeoutRef.current);
-    setIsHovering(true);
-    setHoveredTestimonial(testimonial);
+    if (!isScrolling) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = setTimeout(() => {
+        setIsHovering(true);
+        setHoveredTestimonial(testimonial);
+      }, 300);
+    }
   };
 
   const handleMouseLeave = () => {
@@ -284,11 +313,11 @@ const TestimonialsPage = () => {
             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop
                 offset="0%"
-                style={{ stopColor: "#151517", stopOpacity: 1 }}
+                style={{ stopColor: "#002fff", stopOpacity: 1 }}
               />
               <stop
                 offset="100%"
-                style={{ stopColor: "#151517", stopOpacity: 1 }}
+                style={{ stopColor: "#00ff99", stopOpacity: 1 }}
               />
             </linearGradient>
           </defs>
@@ -342,13 +371,14 @@ const TestimonialsPage = () => {
                 repeatType: "mirror",
               }}
             >
-              <Popover
+              <HoverCard
                 open={
-                  (activeTestimonial?.id === testimonial.id && !isHovering) ||
-                  hoveredTestimonial?.id === testimonial.id
+                  !isScrolling &&
+                  ((activeTestimonial?.id === testimonial.id && !isHovering) ||
+                    hoveredTestimonial?.id === testimonial.id)
                 }
               >
-                <PopoverTrigger>
+                <HoverCardTrigger>
                   <Avatar
                     className={`cursor-pointer z-10 ${
                       hoveredTestimonial?.id === testimonial.id ||
@@ -367,8 +397,8 @@ const TestimonialsPage = () => {
                       {testimonial.name.slice(0, 2)}
                     </AvatarFallback>
                   </Avatar>
-                </PopoverTrigger>
-                <PopoverContent
+                </HoverCardTrigger>
+                <HoverCardContent
                   // collisionBoundary={boundaries}
                   className="w-full max-w-2xl"
                   onMouseEnter={() => handleMouseEnter(testimonial)}
@@ -379,7 +409,7 @@ const TestimonialsPage = () => {
                       hoveredTestimonial?.id === testimonial.id) && (
                       <motion.div
                         key={`active-${testimonial.id}`}
-                        className="bg-white rounded-[clamp(0.7rem,0.0379rem+1.069vw,1rem)] shadow-lg z-[60]"
+                        className="bg-white rounded-xl shadow-lg z-[60]"
                         initial={{ opacity: 0, y: "100%" }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: "100%" }}
@@ -389,8 +419,8 @@ const TestimonialsPage = () => {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </PopoverContent>
-              </Popover>
+                </HoverCardContent>
+              </HoverCard>
             </motion.div>
           ))}
         </div>

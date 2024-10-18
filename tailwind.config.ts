@@ -65,6 +65,18 @@ const config: Config = {
         "120px": "var(--spacing--120px)",
         "160px": "var(--spacing--160px)",
       },
+      margin: {
+        "4px": "var(--spacing--4px)",
+        "8px": "var(--spacing--8px)",
+        "12px": "var(--spacing--12px)",
+        "16px": "var(--spacing--16px)",
+        "20px": "var(--spacing--20px)",
+        "24px": "var(--spacing--24px)",
+        "28px": "var(--spacing--28px)",
+        "48px": "var(--spacing--48px)",
+        "120px": "var(--spacing--120px)",
+        "160px": "var(--spacing--160px)",
+      },
       padding: {
         "4px": "var(--spacing--4px)",
         "8px": "var(--spacing--8px)",

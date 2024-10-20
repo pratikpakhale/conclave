@@ -99,11 +99,14 @@ export default function HRConclaveRSVP() {
       }`}
     >
       <Navbar />
-      <div className="relative bg-color1 rounded-xl p-8 pt-20 w-full max-w-4xl text-gray-200 transform transition-all duration-1000 ease-out">
+      <div
+        className={`relative rounded-xl p-8 w-full max-w-4xl text-white 
+                             transform transition-all duration-1000 ease-out ${isMounted ? "translate-y-0 scale-100 opacity-100" : "translate-y-20 scale-95 opacity-0"}`}
+      >
+        {" "}
         <h1 className="text-4xl font-bold mb-4 text-center text-text-col">
           HR Conclave RSVP
         </h1>
-
         <div className="mb-8">
           <h2 className="text-lg font-semibold text-center">
             Event Date: <span className="text-white">10th November</span>
@@ -115,10 +118,8 @@ export default function HRConclaveRSVP() {
             Chief Guest: Honourable Prahlad Joshi, Cabinet Minister
           </h2>
         </div>
-
-        <CountdownTimer />
-
-        <form ref={formRef} action={handleSubmit} className="mt-6">
+        {/* <CountdownTimer /> */}
+        <form ref={formRef} action={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="w-full flex-1 border-t border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
@@ -145,6 +146,7 @@ export default function HRConclaveRSVP() {
                 </div>
               </div>
             </div>
+
             <div className="w-full flex-1 border-t border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">
@@ -198,7 +200,6 @@ export default function HRConclaveRSVP() {
               </div>
             </div>
 
-            {/* File Upload Component */}
             <div className="w-full flex-1 border-t col-span-2 border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">

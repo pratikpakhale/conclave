@@ -16,6 +16,8 @@ import { useEffect, useState } from "react";
 import About from "@/components/Home/About";
 import Connect from "@/components/Home/Connect";
 import LinkedInMain from "@/components/Linkedin/LinkedInMain";
+import { AnimatePresence } from "framer-motion";
+import PreLoader from "@/components/Preloader";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +25,9 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      const locomotiveScroll = new LocomotiveScroll({ lerp: 0.005 });
+      const locomotiveScroll = new LocomotiveScroll({
+        // lenisOptions: { lerp: 0.05 },
+      });
 
       setTimeout(() => {
         setIsLoading(false);
@@ -34,8 +38,11 @@ export default function Home() {
   }, []);
   return (
     <div className="w-full flex flex-col font-grotesk">
-      <Navbar />
+      {/* <AnimatePresence mode="wait">
+        {isLoading && <PreLoader />}
+      </AnimatePresence> */}
       <div className="z-[5] w-full">
+        <Navbar />
         <LandingSection />
         {/* <HeroSection /> */}
         <About />

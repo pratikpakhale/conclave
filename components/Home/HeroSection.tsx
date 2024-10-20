@@ -8,8 +8,8 @@ import LandingComponent from "./LandingCompnent";
 export default function HeroSection() {
   // Set initial state without accessing window properties
   const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0,
+    x: typeof window !== "undefined" ? window.innerWidth / 2 : 0,
+    y: typeof window !== "undefined" ? window.innerHeight / 2 : 0,
   });
 
   useEffect(() => {
@@ -45,7 +45,18 @@ export default function HeroSection() {
 
   return (
     <div className="absolute w-full h-full">
-      <div className="">
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] transition-all duration-500 ease-out"
+        style={{
+          background: `radial-gradient(440px at ${mousePosition.x}px ${
+            mousePosition.y +
+            (typeof window !== "undefined" ? window.pageYOffset : 0)
+          }px, #15151744, transparent 70%)`,
+          transition: "background 0.5s ease", // Smooth transition for background position
+        }}
+      ></div>
+      <div className="absolute bg-[url('/hero-bg.svg')] bg-cover h-full w-full z-[2]"></div>
+      <div className="hidden md:block">
         {companies.map((company: Companies, index) => {
           return (
             <LandingComponent
@@ -60,21 +71,6 @@ export default function HeroSection() {
           );
         })}
       </div>
-
-      {/* <div className="max-w-sm w-full absolute left-1/2 -translate-x-1/2 bottom-0 grid grid-cols-3 gap-2 md:hidden">
-        {companies.map((company: Companies, index) => {
-          const Icon = company?.name; // Assuming company has a name property for the icon
-
-          return (
-            <a
-              key={index} // Use iconName if available; otherwise fall back to index
-              className={`hover:text-[#537299] cursor-pointer rounded-lg hover:scale-150 flex justify-center hover:z-[6] component-transition z-[5] text-[#3b373790]`}
-            >
-              {Icon && <Icon size={44} />}
-            </a>
-          );
-        })}
-      </div> */}
     </div>
   );
 }

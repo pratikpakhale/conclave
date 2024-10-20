@@ -7,6 +7,7 @@ interface Props {
   delay: number;
   xPos?: number;
   yPos?: boolean;
+  once?: boolean;
 }
 
 export default function Reveal({
@@ -15,10 +16,11 @@ export default function Reveal({
   xPos = -75,
   delay,
   yPos = false,
+  once = false,
 }: Props) {
   const ref = useRef(null);
   const mainControls = useAnimation();
-  const inView = useInView(ref, { once: false });
+  const inView = useInView(ref, { once: once });
 
   useEffect(() => {
     if (inView) {

@@ -31,11 +31,6 @@
   src: url("./fonts/Oakes-Grotesk.ttf") format("truetype");
 }
 
-* {
-  /* border: 1px red dotted; */
-  box-sizing: border-box;
-}
-
 .font-anton {
   font-family: Anton;
 }
@@ -234,11 +229,16 @@ body {
 }
 
 @layer base {
+  /* * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    } */
+
   * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
+    /* border: 1px red dotted !important; */
+    box-sizing: border-box;
   }
 }
 
@@ -274,12 +274,12 @@ body {
   z-index: 5;
 }
 .masker {
-  background-image: url("/main-mask.png");
+  background-image: url("/mainmask.png");
   background-position: center;
   background-size: cover;
   width: 100%;
   z-index: 5;
-  padding: 10vw 16vw;
+  padding: 11vw 17vw;
   display: flex;
   position: relative;
   /* mask-image: radial-gradient(circle, black 25%, transparent 75%); */
@@ -326,4 +326,156 @@ body {
   background-color: black; /* Adjust dot color */
   border-radius: 50%;
   transform-origin: 0 -80px; /* Adjust the radius of the circle */
+}
+
+.effect {
+  animation: effect 6s infinite alternate;
+}
+
+@property --border-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
+}
+
+@keyframes effect {
+  0% {
+    stroke-dasharray: 0 70%;
+  }
+  100% {
+    stroke-dasharray: 10% 0%;
+    stroke-dashoffset: 20%;
+    /* text-shadow:
+      0px 0px 20px #ff0,
+      0px 0px 40px #ff0,
+      0px 0px 60px #ff0,
+      0px 0px 80px #ff0,
+      0px 0px 100px #ff0; */
+  }
+}
+
+.gloss {
+  background: #222 -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#222),
+      to(#222),
+      color-stop(0.5, #fff)
+    ) 0 0 no-repeat;
+  /* -webkit-background-size: 100%; */
+  background-size: 500px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-animation-name: shine;
+  animation-name: shine;
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  text-shadow: 0 0px 0px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes shine {
+  0%,
+  10% {
+    background-position: -1000px;
+  }
+  20% {
+    background-position: top left;
+  }
+  90% {
+    background-position: top right;
+  }
+  100% {
+    background-position: 1000px;
+  }
+}
+
+.bg-animation {
+  animation: bg-animation 10s linear infinite;
+}
+
+@keyframes bg-animation {
+  0% {
+    mask-image: radial-gradient(circle, transparent, black);
+  }
+  25% {
+    mask-image: radial-gradient(circle, black, transparent, black);
+  }
+  50% {
+    mask-image: radial-gradient(circle, black, transparent, black);
+  }
+  75% {
+    mask-image: radial-gradient(circle, transparent, black);
+  }
+  100% {
+    mask-image: radial-gradient(circle, transparent, black);
+  }
+}
+
+.grid-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background:
+    linear-gradient(to bottom, #80808016 1px, transparent 1px) repeat,
+    /* horizontal grid lines */
+      linear-gradient(to right, #80808016 1px, transparent 1px) repeat; /* vertical grid lines */
+  background-size: 24px 24px; /* Grid cell size */
+  animation: staggered-grid 2s linear infinite;
+}
+
+/* Staggered animation for vertical lines */
+@keyframes staggered-grid {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 24px 0; /* Shift the vertical grid lines by one column */
+  }
+}
+
+@keyframes staggered-grid {
+  0% {
+    background-image: linear-gradient(to right, #80808000 1px, transparent 1px),
+      linear-gradient(to bottom, #80808000 1px, transparent 1px);
+  }
+  25% {
+    background-image: linear-gradient(to right, #80808016 1px, transparent 1px),
+      linear-gradient(to bottom, #80808000 1px, transparent 1px);
+  }
+  50% {
+    background-image: linear-gradient(to right, #80808016 1px, transparent 1px),
+      linear-gradient(to bottom, #80808012 1px, transparent 1px);
+  }
+  75% {
+    background-image: linear-gradient(to right, #80808000 1px, transparent 1px),
+      linear-gradient(to bottom, #80808012 1px, transparent 1px);
+  }
+  100% {
+    background-image: linear-gradient(to right, #80808016 1px, transparent 1px),
+      linear-gradient(to bottom, #80808012 1px, transparent 1px);
+  }
+}
+
+.scrolling-logos {
+  display: flex;
+  animation: scroll 10s linear infinite;
+  overflow: hidden;
+}
+
+.company-logo {
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+/* Infinite scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }

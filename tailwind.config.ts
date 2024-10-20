@@ -155,19 +155,34 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       animation: {
-        "infinite-scroll": "infinite-scroll 25s linear infinite",
+        "infinite-scroll": "scroll 25s linear infinite",
+        "infinite-scroll-y": "scroll-y 25s linear infinite",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        border: "border 4s linear infinite",
+        shine: "shine 3s linear infinite",
       },
       keyframes: {
         "infinite-scroll": {
-          from: { transform: "translateX(0)" },
+          from: { transform: "translateX(0%)" },
           to: { transform: "translateX(-100%)" },
         },
         scroll: {
           to: {
-            transform: "translate(calc(-50% - 0.5rem))",
+            transform: "translateX(calc(-50% - 2rem))",
           },
+        },
+        "scroll-y": {
+          to: {
+            transform: "translateY(calc(-50% - 1vw))",
+          },
+        },
+        border: {
+          to: { "--border-angle": "360deg" },
+        },
+        shine: {
+          "0%": { backgroundPosition: "200% 0%" },
+          "100%": { backgroundPosition: "-200% 0%" },
         },
       },
     },

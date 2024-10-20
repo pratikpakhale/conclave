@@ -91,7 +91,7 @@ export default function TestimonialForm() {
     >
       <Navbar />
 
-      <div className="absolute inset-0 bg-color1"></div>
+      {/* <div className="absolute inset-0 bg-color1"></div> */}
       <div
         className={`relative rounded-xl p-8 w-full max-w-4xl text-white 
                              transform transition-all duration-1000 ease-out ${isMounted ? "translate-y-0 scale-100 opacity-100" : "translate-y-20 scale-95 opacity-0"}`}

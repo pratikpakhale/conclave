@@ -34,7 +34,7 @@ const developers = [
     image: "/devteam/chinmay.webp",
     linkedin: "https://www.linkedin.com/in/chinma-yyy/",
     github: "https://github.com/chinma-yyy",
-    // twitter: "https://x.com/chinmayshewale",
+    twitter: "https://x.com/chinma_yyy",
   },
   {
     name: "Jaiyash Anmol",

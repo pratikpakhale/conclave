@@ -69,9 +69,13 @@ function Navbar() {
   return (
     <div className="w-full fixed top-0 px-spacing-1 pt-spacing-1 z-[100] left-0 flex justify-between p-4 nav-transition">
       <Reveal delay={0.2} width="fit-content" yPos={true}>
-        <motion.nav className="relative flex bg-white px-16px py-12px text-label items-center w-fit rounded-16px nav-transition">
+        <motion.nav
+          onMouseEnter={() => setHidden(false)}
+          onMouseLeave={() => setHidden(true)}
+          className="relative flex bg-white px-16px py-12px text-label items-center w-fit rounded-16px nav-transition"
+        >
           <div
-            onClick={() => setHidden(false)}
+            // onClick={() => setHidden(false)}
             className="w-8 h-8 overflow-hidden"
           >
             <Image

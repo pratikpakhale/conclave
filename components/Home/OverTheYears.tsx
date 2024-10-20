@@ -1,13 +1,9 @@
 "use client";
 import React, { useRef } from "react";
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { data1, data2, data3, data4 } from "@/data/over-the-years";
 import { useScroll, useTransform, motion, cubicBezier } from "framer-motion";
 import Link from "next/link";
-
-// gsap.registerPlugin(ScrollTrigger);
 
 export default function OverTheYears() {
   const targetRef = useRef(null);
@@ -47,53 +43,10 @@ export default function OverTheYears() {
     ease: cubicBezier(0.17, 0.67, 0.83, 0.67),
   });
 
-  // useEffect(() => {
-  //   const mainSection = document.querySelector(
-  //     "#over-the-years"
-  //   ) as HTMLElement;
-
-  //   const tl = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: "#over-the-years",
-  //       start: "top bottom", // Start when the section's top reaches the bottom of the viewport
-  //       end: "bottom top", // End when the bottom reaches the top of the viewport
-  //       scrub: 1,
-  //     },
-  //   });
-
-  //   tl.fromTo(
-  //     "#mask",
-  //     { maskSize: "150%" },
-  //     {
-  //       maskSize: "4000%",
-  //       scrollTrigger: {
-  //         trigger: "#over-the-years",
-  //         start: "center center",
-  //         //   end: () => "+=" + (mainSection?.offsetHeight ?? 0) / 6,
-  //         scrub: 1,
-  //       },
-  //     }
-  //   );
-
-  //   tl.fromTo(
-  //     ".opac",
-  //     { opacity: 0 },
-  //     {
-  //       opacity: 1,
-  //       scrollTrigger: {
-  //         trigger: "#over-the-years",
-  //         start: "center center",
-  //         end: () => "+=" + ((mainSection?.offsetHeight ?? 0) * 2) / 6,
-  //         scrub: 1,
-  //       },
-  //     }
-  //   );
-  // });
   const data11 = [...data1, ...data2];
   const data12 = [...data3, ...data4];
   return (
     <section className="block bg-text-col h-screen w-full relative">
-      {/* <div className="h-[50vh] z-[5] bg-[#ecf5ff] w-full"></div> */}
       <section
         id="over-the-years"
         className="h-[80vh] sm:h-[100vh] md:h-[180vh] top-[-40vh] sm:top-[-80vh] absolute"

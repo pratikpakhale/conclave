@@ -286,7 +286,8 @@ body {
 }
 
 .image {
-  filter: sepia(81%) saturate(82%) hue-rotate(240deg);
+  /* filter: sepia(81%) saturate(82%) hue-rotate(240deg); */
+  filter: grayscale(100%);
 }
 .image:hover {
   filter: none; /* turn the image green by desaturating it and shifting the colors by 120 degrees towards green, then increase the saturation to show only the green color */

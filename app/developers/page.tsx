@@ -124,11 +124,21 @@ const developers = [
     position: "Web Developer",
     image: "/devteam/chinmay.webp",
   },
+  {
+    name: "Jaiyash Anmol",
+    position: "Designer",
+    image: "/devteam/jaiyash.webp",
+  },
+  {
+    name: "Ashitosh",
+    position: "Designer",
+    image: "/devteam/ashitosh.webp",
+  },
 ];
 
 export default function DeveloperPage() {
   return (
-    <div className="bg-black min-h-screen flex flex-col items-center justify-center px-4">
+    <div className="bg-black min-h-screen flex flex-col pt-32 items-center justify-center px-4">
       <Navbar />
       <h1 className="text-4xl text-white mb-8 text-center">
         Meet the Development Team
@@ -137,25 +147,33 @@ export default function DeveloperPage() {
       {/* Developer Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {developers.map((developer) => (
-          <div
-            key={developer.name}
-            className="relative shadow-lg transition-transform transform hover:scale-105 group"
-          >
-            {/* Image with initial indigo overlay filter */}
-            <div className="relative overflow-hidden rounded-lg">
-              <Image
-                height={0}
-                width={0}
-                sizes="100%"
-                src={developer.image}
-                alt={developer.name}
-                className="w-full h-[28rem] object-cover rounded-lg image transition-[filter] duration-500"
-              />
-              {/* <div className="absolute inset-0 image transition-[filter] duration-500"></div> */}
-            </div>
+          <div key={developer?.name} className="[perspective:1000px] group">
+            <div className="transition-transform duration-300 relative [transform-style:preserve-3d;] group-hover:[transform:rotateY(180deg)]">
+              <div className="[backface-visibility:hidden]">
+                <div className="relative pointer-events-none">
+                  <div className="absolute mix-blend-color-dodge bg-[rgb(61_52_131)] top-0 left-0 bottom-0 right-0"></div>
+                  <Image
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                    src={developer.image}
+                    alt={developer.name}
+                    className="w-full h-[28rem] object-cover duration-500"
+                  />
+                </div>
+              </div>
+              {/* Image with initial indigo overlay filter */}
 
-            {/* Developer Details */}
-            <div className="bg-black p-4">
+              <div className="absolute [backface-visibility:hidden] top-0 bottom-0 left-0 right-0 [transform:rotateY(180deg)] backface-hidden bg-[rgb(16_16_16)] p-5 flex flex-col justify-center">
+                <div className="body-semibold text-white whitespace-pre-line">
+                  Degree in Engineering Physics, 3+ years of R&amp;D experience
+                  in Machine Learning and Data Analysis. Blockchain enthusiast.
+                </div>
+                <div className="flex text-white -ml-3"></div>
+              </div>
+              {/* Developer Details */}
+            </div>
+            <div className="bg-black p-4 font-semibold">
               <h2 className="text-xl text-white font-semibold">
                 {developer.name}
               </h2>

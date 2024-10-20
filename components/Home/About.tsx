@@ -8,7 +8,7 @@ export default function About() {
       className="w-full px-8px sm:px-16px md:px-24px lg:px-28px xl:px-48px flex flex-col gap-24px py-20 text-text-col bg-color1"
     >
       <Reveal delay={0.3} width="100%" yPos={true}>
-        <div className="text-h2 max-w-7xl w-full mx-auto mb-16px">About</div>
+        <div className="text-h2 max-w-7xl w-full mx-auto mb-4px">About</div>
       </Reveal>
       <Reveal delay={0.5} width="100%" yPos={true}>
         <div className="relative max-w-7xl w-full mx-auto">

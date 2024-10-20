@@ -1,138 +1,56 @@
-// "use client";
-// import React from "react";
-
-// const developers = [
-//   {
-//     name: "Nikhil Karthik",
-//     position: "Web Developer",
-//     image: "/devteam/nikhil.webp",
-//   },
-//   {
-//     name: "Pratik Pakhale",
-//     position: "Web Developer",
-//     image: "/devteam/pakhale.webp",
-//   },
-//   {
-//     name: "Ashith Shetty",
-//     position: "Web Developer",
-//     image: "/devteam/ashith.webp",
-//   },
-//   {
-//     name: "Chinmay Shewale",
-//     position: "Web Developer",
-//     image: "/devteam/chinmay.webp",
-//   },
-// ];
-
-// export default function DeveloperPage() {
-//   return (
-//     <div className="bg-black min-h-screen flex flex-col items-center justify-center px-4">
-//       <h1 className="text-4xl text-white mb-8 text-center">
-//         Meet the Development Team
-//       </h1>
-
-//       {/* Developer Cards */}
-//       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-//         {" "}
-//         {/* Responsive grid layout */}
-//         {developers.map((developer) => (
-//           <div
-//             key={developer.name}
-//             className="relative shadow-lg transition-transform transform hover:scale-105 group"
-//           >
-//             {/* Image with glitch effect, purple overlay, and indigo filter */}
-//             <div className="relative overflow-hidden rounded-lg">
-//               <img
-//                 src={developer.image}
-//                 alt={developer.name}
-//                 className="w-full h-[28rem] object-cover rounded-lg transition-all duration-300 ease-in-out group-hover:scale-110 filter group-hover:contrast-125 group-hover:brightness-75"
-//               />
-//               <div className="absolute inset-0 bg-indigo-400 mix-blend-multiply opacity-30 rounded-lg"></div>
-//               <div className="absolute top-0 left-0 w-full h-full glitch group-hover:opacity-100"></div>{" "}
-//               {/* Glitch effect */}
-//             </div>
-
-//             {/* Developer Details */}
-//             <div className="bg-black p-4">
-//               <h2 className="text-xl text-white font-semibold">
-//                 {developer.name}
-//               </h2>{" "}
-//               {/* Bold name */}
-//               <p className="text-md text-gray-400">{developer.position}</p>{" "}
-//               {/* Position text */}
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* Glitch effect styles */}
-//       <style jsx>{`
-//         .glitch {
-//           background: linear-gradient(
-//             45deg,
-//             rgba(255, 0, 150, 0.5),
-//             rgba(0, 255, 255, 0.5)
-//           );
-//           mix-blend-mode: screen;
-//           opacity: 0;
-//           transition: opacity 0.3s ease-in-out;
-//           animation: glitch 1s infinite alternate-reverse;
-//         }
-
-//         @keyframes glitch {
-//           0% {
-//             clip-path: inset(5% 0 95% 0);
-//             transform: translate(-2px, -2px);
-//           }
-//           50% {
-//             clip-path: inset(95% 0 0 0);
-//             transform: translate(2px, 2px);
-//           }
-//           100% {
-//             clip-path: inset(0 0 5% 0);
-//             transform: translate(-2px, -2px);
-//           }
-//         }
-//       `}</style>
-//     </div>
-//   );
-// }
-
-"use client";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import React from "react";
+import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa"; // Importing icons for LinkedIn, GitHub, and X (Twitter)
 
 const developers = [
   {
     name: "Nikhil Karthik",
-    position: "Web Developer",
+    position: "Full Stack Developer",
     image: "/devteam/nikhil.webp",
+    linkedin: "https://www.linkedin.com/in/nikhilkarthik24/",
+    github: "https://github.com/C-NikhilKarthik",
+    twitter: "https://x.com/nikhilkarthik24",
   },
   {
     name: "Pratik Pakhale",
-    position: "Web Developer",
+    position: "Full Stack Developer",
     image: "/devteam/pakhale.webp",
+    linkedin: "https://www.linkedin.com/in/pratikpakhale/",
+    github: "https://github.com/pratikpakhale",
+    twitter: "https://x.com/pratikpakhale",
   },
   {
     name: "Ashith Shetty",
-    position: "Web Developer",
+    position: "Full Stack Developer",
     image: "/devteam/ashith.webp",
+    linkedin: "https://www.linkedin.com/in/ashith1101/",
+    github: "https://github.com/ashith1101",
+    // twitter: "https://x.com/ashithshetty",
   },
   {
     name: "Chinmay Shewale",
-    position: "Web Developer",
+    position: "Backend Developer",
     image: "/devteam/chinmay.webp",
+    linkedin: "https://www.linkedin.com/in/chinma-yyy/",
+    github: "https://github.com/chinmayshewale",
+    twitter: "https://x.com/chinmayshewale",
   },
   {
     name: "Jaiyash Anmol",
-    position: "Designer",
+    position: "UI/UX Designer",
     image: "/devteam/jaiyash.webp",
+    linkedin: "https://www.linkedin.com/in/jaiyash-anmol-ratn-024abb22b/",
+    github: "https://github.com/jaiyashanmol",
+    twitter: "https://x.com/jaiyashanmol",
   },
   {
-    name: "Ashitosh",
-    position: "Designer",
+    name: "Ashitosh Sable",
+    position: "UI/UX Designer",
     image: "/devteam/ashitosh.webp",
+    linkedin: "https://www.linkedin.com/in/ashitosh-madhukar-sable/",
+    github: "https://github.com/ashitoshsable",
+    twitter: "https://x.com/ashitoshsable",
   },
 ];
 
@@ -148,7 +66,8 @@ export default function DeveloperPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {developers.map((developer) => (
           <div key={developer?.name} className="[perspective:1000px] group">
-            <div className="transition-transform duration-300 relative [transform-style:preserve-3d;] group-hover:[transform:rotateY(180deg)]">
+            <div className="transition-transform cursor-pointer duration-300 relative [transform-style:preserve-3d;] group-hover:[transform:rotateY(180deg)]">
+              {/* Front Side */}
               <div className="[backface-visibility:hidden]">
                 <div className="relative pointer-events-none">
                   <div className="absolute mix-blend-color-dodge bg-[rgb(61_52_131)] top-0 left-0 bottom-0 right-0"></div>
@@ -162,17 +81,42 @@ export default function DeveloperPage() {
                   />
                 </div>
               </div>
-              {/* Image with initial indigo overlay filter */}
 
+              {/* Back Side - Social Links */}
               <div className="absolute [backface-visibility:hidden] top-0 bottom-0 left-0 right-0 [transform:rotateY(180deg)] backface-hidden bg-[rgb(16_16_16)] p-5 flex flex-col justify-center">
-                <div className="body-semibold text-white whitespace-pre-line">
-                  Degree in Engineering Physics, 3+ years of R&amp;D experience
-                  in Machine Learning and Data Analysis. Blockchain enthusiast.
+                <div className="flex justify-around space-x-4 text-white">
+                  {developer.linkedin && (
+                    <a
+                      href={developer.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaLinkedin size={30} className="hover:text-blue-400" />
+                    </a>
+                  )}
+                  {developer.github && (
+                    <a
+                      href={developer.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaGithub size={30} className="hover:text-gray-400" />
+                    </a>
+                  )}
+                  {developer.twitter && (
+                    <a
+                      href={developer.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaTwitter size={30} className="hover:text-blue-500" />
+                    </a>
+                  )}
                 </div>
-                <div className="flex text-white -ml-3"></div>
               </div>
-              {/* Developer Details */}
             </div>
+
+            {/* Developer Details */}
             <div className="bg-black p-4 font-semibold">
               <h2 className="text-xl text-white font-semibold">
                 {developer.name}

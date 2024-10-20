@@ -72,11 +72,11 @@ function Navbar() {
         <motion.nav
           onMouseEnter={() => setHidden(false)}
           onMouseLeave={() => setHidden(true)}
-          className="relative flex bg-white px-16px py-12px text-label items-center w-fit rounded-16px nav-transition"
+          className="relative flex bg-white px-12px py-12px text-label items-center w-fit rounded-16px nav-transition"
         >
           <div
             // onClick={() => setHidden(false)}
-            className="w-8 h-8 overflow-hidden"
+            className="w-10 h-10 overflow-hidden"
           >
             <Image
               src="/Brandlogo.png"

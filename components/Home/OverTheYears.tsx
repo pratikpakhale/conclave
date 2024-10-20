@@ -65,13 +65,10 @@ export default function OverTheYears() {
               <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y">
                 {data1?.map((item, index) => (
                   <div key={index} className="opac rounded-lg w-full">
-                    <Image
+                    <img
                       className="h-auto w-full object-cover"
                       alt="image1"
                       src={`/over-the-years/` + item}
-                      height={0}
-                      width={0}
-                      sizes="100%"
                     />
                   </div>
                 ))}

@@ -18,7 +18,7 @@ const developers = [
     image: "/devteam/pakhale.webp",
     linkedin: "https://www.linkedin.com/in/pratikpakhale/",
     github: "https://github.com/pratikpakhale",
-    twitter: "https://x.com/pratikpakhale",
+    twitter: "https://x.com/_pratikpakhale",
   },
   {
     name: "Ashith Shetty",
@@ -33,8 +33,8 @@ const developers = [
     position: "Backend Developer",
     image: "/devteam/chinmay.webp",
     linkedin: "https://www.linkedin.com/in/chinma-yyy/",
-    github: "https://github.com/chinmayshewale",
-    twitter: "https://x.com/chinmayshewale",
+    github: "https://github.com/chinma-yyy",
+    // twitter: "https://x.com/chinmayshewale",
   },
   {
     name: "Jaiyash Anmol",
@@ -42,15 +42,15 @@ const developers = [
     image: "/devteam/jaiyash.webp",
     linkedin: "https://www.linkedin.com/in/jaiyash-anmol-ratn-024abb22b/",
     github: "https://github.com/jaiyashanmol",
-    twitter: "https://x.com/jaiyashanmol",
+    // twitter: "https://x.com/jaiyashanmol",
   },
   {
     name: "Ashitosh Sable",
     position: "UI/UX Designer",
     image: "/devteam/ashitosh.webp",
     linkedin: "https://www.linkedin.com/in/ashitosh-madhukar-sable/",
-    github: "https://github.com/ashitoshsable",
-    twitter: "https://x.com/ashitoshsable",
+    github: "https://github.com/ashitoshsable/",
+    twitter: "https://x.com/ashitosh_png",
   },
 ];
 

@@ -8,8 +8,8 @@ import LandingComponent from "./LandingCompnent";
 export default function HeroSection() {
   // Set initial state without accessing window properties
   const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0,
+    x: typeof window !== "undefined" ? window.innerWidth / 2 : 0,
+    y: typeof window !== "undefined" ? window.innerHeight / 2 : 0,
   });
 
   useEffect(() => {
@@ -44,20 +44,33 @@ export default function HeroSection() {
       : 0;
 
   return (
-    <>
-      {companies.map((company: Companies, index) => {
-        return (
-          <LandingComponent
-            key={index}
-            right={company.right}
-            top={company.top}
-            transform={`translate3d(${moveX * ((index % 10) + 1) * 20}px, ${
-              moveY * (index % 10) * 20
-            }px, 0px)`}
-            icon={company.name}
-          />
-        );
-      })}
-    </>
+    <div className="absolute w-full h-full">
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] transition-all duration-500 ease-out"
+        style={{
+          background: `radial-gradient(440px at ${mousePosition.x}px ${
+            mousePosition.y +
+            (typeof window !== "undefined" ? window.pageYOffset : 0)
+          }px, #15151744, transparent 70%)`,
+          transition: "background 0.5s ease", // Smooth transition for background position
+        }}
+      ></div>
+      <div className="absolute bg-[url('/hero-bg.svg')] bg-cover h-full w-full z-[2]"></div>
+      <div className="hidden md:block">
+        {companies.map((company: Companies, index) => {
+          return (
+            <LandingComponent
+              key={index}
+              right={company.right}
+              top={company.top}
+              transform={`translate3d(${moveX * ((index % 5) + 1) * 40}px, ${
+                moveY * ((index % 5) + 1) * 40
+              }px, 0px)`}
+              icon={company.name}
+            />
+          );
+        })}
+      </div>
+    </div>
   );
 }

@@ -6,7 +6,7 @@ export default function LandingComponent(props: LandingComponents) {
 
   return (
     <a
-      className={`absolute -translate-y-1/2 hover:text-[#537299] cursor-pointer rounded-lg hover:scale-150 hover:z-[1000] component-transition hover:shadow-hover-landing shadow-landing z-10 text-[#ecf5ff7b]`}
+      className={`absolute -translate-y-1/2 hover:text-[#000] cursor-pointer rounded-lg hover:scale-125 hover:z-[6] component-transition z-[5] text-[#797777]`}
       style={{
         transformStyle: "preserve-3d",
         backfaceVisibility: "hidden",
@@ -16,7 +16,9 @@ export default function LandingComponent(props: LandingComponents) {
         transform: props?.transform, // Apply the transform prop directly
       }}
     >
-      {Icon && <Icon size={44} />} {/* Render the icon if it exists */}
+      {Icon && (
+        <Icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+      )}
     </a>
   );
 }

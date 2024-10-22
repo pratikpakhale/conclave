@@ -20,7 +20,7 @@ export default function Reveal({
 }: Props) {
   const ref = useRef(null);
   const mainControls = useAnimation();
-  const inView = useInView(ref, { once: once });
+  const inView = useInView(ref, { margin: "0px 0px -20%", once: once });
 
   useEffect(() => {
     if (inView) {

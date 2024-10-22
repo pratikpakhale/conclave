@@ -2,7 +2,6 @@ import React from "react";
 // import TestimonialCarousel from "./TestimonialCarousel";
 import { testimonials1 } from "@/data/companies";
 import Image from "next/image";
-import TestimonialCarousel from "./TestimonialCarousel";
 
 export default function Testimonials() {
   return (

@@ -186,14 +186,14 @@ const LinkedInCarousel: React.FC<PropType> = ({ options }) => {
       </div>
 
       <button
-        className="hidden md:flex md:absolute bg-slate-900/20 rounded md:top-1/2 md:-translate-y-1/2 md:cursor-pointer md:p-1 md:rounded md:left-2"
+        className="hidden md:flex md:absolute bg-slate-900/20 z-[5] rounded md:top-1/2 md:-translate-y-1/2 md:cursor-pointer md:p-1 md:rounded md:left-2"
         onClick={onPrevButtonClick}
         disabled={emblaApi?.canScrollPrev() === false}
       >
         <ChevronLeft size={32} />
       </button>
       <button
-        className="hidden md:flex md:absolute bg-slate-900/20 rounded md:top-1/2 md:-translate-y-1/2 md:cursor-pointer md:p-1 md:rounded md:right-2"
+        className="hidden md:flex md:absolute bg-slate-900/20 z-[5] rounded md:top-1/2 md:-translate-y-1/2 md:cursor-pointer md:p-1 md:rounded md:right-2"
         onClick={onNextButtonClick}
         disabled={emblaApi?.canScrollNext() === false}
       >
@@ -217,7 +217,7 @@ const LinkedInCarousel: React.FC<PropType> = ({ options }) => {
             <ChevronRight size={24} />
           </button>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 z-[5]">
           {scrollSnaps.map((_, index) => (
             <button
               key={index}

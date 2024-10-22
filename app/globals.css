@@ -18,6 +18,15 @@
 }
 
 @font-face {
+  font-family: "SF Pro";
+  src: url("./fonts/SF-Pro-Text-Medium.otf") format("OpenType");
+}
+
+.font-pro {
+  font-family: "SF Pro", sans-serif;
+}
+
+@font-face {
   font-family: FK;
   src: url("./fonts/FKGroteskNeueTrial.otf") format("opentype");
 }
@@ -229,12 +238,12 @@ body {
 }
 
 @layer base {
-  /* * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-    } */
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-black text-foreground;
+  }
 
   * {
     /* border: 1px red dotted !important; */
@@ -274,7 +283,7 @@ body {
   z-index: 5;
 }
 .masker {
-  background-image: url("/mainmask.png");
+  background-image: url("/mainmaskdark.png");
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -393,26 +402,45 @@ body {
   }
 }
 
-.bg-animation {
-  animation: bg-animation 10s linear infinite;
-}
-
 @keyframes bg-animation {
   0% {
-    mask-image: radial-gradient(circle, transparent, black);
-  }
-  25% {
-    mask-image: radial-gradient(circle, black, transparent, black);
+    background: linear-gradient(
+      0deg,
+      black,
+      #151517,
+      #323235 90%,
+      #151517,
+      black
+    );
   }
   50% {
-    mask-image: radial-gradient(circle, black, transparent, black);
+    background: linear-gradient(
+      0deg,
+      black,
+      #151517,
+      #323235 90%,
+      black,
+      #323235 90%,
+      #151517,
+      black
+    );
   }
-  75% {
-    mask-image: radial-gradient(circle, transparent, black);
-  }
+
   100% {
-    mask-image: radial-gradient(circle, transparent, black);
+    background: linear-gradient(
+      0deg,
+      black 80%,
+      /* #151517 86%,
+      #323235 90%,
+      #151517 94%, */ black
+    );
   }
+}
+
+/* Updated bg-animation class */
+.bg-animation {
+  animation: bg-animation 3s linear infinite;
+  transition: background 0.5s ease; /* You can keep this if needed */
 }
 
 .grid-container {

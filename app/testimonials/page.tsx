@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { createTestimonial } from "../actions/testimonials";
 import { useFormStatus } from "react-dom";
 import Navbar from "@/components/Navbar";
+import { FaFileUpload } from "react-icons/fa";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -49,6 +50,7 @@ function SubmitButton() {
 
 export default function TestimonialForm() {
   const formRef = useRef<HTMLFormElement | null>(null);
+  const [photo, setPhoto] = useState<File | null>(null);
   const router = useRouter();
 
   async function handleSubmit(formData: FormData) {
@@ -82,6 +84,7 @@ export default function TestimonialForm() {
     if (files && files.length > 0) {
       const fileName = files[0].name;
       setFileNames((prev) => ({ ...prev, [name]: fileName }));
+      setPhoto(files[0]);
     }
   };
 
@@ -136,7 +139,7 @@ export default function TestimonialForm() {
                   <input
                     name="email"
                     className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
-                    placeholder="johndoe@gmail.com"
+                    placeholder="personal email"
                   />
                 </div>
               </div>
@@ -238,14 +241,41 @@ export default function TestimonialForm() {
           <div className="space-y-6">
             <div>
               <label className="block mb-2" htmlFor="photo">
-                Photo (Optional but Encouraged):
+                Photo
               </label>
               <div className="flex items-center justify-center w-full">
                 <label
                   htmlFor="photo"
                   className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer bg-gray-700/20 hover:bg-gray-700/40 transition"
                 >
-                  <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                  <div
+                    style={{
+                      backgroundImage: photo
+                        ? `url(${URL.createObjectURL(photo)})`
+                        : "none",
+                    }}
+                    className="flex flex-col items-center bg-contain bg-no-repeat bg-center justify-center w-full h-full"
+                  >
+                    <div className="flex flex-col items-center p-2 bg-[#171717a1] w-full h-full justify-center pt-5 pb-6">
+                      <FaFileUpload className="text-gray-200 text-28px mb-16px" />
+                      <p className="mb-2 text-sm text-gray-200">
+                        <span className="font-semibold">Click to upload</span>
+                        or drag and drop
+                      </p>
+                      <p className="text-xs text-gray-200">
+                        SVG, PNG, JPG or GIF (MAX. 800x400px)
+                      </p>
+                    </div>
+                    <input
+                      id="photo"
+                      type="file"
+                      name="photo"
+                      onChange={handleFileChange}
+                      className="hidden"
+                      required
+                    />
+                  </div>
+                  {/* <div className="flex flex-col items-center justify-center pt-5 pb-6">
                     <svg
                       className="w-8 h-8 mb-4 text-gray-400"
                       xmlns="http://www.w3.org/2000/svg"
@@ -273,14 +303,14 @@ export default function TestimonialForm() {
                     <p className="text-xs text-gray-400">
                       {fileNames.photo || "Max size: 10MB"}
                     </p>
-                  </div>
-                  <input
+                  </div> */}
+                  {/* <input
                     id="photo"
                     name="photo"
                     type="file"
                     className="hidden"
                     onChange={handleFileChange}
-                  />
+                  /> */}
                 </label>
               </div>
             </div>
@@ -323,6 +353,21 @@ export default function TestimonialForm() {
                     className="hidden"
                     onChange={handleFileChange}
                   />
+                </label>
+              </div>
+            </div>
+
+            <div className="val flex w-full mt-4 text-[1.3rem]">
+              <div className="flex items-start w-full">
+                <input
+                  id="consent"
+                  name="consent"
+                  type="checkbox"
+                  className="w-4 h-4 rounded border-gray-600 bg-gray-700"
+                />
+                <label htmlFor="consent" className="ml-2 text-sm text-gray-400">
+                  I agree to allow IIIT Dharwad to use my details for the event
+                  and future correspondence.
                 </label>
               </div>
             </div>

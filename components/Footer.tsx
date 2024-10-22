@@ -2,7 +2,6 @@
 import { useRef } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
 import Link from "next/link";
-import LinkedInCarousel from "./Linkedin/EmblaCarousel";
 
 export default function Page() {
   const container = useRef(null);

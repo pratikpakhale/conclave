@@ -48,7 +48,7 @@ export default function Home() {
         <About />
         <Connect />
         <LinkedInMain />
-        <TestimonialsPage />
+        {/* <TestimonialsPage /> */}
         {/* <TestimonialMain /> */}
         <TimeLine />
         <OverTheYears />

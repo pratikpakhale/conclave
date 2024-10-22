@@ -93,7 +93,7 @@ const config: Config = {
         urbanist: ["Urbanist", "sans-serif"],
       },
       colors: {
-        color1: "#151517",
+        color1: "#000000",
         "text-col": "#e8e8e8",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

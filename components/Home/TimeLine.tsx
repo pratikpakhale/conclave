@@ -1,5 +1,6 @@
 import React from "react";
 import TimelineComponent from "./TimelineComponent";
+import ScrollReveal from "../ScrollReveal";
 // import Header from "../Header";
 
 export default function TimeLine() {
@@ -10,14 +11,20 @@ export default function TimeLine() {
       className="w-full px-2 z-[-1] relative sm:px-4 text-slate-100 items-center pb-20 bg-color1 md:px-10 lg:px-24 xl:px-44 flex flex-col"
     >
       {/* <Header text="Timeline" /> */}
-      <div className="bg-color1 px-4 py-20 w-full flex items-center gap-2 flex-col">
-        <div className="text-28px font-semibold">
-          The HR Conclave 2024 unfolds with a day packed with insightful events.
-        </div>
-        <div className="text-16px">
-          Here&apos;s how the day will go… Buckle up for an enriching
-          experience!
-        </div>
+      <div className="bg-color1 px-4 py-20 w-full text-center flex items-center gap-2 flex-col">
+        <ScrollReveal>
+          <div className="text-28px font-bold">IIIT Dharwad Conclave 2024</div>
+        </ScrollReveal>
+        <ScrollReveal>
+          <div className="text-48px font-bold leading-[1.1] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
+            A day packed with insightful events.
+          </div>
+        </ScrollReveal>
+        <ScrollReveal>
+          <div className="text-20px">
+            Discover the schedule and get ready for an enriching experience!
+          </div>
+        </ScrollReveal>
       </div>
 
       <div className="relative flex flex-col items-left justify-center w-full">
@@ -25,7 +32,7 @@ export default function TimeLine() {
           <div className="fixed left-auto top-0 right-auto bottom-[50vh] z-[-1] w-[3px] h-[50vh] bg-white bg-[linear-gradient(180deg,_theme(colors.indigo.500)_50%,_theme(colors.blue.300),_theme(colors.indigo.500))]"></div>
         </div>
 
-        <TimelineComponent
+        {/* <TimelineComponent
           time="9:30 AM"
           heading="Inaugural Session"
           content={
@@ -153,6 +160,16 @@ export default function TimeLine() {
                 leaders.
               </li>
             </ul>
+          }
+        /> */}
+
+        <TimelineComponent
+          time="Coming Soon"
+          heading="Conclave Event - 9th & 10th November"
+          content={
+            <div className="py-3">
+              <p>Details for this event will be announced soon. Stay tuned!</p>
+            </div>
           }
         />
       </div>

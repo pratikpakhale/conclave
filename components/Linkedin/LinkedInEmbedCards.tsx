@@ -12,7 +12,7 @@ const LinkedInEmbedCards: React.FC<LinkedInEmbedCardsProps> = ({
 
   return (
     <div className="embla__slide">
-      <div className="slide_number_main flex w-[504px] h-[500px] flex-col relative p-10 border bg-white rounded gap-10">
+      <div className="slide_number_main flex w-[504px] h-[500px] flex-col relative p-10 border bg-white rounded-12px gap-10">
         <iframe
           src={embedUrl}
           height="400px"

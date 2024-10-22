@@ -3,8 +3,6 @@
 import { useLenis } from "@studio-freight/react-lenis";
 import { NavbarContext } from "@/context/NavbarContext";
 import React, { useState, useContext } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { IoClose } from "react-icons/io5";
 import Link from "next/link";
 import Reveal from "./Reveal";
 import Image from "next/image";
@@ -18,18 +16,6 @@ import { MenuToggle } from "./MenuToggle";
 
 const navs = [
   {
-    href: "/",
-    name: "Home",
-  },
-  {
-    href: "/testimonials",
-    name: "Testimonials",
-  },
-  {
-    href: "/rsvp",
-    name: "RSVP",
-  },
-  {
     href: "/attendees",
     name: "Attendees",
   },
@@ -38,15 +24,25 @@ const navs = [
     name: "Committee",
   },
   {
+    href: "/rsvp",
+    name: "RSVP",
+  },
+  {
+    href: "/sponsorship",
+    name: "Sponsorship",
+  },
+  {
+    href: "/testimonials",
+    name: "Testimonials",
+  },
+  {
     href: "/developers",
     name: "Team",
   },
 ];
 
-// Header component
 function Navbar() {
   const { option, setOption } = useContext(NavbarContext);
-  // const [open, setOpen] = useState(false);
   const lenis = useLenis(({}) => {});
   const [open, toggleOpen] = useCycle(false, true);
 
@@ -62,30 +58,29 @@ function Navbar() {
   });
 
   const [hidden, setHidden] = useState(false);
-  // const [open, setOpen] = useState(false);
-
-  // const Icon = open ? IoClose : RxHamburgerMenu;
 
   return (
     <div className="w-full fixed top-0 px-spacing-1 pt-spacing-1 z-[100] left-0 flex justify-between p-4 nav-transition">
-      <Reveal delay={0.2} width="fit-content" yPos={true}>
+      <Reveal delay={0.3} width="fit-content" yPos={true}>
         <motion.nav
           onMouseEnter={() => setHidden(false)}
           onMouseLeave={() => setHidden(true)}
-          className="relative flex bg-white px-12px py-12px text-label items-center w-fit rounded-16px nav-transition"
+          className="relative flex text-white [background:linear-gradient(45deg,#151517,theme(colors.slate.800)_50%,#151517)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.indigo.500)_86%,_theme(colors.indigo.300)_90%,_theme(colors.indigo.500)_94%,_theme(colors.slate.600/.48))_border-box] border-transparent bg-color1 border-[2px] animate-border px-12px py-12px text-label items-center w-fit rounded-16px nav-transition"
         >
           <div
             // onClick={() => setHidden(false)}
-            className="w-10 h-10 overflow-hidden"
+            className="w-10 h-10 overflow-hidden rounded-8px"
           >
-            <Image
-              src="/Brandlogo.png"
-              alt="Logo"
-              className="h-full w-full object-cover"
-              width={0}
-              height={0}
-              sizes="100%"
-            />
+            <Link href={"/"}>
+              <Image
+                src="/Brandlogo.png"
+                alt="Logo"
+                className="h-full w-full object-cover"
+                width={0}
+                height={0}
+                sizes="100%"
+              />
+            </Link>
           </div>
           <motion.div
             variants={{
@@ -136,14 +131,6 @@ function Navbar() {
         animate={open ? "open" : "closed"}
         className="bg-white absolute z-[101] left-1/2 -translate-x-1/2 justify-center px-16px py-16px text-h4 rounded-16px w-fit h-fit flex md:hidden flex-col items-center"
       >
-        {/* <Icon
-          size={24}
-          onClick={() => {
-            setOpen(!open);
-            console.log(open);
-          }}
-          className="flex cursor-pointer w-fit md:hidden"
-        /> */}
         <MenuToggle toggle={() => toggleOpen()} />
 
         <motion.div
@@ -198,12 +185,6 @@ function Navbar() {
           className="relative [background:linear-gradient(45deg,#151517,theme(colors.slate.800)_50%,#151517)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.indigo.500)_86%,_theme(colors.indigo.300)_90%,_theme(colors.indigo.500)_94%,_theme(colors.slate.600/.48))_border-box] border-transparent animate-border bg-color1 border-[2px] flex justify-center items-center border-text-col px-24px py-12px text-white text-16px rounded-16px"
           href={"/contact"}
         >
-          {/* <Button
-          borderRadius="1.75rem"
-          className="text-text-col border-sky-500/10 cursor-pointer "
-        >
-          Get in Touch
-        </Button> */}
           Get in touch
         </Link>
       </Reveal>

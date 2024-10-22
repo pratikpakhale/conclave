@@ -115,20 +115,26 @@ export default function ContactUsForm() {
                 </div>
               </div>
 
-              <div className="py-40">
+              <div className="mt-20 relative">
+                <button className=" bg-text-col text-color1 rounded-8px py-8px w-full flex items-center justify-center">
+                  <p className="z-[2] relative">Contact Placement Officer</p>
+                </button>
+              </div>
+
+              {/* <div className="py-40">
                 <div className="border-b border-b-gray-500 pb-[100px] relative">
                   <motion.div
                     style={{ x }}
-                    className="absolute right-0 -translate-y-1/2"
+                    className="absolute right-0 bottom-0"
                   >
-                    <button className="w-[150px] md:w-[180px] aspect-square bg-[#8a84e3] text-white rounded-full absolute flex items-center justify-center">
+                    <button className="w-[150px] md:w-[180px] bg-[#2725a2] text-white rounded-full absolute flex items-center justify-center">
                       <p className="z-[2] relative">
                         Contact Placement Officer
                       </p>
                     </button>
                   </motion.div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="w-[300px] pl-10 text-sm flex-none">

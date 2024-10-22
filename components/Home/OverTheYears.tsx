@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { data1, data2, data3, data4 } from "@/data/over-the-years";
 import { useScroll, useTransform, motion, cubicBezier } from "framer-motion";
@@ -45,11 +45,12 @@ export default function OverTheYears() {
 
   const data11 = [...data1, ...data2];
   const data12 = [...data3, ...data4];
+
   return (
     <section className="block bg-text-col h-screen w-full relative">
       <section
         id="over-the-years"
-        className="h-[80vh] sm:h-[100vh] md:h-[180vh] top-[-40vh] sm:top-[-80vh] absolute"
+        className="h-[80vh] sm:h-[100vh] md:h-[180vh] top-[-40vh] sm:top-[-80vh] absolute w-full"
       >
         <motion.div
           id="mask"
@@ -57,97 +58,107 @@ export default function OverTheYears() {
           style={{ maskSize: size }}
           className="flex w-full items-center justify-center overflow-hidden sticky top-0 h-[180%] md:h-[160%] mask-years"
         >
-          <div className="bg-black h-full w-full flex grayscale relative object-cover gap-[2vw] p-[2vw] overflow-hidden justify-center items-center">
+          <div className="bg-black h-full w-full flex relative object-cover gap-[2vw] p-[2vw] overflow-hidden justify-center items-center">
             <motion.div
               style={{ opacity: opacity }}
-              className="min-w-40 w-[30%] overflow-hidden max-md:hidden h-full relative"
+              className="min-w-40 w-[30%] overflow-hidden  h-full relative"
             >
-              <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y">
+              <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y direction-reverse">
                 {data1?.map((item, index) => (
-                  <div key={index} className="opac rounded-lg w-full">
-                    <img
-                      className="h-auto w-full object-cover"
-                      alt="image1"
-                      src={`/over-the-years/` + item}
-                    />
-                  </div>
+                  <Image
+                    className={`h-auto w-full object-cover rounded-lg`}
+                    alt="image1"
+                    src={`/over-the-years/${item}`}
+                    key={index}
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                    placeholder="blur"
+                    blurDataURL="/over-the-years/loading.jpg"
+                  />
                 ))}
               </div>
             </motion.div>
             <motion.div
               style={{ opacity: opacity }}
-              className="min-w-40 w-[30%] overflow-hidden max-md:hidden h-full relative"
-            >
-              <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y direction-reverse">
-                {data2?.map((item, index) => (
-                  <div key={index} className="opac rounded-lg w-full">
-                    <Image
-                      className="h-auto w-full object-cover"
-                      alt="image1"
-                      src={`/over-the-years/` + item}
-                      height={0}
-                      width={0}
-                      sizes="100%"
-                    />
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div
-              style={{ opacity: opacity }}
-              className="min-w-40 w-[30%] overflow-hidden max-md:hidden h-full relative"
+              className="min-w-40 w-[30%] overflow-hidden  h-full relative"
             >
               <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y">
-                {data3?.map((item, index) => (
-                  <div key={index} className="opac rounded-lg w-full">
-                    <Image
-                      className="h-auto w-full object-cover"
-                      alt="image1"
-                      src={`/over-the-years/` + item}
-                      height={0}
-                      width={0}
-                      sizes="100%"
-                    />
-                  </div>
+                {data2?.map((item, index) => (
+                  <Image
+                    className={`h-auto w-full object-cover rounded-lg`}
+                    alt="image1"
+                    src={`/over-the-years/${item}`}
+                    key={index}
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                    placeholder="blur"
+                    blurDataURL="/over-the-years/loading.jpg"
+                  />
                 ))}
               </div>
             </motion.div>
             <motion.div
               style={{ opacity: opacity }}
-              className="min-w-40 w-[30%] overflow-hidden max-md:hidden h-full relative"
+              className="min-w-40 w-[30%] overflow-hidden  h-full relative"
             >
               <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y direction-reverse">
-                {data4?.map((item, index) => (
-                  <div key={index} className="opac rounded-lg w-full">
-                    <Image
-                      className="h-auto w-full object-cover"
-                      alt="image1"
-                      src={`/over-the-years/` + item}
-                      height={0}
-                      width={0}
-                      sizes="100%"
-                    />
-                  </div>
+                {data1?.map((item, index) => (
+                  <Image
+                    className={`h-auto w-full object-cover rounded-lg`}
+                    alt="image1"
+                    src={`/over-the-years/${item}`}
+                    key={index}
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                    placeholder="blur"
+                    blurDataURL="/over-the-years/loading.jpg"
+                  />
+                ))}
+              </div>
+            </motion.div>
+            <motion.div
+              style={{ opacity: opacity }}
+              className="min-w-40 w-[30%] overflow-hidden h-full relative"
+            >
+              <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y">
+                {data2?.map((item, index) => (
+                  <Image
+                    className={`h-auto w-full object-cover rounded-lg`}
+                    alt="image1"
+                    src={`/over-the-years/${item}`}
+                    key={index}
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                    placeholder="blur"
+                    blurDataURL="/over-the-years/loading.jpg"
+                  />
                 ))}
               </div>
             </motion.div>
 
-            <motion.div
+            {/* mobile */}
+
+            {/* <motion.div
               style={{ opacity: opacity }}
               className="min-w-40 w-[50%] overflow-hidden md:hidden h-full relative"
             >
               <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y">
                 {data11?.map((item, index) => (
-                  <div key={index} className="opac rounded-lg w-full">
-                    <Image
-                      className="h-auto w-full object-cover"
-                      alt="image1"
-                      src={`/over-the-years/` + item}
-                      height={0}
-                      width={0}
-                      sizes="100%"
-                    />
-                  </div>
+                  <Image
+                    className={`h-auto w-full object-cover rounded-lg`}
+                    alt="image1"
+                    src={`/over-the-years/${item}`}
+                    key={index}
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                    placeholder="blur"
+                    blurDataURL="/over-the-years/loading.jpg"
+                  />
                 ))}
               </div>
             </motion.div>
@@ -158,19 +169,20 @@ export default function OverTheYears() {
             >
               <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y direction-reverse">
                 {data12?.map((item, index) => (
-                  <div key={index} className="opac rounded-lg w-full">
-                    <Image
-                      className="h-auto w-full object-cover"
-                      alt="image1"
-                      src={`/over-the-years/` + item}
-                      height={0}
-                      width={0}
-                      sizes="100%"
-                    />
-                  </div>
+                  <Image
+                    className={`h-auto w-full object-cover rounded-lg`}
+                    alt="image1"
+                    src={`/over-the-years/${item}`}
+                    key={index}
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                    placeholder="blur"
+                    blurDataURL="/over-the-years/loading.jpg"
+                  />
                 ))}
               </div>
-            </motion.div>
+            </motion.div> */}
 
             <motion.div
               style={{ width: width, height: height }}
@@ -178,7 +190,7 @@ export default function OverTheYears() {
             >
               <motion.div
                 style={{ opacity: opac }}
-                className=" flex flex-col items-center justify-between"
+                className=" flex overflow-clip h-full flex-col items-center justify-between"
               >
                 <div className="flex flex-col gap-4 w-full">
                   <h2 className="text-16px md:text-28px leading-[1.1]">
@@ -193,41 +205,43 @@ export default function OverTheYears() {
                   </Link>
                 </div>
 
-                <div className="w-full hidden md:grid grid-cols-4 text-12px pt-48px">
-                  <div className="h-full flex items-end">
-                    <div>Copyright © IIIT Dharwad - 2024</div>
+                <div className="w-full hidden md:flex flex-col h-full flex-1 justify-between text-12px pt-48px">
+                  <div className="grid grid-cols-4">
+                    <div className="h-full flex items-end"></div>
+                    <div className="pr-20">
+                      Indian Institute of Information Technology (IIIT) Dharwad,
+                      Ittigatti Rd, near Sattur Colony, Karnataka 580009 92VG+24
+                      Joga Yellapur, Karnataka
+                    </div>
+                    <div className="pr-20 flex flex-col gap-12px">
+                      <div className="font-bold mb-4">Site Map</div>
+                      <Link href={"/testimonials"}>Testimonials</Link>
+                      <Link href={"/rsvp"}>RSVP</Link>
+                      <Link href={"/attendee"}>Attendee</Link>
+                      <Link href={"/team"}>Committee</Link>
+                      <Link href={"/developers"}>Team</Link>
+                    </div>
+                    <div className="pr-20 flex flex-col gap-12px">
+                      <div className="font-bold mb-4">Follow Us</div>
+                      <a
+                        target="_blank"
+                        href="https://www.linkedin.com/in/cgc-connect-iiit-dharwad-1a0321333/"
+                      >
+                        Linkedin
+                      </a>
+                      <a target="_blank" href="https://x.com/cgc_iiitdwd">
+                        Twitter
+                      </a>
+                      <a
+                        target="_blank"
+                        href="https://www.instagram.com/cgc.iiitdwd/"
+                      >
+                        Instagram
+                      </a>
+                    </div>
                   </div>
-                  <div className="pr-20">
-                    Indian Institute of Information Technology (IIIT) Dharwad,
-                    Ittigatti Rd, near Sattur Colony, Karnataka 580009 92VG+24
-                    Joga Yellapur, Karnataka
-                  </div>
-                  <div className="pr-20 flex flex-col gap-12px">
-                    <div className="font-bold mb-4">Site Map</div>
-                    <Link href={"/testimonials"}>Testimonials</Link>
-                    <Link href={"/rsvp"}>RSVP</Link>
-                    <Link href={"/attendee"}>Attendee</Link>
-                    <Link href={"/team"}>Committee</Link>
-                    <Link href={"/developers"}>Team</Link>
-                  </div>
-                  <div className="pr-20 flex flex-col gap-12px">
-                    <div className="font-bold mb-4">Follow Us</div>
-                    <a
-                      target="_blank"
-                      href="https://www.linkedin.com/in/cgc-connect-iiit-dharwad-1a0321333/"
-                    >
-                      Linkedin
-                    </a>
-                    <a target="_blank" href="https://x.com/cgc_iiitdwd">
-                      Twitter
-                    </a>
-                    <a
-                      target="_blank"
-                      href="https://www.instagram.com/cgc.iiitdwd/"
-                    >
-                      Instagram
-                    </a>
-                  </div>
+
+                  <div className="">Copyright © IIIT Dharwad - 2024</div>
                 </div>
 
                 <div className="flex flex-col py-4 gap-4 w-full text-12px md:hidden">

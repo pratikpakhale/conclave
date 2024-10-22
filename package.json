@@ -13,12 +13,15 @@
     "@radix-ui/react-hover-card": "^1.1.2",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-popover": "^1.1.2",
+    "@react-three/drei": "^9.114.6",
+    "@react-three/fiber": "^8.17.10",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.60.0",
     "@studio-freight/react-lenis": "^0.0.47",
     "@tsparticles/engine": "^3.5.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.5.0",
+    "@types/three": "^0.169.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.3.0",
@@ -38,7 +41,8 @@
     "styled-components": "^6.1.13",
     "swiper": "^11.1.14",
     "tailwind-merge": "^2.5.4",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.169.0"
   },
   "devDependencies": {
     "@types/node": "^20",

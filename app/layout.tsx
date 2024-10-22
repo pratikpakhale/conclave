@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "HR Conclave | IIIT Dharwad",
+  title: "IIIT Dharwad Conclave 2024",
   description: "The official website for HR Conclave 2024, IIIT Dharwad",
   icons: ["/Brandlogo.png"],
 };

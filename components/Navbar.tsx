@@ -65,7 +65,7 @@ function Navbar() {
         <motion.nav
           onMouseEnter={() => setHidden(false)}
           onMouseLeave={() => setHidden(true)}
-          className="relative flex text-white [background:linear-gradient(45deg,#151517,theme(colors.slate.800)_50%,#151517)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.indigo.500)_86%,_theme(colors.indigo.300)_90%,_theme(colors.indigo.500)_94%,_theme(colors.slate.600/.48))_border-box] border-transparent bg-color1 border-[2px] animate-border px-12px py-12px text-label items-center w-fit rounded-16px nav-transition"
+          className="relative flex text-white [background:linear-gradient(45deg,#151517,theme(colors.slate.800)_50%,#151517)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.indigo.500)_86%,_theme(colors.indigo.300)_90%,_theme(colors.indigo.500)_94%,_theme(colors.slate.600/.48))_border-box] border-transparent bg-color1 border-[2px] animate-border px-8px py-8px text-label items-center w-fit rounded-16px nav-transition"
         >
           <div
             // onClick={() => setHidden(false)}
@@ -182,7 +182,7 @@ function Navbar() {
 
       <Reveal delay={0.3} width="fit-content" yPos={true}>
         <Link
-          className="relative [background:linear-gradient(45deg,#151517,theme(colors.slate.800)_50%,#151517)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.indigo.500)_86%,_theme(colors.indigo.300)_90%,_theme(colors.indigo.500)_94%,_theme(colors.slate.600/.48))_border-box] border-transparent animate-border bg-color1 border-[2px] flex justify-center items-center border-text-col px-24px py-12px text-white text-16px rounded-16px"
+          className="relative h-full [background:linear-gradient(45deg,#151517,theme(colors.slate.800)_50%,#151517)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.indigo.500)_86%,_theme(colors.indigo.300)_90%,_theme(colors.indigo.500)_94%,_theme(colors.slate.600/.48))_border-box] border-transparent animate-border bg-color1 border-[2px] flex justify-center items-center border-text-col px-24px py-12px text-white text-16px rounded-16px"
           href={"/contact"}
         >
           Get in touch

@@ -52,6 +52,7 @@ export default function Home() {
         {/* <TestimonialMain /> */}
         <TimeLine />
         <OverTheYears />
+        <Footer />
       </div>
       {/* <Footer /> */}
     </div>

@@ -41,11 +41,23 @@ export function LandingSection() {
           <div className="[padding-block:1rem] flex gap-16 w-max flex-nowrap animate-infinite-scroll">
             {companiesFirstHalf?.map((company, index) => {
               const Icon = company?.name;
-              return <Icon key={index} className="h-10 w-10" />;
+              return (
+                <Icon
+                  key={index}
+                  color={company?.color ? company?.color : "#151517"}
+                  className="h-10 w-10"
+                />
+              );
             })}
             {companiesFirstHalf?.map((company, index) => {
               const Icon = company?.name;
-              return <Icon key={index} className="h-10 w-10" />;
+              return (
+                <Icon
+                  key={index}
+                  color={company?.color ? company?.color : "#151517"}
+                  className="h-10 w-10"
+                />
+              );
             })}
           </div>
         </div>
@@ -53,11 +65,23 @@ export function LandingSection() {
           <div className="[padding-block:1rem] flex gap-16 w-max flex-nowrap animate-infinite-scroll direction-reverse">
             {companiesSecondHalf?.map((company, index) => {
               const Icon = company?.name;
-              return <Icon key={index} className="h-10 w-10" />;
+              return (
+                <Icon
+                  key={index}
+                  color={company?.color ? company?.color : "#151517"}
+                  className="h-10 w-10"
+                />
+              );
             })}
             {companiesSecondHalf?.map((company, index) => {
               const Icon = company?.name;
-              return <Icon key={index} className="h-10 w-10" />;
+              return (
+                <Icon
+                  key={index}
+                  color={company?.color ? company?.color : "#151517"}
+                  className="h-10 w-10"
+                />
+              );
             })}
           </div>
         </div>

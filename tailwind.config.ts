@@ -155,7 +155,7 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       animation: {
-        "infinite-scroll": "scroll 25s linear infinite",
+        "infinite-scroll": "scroll-x 25s linear infinite",
         "infinite-scroll-y": "scroll-y 25s linear infinite",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
@@ -167,7 +167,7 @@ const config: Config = {
           from: { transform: "translateX(0%)" },
           to: { transform: "translateX(-100%)" },
         },
-        scroll: {
+        "scroll-x": {
           to: {
             transform: "translateX(calc(-50% - 2rem))",
           },

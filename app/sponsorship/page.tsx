@@ -20,7 +20,7 @@ export default function Page() {
       </div>
 
       <section className="min-h-[50vh] bg-black">
-        <div className="max-w-7xl w-full mx-auto text-white pb-48px px-4 flex flex-col gap-16px text-16px relative">
+        <div className="max-w-7xl w-full mx-auto text-white md:text-[1.2rem] xl:text-16px pb-48px px-4 flex flex-col gap-16px text-16px relative">
           <div className="w-full flex justify-center">
             <span className="bg-clip-text text-48px font-bold text-center text-transparent bg-[url('https://www.apple.com/careers/images/fy21/apple_jobs_gradient-final_Apple_Jobs_Gradients_Warm/desktop@2x.png')] [-webkit-text-fill-color:transparent] [-webkit-box-decoration-break:clone] [background-size:100%_100%]">
               About Us
@@ -52,7 +52,7 @@ export default function Page() {
         </div>
       </section>
 
-      <div className="bg-[url('/sponsorship/Landing-section.jpg')] z-[1] before:z-[-1] text-white relative before:absolute before:bg-black/60 before:top-0 before:left-0 before:w-full before:h-full bg-fixed bg-center bg-cover w-full">
+      <div className="bg-[url('/sponsorship/Landingsection.jpg')] z-[1] before:z-[-1] text-white relative before:absolute before:bg-black/60 before:top-0 before:left-0 before:w-full before:h-full bg-fixed bg-center bg-cover w-full">
         <div className="max-w-6xl mx-auto w-full flex py-44 flex-col gap-44 px-10">
           <ScrollReveal>
             <div className="flex-1 flex justify-start">
@@ -239,7 +239,7 @@ export default function Page() {
 
           <div className="flex flex-col gap-24px">
             <ScrollReveal>
-              <div className="text-12px w-fit">
+              <div className="text-16px w-fit">
                 <p className="text-24px font-bold">
                   Title Sponsor - INR 10 Lakhs
                 </p>
@@ -255,7 +255,7 @@ export default function Page() {
               </div>
             </ScrollReveal>
             <ScrollReveal>
-              <div className="text-12px w-fit">
+              <div className="text-16px w-fit">
                 <p className="text-24px font-bold mt-8">
                   Platinum Sponsor - INR 5 Lakhs
                 </p>
@@ -268,7 +268,7 @@ export default function Page() {
               </div>
             </ScrollReveal>
             <ScrollReveal>
-              <div className="text-12px w-fit">
+              <div className="text-16px w-fit">
                 <p className="text-24px font-bold mt-8">
                   Gold Sponsor - INR 2.5 Lakhs
                 </p>
@@ -281,7 +281,7 @@ export default function Page() {
               </div>
             </ScrollReveal>
             <ScrollReveal>
-              <div className="text-12px w-fit">
+              <div className="text-16px w-fit">
                 <p className="text-24px font-bold mt-8">
                   Silver Sponsor - INR 1 Lakh
                 </p>
@@ -294,7 +294,7 @@ export default function Page() {
               </div>
             </ScrollReveal>
             <ScrollReveal>
-              <div className="text-12px w-fit">
+              <div className="text-16px w-fit">
                 <p className="text-24px font-bold mt-8">
                   Supporting Sponsor - INR 50K
                 </p>

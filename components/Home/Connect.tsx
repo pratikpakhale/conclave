@@ -6,7 +6,7 @@ import { ConnectData } from "@/data/Connect";
 export default function Connect() {
   return (
     <div className="w-full px-8px sm:px-16px md:px-24px lg:px-28px xl:px-48px flex flex-col gap-24px py-20 text-color1 bg-text-col">
-      <div className="text-h2 max-w-7xl w-full tracking-[-0.022em] leading-[1.1] font-semibold text-center mx-auto mb-4px">
+      <div className="text-h2 max-w-7xl w-full tracking-[-0.022em] leading-[1.1] font-semibold text-center mx-auto mb-28px">
         <ScrollReveal>
           <p>
             Join us to{" "}

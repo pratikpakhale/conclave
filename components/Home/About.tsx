@@ -7,9 +7,19 @@ export default function About() {
       id="about"
       className="w-full px-8px sm:px-16px md:px-24px lg:px-28px xl:px-48px flex flex-col gap-24px py-20 text-text-col bg-color1"
     >
-      <ScrollReveal>
-        <div className="text-h2 max-w-7xl w-full mx-auto mb-4px">About</div>
-      </ScrollReveal>
+      <div className="text-h2 max-w-7xl w-full tracking-[-0.022em] leading-[1.1] font-semibold text-center mx-auto mb-28px">
+        <ScrollReveal>
+          <p>
+            Discover our{" "}
+            <span className="inline-block bg-[0_0] bg-[url('https://www.apple.com/careers/images/fy21/apple_jobs_gradient_final_Apple_Jobs_Gradients_Cool/desktop@2x.png')] bg-clip-text [-webkit-text-fill-color:transparent] [-webkit-box-decoration-break:clone] [background-size:100%_100%]">
+              mission, values, and commitment{" "}
+            </span>
+          </p>
+        </ScrollReveal>
+        <ScrollReveal>
+          <p> to shaping futures.</p>
+        </ScrollReveal>
+      </div>
       <ScrollReveal>
         <div className="relative max-w-7xl w-full mx-auto">
           The HR Conclave serves as a platform to connect students, academia,

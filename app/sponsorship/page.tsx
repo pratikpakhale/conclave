@@ -1,9 +1,8 @@
 "use client";
+import Footer from "@/components/Footer";
 import HomeAnimation from "@/components/Home/HomeAnimation";
 import Navbar from "@/components/Navbar";
 import ScrollReveal from "@/components/ScrollReveal";
-import Cards from "@/components/Sponsorship/Cards";
-import Link from "next/link";
 import React from "react";
 
 export default function Page() {
@@ -32,13 +31,14 @@ export default function Page() {
             Importance under a Public-Private-Partnership (PPP) between the
             Ministry of Education, Government of India, Dept. of IT BT,
             Government of Karntaka and Keonics, aims to bridge the skill gap in
-            high-end IT to maintain India's global leadership in the sector.
+            high-end IT to maintain India&apos;s global leadership in the
+            sector.
           </div>
           <div>
             The institute offers BTech programs in Computer Science and
             Engineering, Electronics and Communication Engineering, and Data
             Science and Artificial Intelligence, focusing on IT applications
-            addressing India's social challenges.
+            addressing India&apos;s social challenges.
           </div>
           <div>
             Embracing a semi-modern campus design and a stylish yet stately
@@ -91,8 +91,8 @@ export default function Page() {
 
                 <ul className="list-disc">
                   <li>
-                    The conclave is not just a networking event; it's a pivotal
-                    opportunity for the institute to gain{" "}
+                    The conclave is not just a networking event; it&apos;s a
+                    pivotal opportunity for the institute to gain{" "}
                     <span className="font-bold">national visibility</span>,
                     positioning itself as a key player in shaping the future of
                     HR practices.
@@ -134,11 +134,11 @@ export default function Page() {
                     strategic location for setting up R&D centers.
                   </li>
                   <li>
-                    Pitch North Karnataka’s untapped potential,{" "}
+                    Pitch North Karnataka&apos;s untapped potential,{" "}
                     <span className="font-bold">
                       cost-effective infrastructure
                     </span>
-                    , and IIIT Dharwad’s{" "}
+                    , and IIIT Dharwad&apos;s{" "}
                     <span className="font-bold">collaborative environment</span>
                     .
                   </li>
@@ -165,7 +165,7 @@ export default function Page() {
             </div>
           </ScrollReveal>
         </div>{" "}
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 gap-12px md:grid-cols-3">
+        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 mb-24 gap-12px md:grid-cols-3">
           <div className="flex flex-col bg-white rounded-12px p-20px">
             <p className="font-bold text-20px mb-8px">Speaking Opportunities</p>
             <ul className="list-disc pl-12px">
@@ -215,8 +215,8 @@ export default function Page() {
             <p className="font-bold text-20px mb-8px">Customized Branding</p>
             <ul className="list-disc pl-12px">
               <li>
-                Feature your company’s logo on event merchandise, badges, and
-                lanyards.
+                Feature your company&apos;s logo on event merchandise, badges,
+                and lanyards.
               </li>
               <li>
                 Branding on attendee kits, digital screens, registration desks,
@@ -227,7 +227,7 @@ export default function Page() {
         </div>
       </div>
 
-      <section className="bg-black min-h-[50vh] py-28">
+      <section className="bg-black min-h-[50vh] pt-28">
         <div className="max-w-7xl w-full mx-auto items-center text-white pb-24 flex flex-col gap-16px text-16px relative">
           <ScrollReveal>
             <div className="w-full flex justify-center items-center">
@@ -307,7 +307,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className=" bg-color1/95 p-28px md:p-48px w-[98vw] mx-auto text-text-col backdrop-blur-2xl rounded-t-24px shadow-[0_-3px_hsla(0,0%,100%,.149)]">
+        {/* <div className=" bg-color1/95 p-28px md:p-48px w-[98vw] mx-auto text-text-col backdrop-blur-2xl rounded-t-24px shadow-[0_-3px_hsla(0,0%,100%,.149)]">
           <div className=" flex overflow-clip h-full flex-col items-center justify-between">
             <div className="flex flex-col gap-4 w-full">
               <h2 className="text-16px md:text-28px leading-[1.1]">
@@ -402,7 +402,8 @@ export default function Page() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+        <Footer />
       </section>
     </div>
   );

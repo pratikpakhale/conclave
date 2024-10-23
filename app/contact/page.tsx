@@ -35,7 +35,7 @@ export default function ContactUsForm() {
   return (
     <section className="bg-color1 min-h-[100dvh]">
       <Navbar />
-      <div className="max-w-5xl flex flex-col mx-auto text-white">
+      <div className="max-w-5xl px-8 flex flex-col mx-auto text-white">
         <div className="flex-1 flex-col flex">
           <div className="flex px-10 md:px-0 items-end mb-[16rem]">
             <div className="pt-[16rem] flex-1 pr-10 text-[clamp(30px,7vw,72px)] leading-[1.1]">
@@ -60,7 +60,7 @@ export default function ContactUsForm() {
             <div className="flex-1 px-10 md:px-0">
               <div className="w-full flex-1 border-t border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col w-full">
                     <div className="mb-4">What&apos;s your company name?</div>
                     <input
                       name="companyName"
@@ -74,7 +74,7 @@ export default function ContactUsForm() {
               </div>
               <div className="w-full border-t border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col w-full">
                     <div className="mb-4">What&apos;s your company email?</div>
                     <input
                       name="companyEmail"
@@ -88,7 +88,7 @@ export default function ContactUsForm() {
               </div>
               <div className="w-full border-t border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col w-full">
                     <div className="mb-4">
                       What positions are you hiring for?
                     </div>
@@ -103,7 +103,7 @@ export default function ContactUsForm() {
               </div>
               <div className="w-full border-t border-b border-b-gray-500 border-t-slate-600 py-10">
                 <div className="val flex w-full text-[1.3rem]">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col w-full">
                     <div className="mb-4">Your message</div>
                     <input
                       name="message"
@@ -141,6 +141,8 @@ export default function ContactUsForm() {
               <div className="mb-10">
                 <span className="text-gray-700 uppercase">Contact Details</span>
                 <div className="mt-2">cgcoffice@iiitdwd.ac.in</div>
+                <p className="mt-1">9538156995 (Dr. Manjunath )</p>
+                <p className="mt-1">9916043766 (Dr. Rajesh )</p>
               </div>
               <div className="mb-10">
                 <span className="text-gray-700 uppercase">College</span>
@@ -188,17 +190,14 @@ export default function ContactUsForm() {
           <div className="flex gap-4 flex-wrap">
             <a
               target="_blank"
-              href="https://www.linkedin.com/in/nikhilkarthik24/"
+              href="https://www.linkedin.com/in/cgc-connect-iiit-dharwad-1a0321333/"
             >
               Linkedin
             </a>
-            <a target="_blank" href="https://www.x.com/@nikhilkarthik24/">
+            <a target="_blank" href="https://x.com/cgc_iiitdwd">
               Twitter
             </a>
-            <a
-              target="_blank"
-              href="https://www.instagram.com/nikhilkarthik_24/"
-            >
+            <a target="_blank" href="https://www.instagram.com/cgc.iiitdwd/">
               Instagram
             </a>
           </div>

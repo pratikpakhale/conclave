@@ -31,7 +31,7 @@ const developers = [
   {
     name: "Chinmay Shewale",
     position: "Backend Developer",
-    image: "/devteam/chinmay.webp",
+    image: "/devteam/Chinmay.webp",
     linkedin: "https://www.linkedin.com/in/chinma-yyy/",
     github: "https://github.com/chinma-yyy",
     twitter: "https://x.com/chinma_yyy",

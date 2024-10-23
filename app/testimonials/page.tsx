@@ -52,9 +52,18 @@ export default function TestimonialForm() {
   const formRef = useRef<HTMLFormElement | null>(null);
   const [photo, setPhoto] = useState<File | null>(null);
   const router = useRouter();
+  const [error, setError] = useState("");
 
   async function handleSubmit(formData: FormData) {
     if (!formRef.current) return;
+
+    console.log(photo);
+
+    if (!photo) {
+      setError("Please add a Good Profile Picture.");
+      return;
+    }
+
     const result = await createTestimonial(formData);
     if (result.success) {
       console.log("Testimonial created:", result.testimonial);
@@ -80,6 +89,7 @@ export default function TestimonialForm() {
   }, []);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setError("");
     const { name, files } = e.target;
     if (files && files.length > 0) {
       const fileName = files[0].name;
@@ -111,6 +121,8 @@ export default function TestimonialForm() {
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Full Name</div>
                   <input
+                    required
+                    type="text"
                     name="name"
                     className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                     placeholder="John Doe"
@@ -124,6 +136,8 @@ export default function TestimonialForm() {
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Contact No</div>
                   <input
+                    required
+                    type="number"
                     name="contactNo"
                     className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                     placeholder="+91 1234567890"
@@ -137,6 +151,8 @@ export default function TestimonialForm() {
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Email</div>
                   <input
+                    required
+                    type="email"
                     name="email"
                     className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                     placeholder="personal email"
@@ -150,6 +166,8 @@ export default function TestimonialForm() {
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Graduation Year</div>
                   <input
+                    required
+                    type="number"
                     name="graduationYear"
                     className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                     placeholder="2023"
@@ -163,9 +181,11 @@ export default function TestimonialForm() {
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Designation</div>
                   <input
+                    required
+                    type="text"
                     name="designation"
                     className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
-                    placeholder="Software Developer"
+                    placeholder="Student/Software Developer"
                   />
                 </div>
               </div>
@@ -176,6 +196,8 @@ export default function TestimonialForm() {
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Course</div>
                   <input
+                    required
+                    type="text"
                     name="course"
                     className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                     placeholder="B.Tech Computer Science"
@@ -190,6 +212,7 @@ export default function TestimonialForm() {
                   <div className="mb-4">Achievements</div>
                   <textarea
                     name="achievements"
+                    required
                     className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                     placeholder="Achievements..."
                   />
@@ -203,6 +226,7 @@ export default function TestimonialForm() {
                   <div className="mb-4">Testimonial</div>
                   <textarea
                     name="testimonial"
+                    required
                     className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                     placeholder="Your testimonial here..."
                   />
@@ -216,6 +240,7 @@ export default function TestimonialForm() {
                   <div className="mb-4">Memorable Experience</div>
                   <textarea
                     name="memorableExperience"
+                    required
                     className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                     placeholder="Memorable experience during your time..."
                   />
@@ -229,6 +254,7 @@ export default function TestimonialForm() {
                   <div className="mb-4">Encouragement</div>
                   <textarea
                     name="encouragement"
+                    required
                     className="placeholder:text-gray-700 border-none outline-none focus:outline-none bg-transparent w-full"
                     placeholder="Encouragement to juniors..."
                   />
@@ -270,49 +296,15 @@ export default function TestimonialForm() {
                       id="photo"
                       type="file"
                       name="photo"
+                      accept=".png, .jpg, .jpeg, .webp"
                       onChange={handleFileChange}
                       className="hidden"
-                      required
                     />
                   </div>
-                  {/* <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                    <svg
-                      className="w-8 h-8 mb-4 text-gray-400"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 20 16"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 13.51 7H7a4 4 0 1 0 0 8h6z"
-                      />
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M9 11v4m-2-2h4"
-                      />
-                    </svg>
-                    <p className="text-sm text-gray-400">
-                      Click to upload or drag and drop
-                    </p>
-                    <p className="text-xs text-gray-400">
-                      {fileNames.photo || "Max size: 10MB"}
-                    </p>
-                  </div> */}
-                  {/* <input
-                    id="photo"
-                    name="photo"
-                    type="file"
-                    className="hidden"
-                    onChange={handleFileChange}
-                  /> */}
                 </label>
               </div>
+
+              {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
             </div>
 
             <div>
@@ -350,6 +342,7 @@ export default function TestimonialForm() {
                     id="video"
                     name="video"
                     type="file"
+                    accept=".mp4, .webm, .ogg"
                     className="hidden"
                     onChange={handleFileChange}
                   />
@@ -360,6 +353,7 @@ export default function TestimonialForm() {
             <div className="val flex w-full mt-4 text-[1.3rem]">
               <div className="flex items-start w-full">
                 <input
+                  required
                   id="consent"
                   name="consent"
                   type="checkbox"

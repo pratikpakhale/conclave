@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { useScroll, motion, useTransform } from "framer-motion";
+// import { useScroll, motion, useTransform } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
@@ -10,7 +10,7 @@ import { createContactUs } from "../actions/contactUs";
 
 export default function ContactUsForm() {
   const router = useRouter();
-  const container = useRef(null);
+  // const container = useRef(null);
   const formRef = useRef<HTMLFormElement | null>(null);
 
   async function handleSubmit(formData: FormData) {
@@ -27,21 +27,21 @@ export default function ContactUsForm() {
     }
   }
 
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end end"],
-  });
-  const x = useTransform(scrollYProgress, [0, 1], [-150, -300]);
+  // const { scrollYProgress } = useScroll({
+  //   target: container,
+  //   offset: ["start end", "end end"],
+  // });
+  // const x = useTransform(scrollYProgress, [0, 1], [-150, -300]);
   return (
     <section className="bg-color1 min-h-[100dvh]">
       <Navbar />
-      <div className="max-w-5xl px-8 flex flex-col mx-auto text-white">
+      <div className="max-w-5xl px-2 md:px-8 flex flex-col mx-auto text-white">
         <div className="flex-1 flex-col flex">
-          <div className="flex px-10 md:px-0 items-end mb-[16rem]">
-            <div className="pt-[16rem] flex-1 pr-10 text-[clamp(30px,7vw,72px)] leading-[1.1]">
+          <div className="flex flex-col md:flex-row px-10 md:px-0 gap-10 md:gap-0 md:items-end mb-[4rem] md:mb-[16rem]">
+            <div className="pt-32 md:pt-[16rem] flex-1 pr-10 text-[clamp(30px,7vw,72px)] leading-[1.1]">
               Let&apos;s Get in Touch for On-Campus Placement Drives
             </div>
-            <div className="flex-none w-[300px] pl-10">
+            <div className="flex-none md:w-[300px] md:pl-10">
               <Image
                 height={0}
                 width={0}

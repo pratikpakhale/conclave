@@ -10,7 +10,7 @@ export default function Cards(attendee: attendees) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-[300px]">
       <div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}

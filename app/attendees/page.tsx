@@ -11,14 +11,33 @@ export default function page() {
     <main className="min-h-screen bg-text-col">
       <Navbar />
       <div className="bg-text-col h-full w-full md:px-10 lg:px-24 xl:px-44 px-2 sm:px-4 relative">
-        <div className="w-full relative text-color1 pt-32 items-center bg-text-col flex flex-col">
+        <div className="w-full relative text-color1 pt-20 items-center bg-text-col flex flex-col">
           <div className="max-w-7xl w-full">
+            <div className="text-h2 max-w-7xl my-24 w-full tracking-[-0.022em] leading-[1.1] font-semibold text-center mx-auto">
+              <ScrollReveal>
+                <p>
+                  Connect with{" "}
+                  <span className="inline-block bg-[0_0] bg-[url('https://www.apple.com/careers/images/fy21/apple_jobs_gradient_final_Apple_Jobs_Gradients_Full_Large/desktop@2x.png')] bg-clip-text [-webkit-text-fill-color:transparent] [-webkit-box-decoration-break:clone] [background-size:100%_100%]">
+                    top leaders and experts,
+                  </span>
+                </p>
+              </ScrollReveal>
+              <ScrollReveal>
+                <p>
+                  <span className="inline-block bg-[0_0] bg-[url('https://www.apple.com/careers/images/fy21/apple_jobs_gradient_final_Apple_Jobs_Gradients_Full_Large/desktop@2x.png')] bg-clip-text [-webkit-text-fill-color:transparent] [-webkit-box-decoration-break:clone] [background-size:100%_100%]">
+                    meet future professionals
+                  </span>{" "}
+                  — don’t miss out!
+                </p>
+              </ScrollReveal>
+            </div>
+
             {/* <p className="text-5xl w-full text-center font-bold">Attendees</p> */}
 
-            <div className="text-3xl w-full font-semibold mt-10">
+            <div className="text-h3 max-w-7xl w-full tracking-[-0.022em] leading-[1.1] font-semibold text-center mx-auto mt-10">
               Chief Guests
             </div>
-            <div className="my-6 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="my-6 gap-4 flex justify-center">
               {/* <Cards /> */}
               {/* <Cards /> */}
               {Cheif_Guests?.map((guest, index) => (
@@ -33,8 +52,10 @@ export default function page() {
               ))}
             </div>
 
-            <div className="text-3xl w-full font-semibold mt-10">Attendees</div>
-            <div className="my-6 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="text-h3 max-w-7xl w-full tracking-[-0.022em] leading-[1.1] font-semibold text-center mx-auto mt-10">
+              Attendees
+            </div>
+            <div className="my-6 gap-4 flex flex-wrap justify-center">
               {Attendees?.map((attendee, index) => (
                 <Cards
                   title={attendee?.title}

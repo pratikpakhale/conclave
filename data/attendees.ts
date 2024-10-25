@@ -2,9 +2,9 @@ import { attendees } from "@/types/Attendees";
 
 export const Cheif_Guests: attendees[] = [
   {
-    title: "Pralhad Joshi",
+    title: "Shri. Pralhad Joshi",
     src: "Pralhad_Joshi.webp",
-    company: "Union Minister",
+    company: "Minister of Consumer Affairs",
     color: "#EFE8D3",
     linkedin: "https://www.linkedin.com/in/pralhad-joshi-0277002a/",
   },
@@ -14,7 +14,7 @@ export const Attendees: attendees[] = [
   {
     title: "Chakravarthy NCJ",
     src: "Chakravarthy_NCJ.jpeg",
-    company: "GE",
+    company: "GE Healthcare",
     color: "#EFE8D3",
     linkedin: "https://www.linkedin.com/in/chakravarthy-ncj-0628627/",
   },
@@ -28,7 +28,7 @@ export const Attendees: attendees[] = [
   {
     title: "Aparna C",
     src: "Aparna_C.jpeg",
-    company: "Torri Harris",
+    company: "Torry Harris Integration Solutions",
     color: "#706D63",
     linkedin: "https://www.linkedin.com/in/aparna2/",
   },

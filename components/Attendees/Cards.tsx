@@ -26,7 +26,9 @@ export default function Cards(attendee: attendees) {
         />
 
         {/* The motion.div will expand on hover */}
-        <motion.div
+        <motion.a
+          target="_blank"
+          href={attendee?.linkedin}
           initial={{ width: 0, height: 0 }}
           animate={
             hovered
@@ -37,17 +39,16 @@ export default function Cards(attendee: attendees) {
           className="absolute bg-black/50 backdrop-blur flex items-center justify-center"
         >
           <div className="text-white">
-            <a target="_blank" href={attendee?.linkedin}>
-              <FaLinkedin size={30} />
-            </a>
+            <FaLinkedin size={30} />
           </div>
-        </motion.div>
+        </motion.a>
       </div>
 
       <div className="w-full items-center flex mt-2 justify-between">
         <div className="">
           <div className="text-lg font-semibold">{attendee?.title}</div>
           <div className="text-sm leading-3">{attendee?.company}</div>
+          <div className="text-xs">{attendee?.position}</div>
         </div>
         <GrAdd className="cursor-pointer font-bold" />
       </div>

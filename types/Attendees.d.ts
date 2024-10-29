@@ -3,5 +3,6 @@ export interface attendees {
   src: string;
   company: string;
   linkedin: string;
+  position: string;
   color: string;
 }

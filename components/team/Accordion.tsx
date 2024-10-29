@@ -1,8 +1,6 @@
-// import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
-// import Project from "./Project";
 import Image from "next/image";
 import Member from "./Member";
 import { team_member } from "@/types/Teams";
@@ -31,10 +29,13 @@ export default function Accordion({
   List: team_member[];
 }) {
   const [modal, setModal] = useState({ active: false, index: 0 });
+  const [isMainExpanded, setIsMainExpanded] = useState(false);
+
   const { active, index } = modal;
-  const modalContainer = useRef<HTMLDivElement | null>(null);
-  const cursor = useRef<HTMLDivElement | null>(null);
-  const cursorLabel = useRef<HTMLDivElement | null>(null);
+
+  const modalContainer = useRef<HTMLDivElement>(null);
+  const cursor = useRef<HTMLDivElement>(null);
+  const cursorLabel = useRef<HTMLDivElement>(null);
 
   const xMoveContainer = useRef<gsap.QuickToFunc | null>(null);
   const yMoveContainer = useRef<gsap.QuickToFunc | null>(null);
@@ -92,81 +93,119 @@ export default function Accordion({
     setModal({ active, index });
   };
 
+  const toggleMainSection = () => {
+    setIsMainExpanded(!isMainExpanded);
+    // If closing main section, close all individual sections
+  };
+
   return (
     <section
       id="work"
-      className="py-20 w-full z-[5] overflow-hidden relative flex flex-col"
+      className=" w-full z-[5] overflow-hidden relative flex flex-col"
     >
       <div
         onMouseMove={(e) => {
-          moveItems(e.clientX, e.clientY);
+          if (active) {
+            moveItems(e.clientX, e.clientY);
+          }
         }}
         className="w-full mx-auto max-w-[1200px] px-10 flex flex-col gap-20"
       >
-        <p className="work-header pt-20">{Heading}</p>
-
-        <div className="flex flex-col font-clash text-[#233554] border-t border-light-text">
-          {List.map((project, index) => (
-            <Member
-              index={index}
-              title={project.title}
-              position="qwe"
-              linkedin="qwe"
-              manageModal={manageModal}
-              key={index}
-            />
-          ))}
-
-          <>
-            <motion.div
-              ref={modalContainer}
-              variants={scaleAnimation}
-              initial="initial"
-              animate={active ? "enter" : "closed"}
-              className="fixed top-1/2 left-1/2 bg-white rounded-8px pointer-events-none overflow-hidden z-3 h-[250px] aspect-square"
-            >
-              <div
-                style={{ top: index * -100 + "%" }}
-                className="relative h-full w-full transition-[top_0.5s_cubic-bezier(0.76,0,0.24,1)]"
-              >
-                {List.map((project, index) => {
-                  const { src, color } = project;
-                  return (
-                    <div
-                      className="h-full w-full flex items-center justify-center"
-                      style={{ backgroundColor: color }}
-                      key={`modal_${index}`}
-                    >
-                      <Image
-                        src={`/projects/${src}`}
-                        width={300}
-                        height={0}
-                        alt="image"
-                        className="h-auto"
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </motion.div>
-            <motion.div
-              ref={cursor}
-              className="w-[80px] h-[80px] rounded-[50%] bg-[#8a84e3] text-white fixed z-3 flex items-center justify-center pointer-events-none"
-              variants={scaleAnimation}
-              initial="initial"
-              animate={active ? "enter" : "closed"}
-            ></motion.div>
-            <motion.div
-              ref={cursorLabel}
-              className="w-[80px] h-[80px] rounded-[50%] text-white fixed z-3 flex items-center justify-center pointer-events-none bg-transparent"
-              variants={scaleAnimation}
-              initial="initial"
-              animate={active ? "enter" : "closed"}
-            >
-              View
-            </motion.div>
-          </>
+        <div
+          onClick={toggleMainSection}
+          className="work-header pt-16 cursor-pointer flex justify-between items-center"
+        >
+          <p className="text-24px font-semibold">{Heading}</p>
+          <span className="transform transition-transform duration-200 text-2xl">
+            {isMainExpanded ? "−" : "+"}
+          </span>
         </div>
+
+        {isMainExpanded && (
+          <div className="flex flex-col font-clash text-[#233554] border-t border-light-text">
+            {List.map((project, index) => (
+              <div key={index} className="border-b border-light-text">
+                {/* <div
+                  onClick={() => toggleSection(index)}
+                  className="py-4 cursor-pointer flex justify-between items-center"
+                >
+                  <h3 className="text-xl font-medium">{project.title}</h3>
+                  <span className="transform transition-transform duration-200 text-2xl">
+                    {openSections[index] ? "−" : "+"}
+                  </span>
+                </div> */}
+
+                {/* {openSections[index] && ( */}
+                <div
+                  className="pb-4"
+                  onMouseEnter={(e) =>
+                    manageModal(true, index, e.clientX, e.clientY)
+                  }
+                  onMouseLeave={() => manageModal(false, index, 0, 0)}
+                >
+                  <Member
+                    index={index}
+                    title={project.title}
+                    position={project.position || ""}
+                    linkedin={project.linkedin || ""}
+                    manageModal={manageModal}
+                  />
+                </div>
+                {/* )} */}
+              </div>
+            ))}
+          </div>
+        )}
+
+        <>
+          <motion.div
+            ref={modalContainer}
+            variants={scaleAnimation}
+            initial="initial"
+            animate={active ? "enter" : "closed"}
+            className="fixed top-1/2 left-1/2 bg-white max-md:hidden rounded-8px pointer-events-none overflow-hidden z-3 h-[250px] aspect-square"
+          >
+            <div
+              style={{ top: index * -100 + "%" }}
+              className="relative h-full w-full transition-[top_0.5s_cubic-bezier(0.76,0,0.24,1)]"
+            >
+              {List.map((project, index) => {
+                const { src, color } = project;
+                return (
+                  <div
+                    className="h-full w-full flex items-center justify-center"
+                    style={{ backgroundColor: color }}
+                    key={`modal_${index}`}
+                  >
+                    <Image
+                      src={`/projects/${src}`}
+                      width={300}
+                      height={0}
+                      alt="image"
+                      className="h-auto"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+          <motion.div
+            ref={cursor}
+            className="w-[80px] h-[80px] rounded-[50%] max-md:hidden bg-[#8a84e3] text-white fixed z-3 flex items-center justify-center pointer-events-none"
+            variants={scaleAnimation}
+            initial="initial"
+            animate={active ? "enter" : "closed"}
+          ></motion.div>
+          <motion.div
+            ref={cursorLabel}
+            className="w-[80px] h-[80px] rounded-[50%] max-md:hidden text-white fixed z-3 flex items-center justify-center pointer-events-none bg-transparent"
+            variants={scaleAnimation}
+            initial="initial"
+            animate={active ? "enter" : "closed"}
+          >
+            View
+          </motion.div>
+        </>
       </div>
     </section>
   );

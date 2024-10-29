@@ -25,6 +25,9 @@ export default function TimeLine() {
             Discover the schedule and get ready for an enriching experience!
           </div>
         </ScrollReveal>
+        <ScrollReveal>
+          <div className="text-20px">Event Date - 9th and 10th November</div>
+        </ScrollReveal>
       </div>
 
       <div className="relative flex flex-col items-left justify-center w-full">
@@ -32,138 +35,126 @@ export default function TimeLine() {
           <div className="fixed left-auto top-0 right-auto bottom-[50vh] z-[-1] w-[3px] h-[50vh] bg-white bg-[linear-gradient(180deg,_theme(colors.indigo.500)_50%,_theme(colors.blue.300),_theme(colors.indigo.500))]"></div>
         </div>
 
-        {/* <TimelineComponent
-          time="9:30 AM"
-          heading="Inaugural Session"
+        <TimelineComponent
+          time="8:50 AM"
+          heading="Arrival of VIP Delegates"
+          content={<></>}
+        />
+
+        <TimelineComponent
+          time="9:15 AM"
+          heading="Invocation Dance by the Cultural Club"
+          content={<></>}
+        />
+
+        <TimelineComponent
+          time="9:20 AM"
+          heading="Welcome Address"
           content={
             <ul className="list-disc left-6 py-3 relative">
-              <li>Welcome Address by the Director</li>
-              <li>Special Remarks by Chief Guest</li>
-              <li>Introduction to the Conclave Theme</li>
-              <li>Vote of Thanks</li>
+              <li>
+                Prof. S. R. Mahadeva Prasanna,Honorable Director, IIIT Dharwad
+              </li>
+              <li>10 Years Celebration Video.</li>
             </ul>
           }
         />
 
         <TimelineComponent
-          time="10:15 AM"
-          heading="KeyNote Speech"
+          time="9:30 AM"
+          heading="Panel Discussion 1"
           content={
             <ul className="list-disc left-6 py-3 relative">
-              <li>Speaker: Industry Leader / Senior HR Professional</li>
               <li>
-                Topic: The Future of Work – Trends Shaping Tomorrow’s Workforce
+                Challenges & Opportunities of T echnology Disruption in VUCA
+                world: Navigating the Future of Skills & W ork.
               </li>
             </ul>
           }
+        />
+
+        <TimelineComponent
+          time="10:30 AM"
+          heading="Networking Break"
+          content={<></>}
         />
 
         <TimelineComponent
           time="11:00 AM"
-          heading="Panel Discussion 1: Bridging the Gap between Academia and Industry"
+          heading="Ceremonial Lamp Lighting"
           content={
             <ul className="list-disc left-6 py-3 relative">
-              <li>
-                WPanelists: HR heads from top companies, faculty, and alumni
-              </li>
-              <li>Topics of Discussion:</li>
-              <ul className="list-[circle] left-6 py-3 relative">
-                <li>Aligning academic curricula with industry requirements</li>
-                <li>
-                  Creating experiential learning opportunities (internships,
-                  apprenticeships)
-                </li>
-                <li>Fostering innovation through collaborative research</li>
-              </ul>
+              <li>Address by the Director</li>
+              <li>Chief Guest&apos;s Speech</li>
             </ul>
           }
         />
 
         <TimelineComponent
-          time="12:00 PM"
-          heading="Tea/Coffee Break & Networking"
+          time="11:30 AM"
+          heading="Felicitation of VIP Delegates by the Chief Guest"
           content={<></>}
         />
 
         <TimelineComponent
-          time="12:30 PM"
-          heading="Panel Discussion 2: Evolving Role of HR in the Digital Age"
+          time="12:00 AM"
+          heading="Panel Discussion 2"
           content={
             <ul className="list-disc left-6 py-3 relative">
-              <li>Panelists: Senior HR executives and tech experts</li>
-              <li>Topics of Discussion:</li>
-              <ul className="list-[circle] left-6 py-3 relative">
-                <li>Impact of AI and automation on HR processes</li>
-                <li>Managing hybrid workplaces and employee well-being</li>
-                <li>Future skills and competencies in demand</li>
-              </ul>
+              <li>
+                The Challenges of UpSkilling & ReSkilling Gen Alpha - Preparing
+                the workforce of tomorrow.
+              </li>
             </ul>
           }
         />
 
         <TimelineComponent
-          time="1:30 PM"
-          heading="Lunch and Networking"
+          time="1:00 PM"
+          heading="Lunch break"
           content={<></>}
         />
 
         <TimelineComponent
-          time="2:30 PM"
-          heading="Student-Led Session: Talent Showcase"
+          time="2:10 PM"
+          heading="Panel Discussion 3"
           content={
             <ul className="list-disc left-6 py-3 relative">
               <li>
-                Presentations by students on innovative projects and research
-              </li>
-              <li>SInteractive Q&A with company representatives</li>
-              <li>
-                Opportunity for companies to identify talent for internships or
-                projects
+                Talent Ecosystem 2030: Shaping Tomorrow&apos;s Workforce for a
+                Dynamic Employment Landscape
               </li>
             </ul>
           }
         />
 
         <TimelineComponent
-          time="3:30 PM"
-          heading="Interactive Workshop: Effective Career Planning"
-          content={
-            <ul className="list-disc left-6 py-3 relative">
-              <li>Workshop conducted by industry experts</li>
-              <li>Topics covered:</li>
-              <ul className="list-[circle] left-6 py-3 relative">
-                <li>Resume building and interview skills</li>
-                <li>Career planning and growth strategies</li>
-              </ul>
-            </ul>
-          }
+          time="3:10 PM"
+          heading="Open Q&A Session for Students"
+          content={<> </>}
+        />
+        <TimelineComponent
+          time="3:40 PM"
+          heading="Dance by the Cultural Club to depict Success"
+          content={<> </>}
+        />
+        <TimelineComponent
+          time="3:45 PM"
+          heading="Vote of Thanks followed by the National Anthem"
+          content={<> </>}
+        />
+        <TimelineComponent
+          time="4:05 PM"
+          heading="High Tea with Networking"
+          content={<> </>}
         />
 
         <TimelineComponent
           time="4:30 PM"
-          heading="Closing Session & Awards Ceremony"
-          content={
-            <ul className="list-disc left-6 py-3 relative">
-              <li>Summary of key takeaways from the conclave</li>
-              <li>Closing Remarks by the Director</li>
-            </ul>
-          }
+          heading="Conclusion of the Event"
+          content={<> </>}
         />
-
-        <TimelineComponent
-          time="5:00 PM"
-          heading="Post-Conclave Networking and Informal Interactions"
-          content={
-            <ul className="list-disc left-6 py-3 relative">
-              <li>
-                Informal discussions between students, faculty, and industry
-                leaders.
-              </li>
-            </ul>
-          }
-        /> */}
-
-        <TimelineComponent
+        {/* <TimelineComponent
           time="Coming Soon"
           heading="Conclave Event - 9th & 10th November"
           content={
@@ -171,7 +162,7 @@ export default function TimeLine() {
               <p>Details for this event will be announced soon. Stay tuned!</p>
             </div>
           }
-        />
+        /> */}
       </div>
     </section>
   );

@@ -45,6 +45,7 @@ export default function page() {
                   title={guest?.title}
                   company={guest?.company}
                   color={guest?.color}
+                  position={guest?.position}
                   src={guest?.src}
                   linkedin={guest?.linkedin}
                   key={index}
@@ -55,12 +56,13 @@ export default function page() {
             <div className="text-h3 max-w-7xl w-full tracking-[-0.022em] leading-[1.1] font-semibold text-center mx-auto mt-10">
               Attendees
             </div>
-            <div className="my-6 gap-4 flex flex-wrap justify-center">
+            <div className="my-6 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center">
               {Attendees?.map((attendee, index) => (
                 <Cards
                   title={attendee?.title}
                   company={attendee?.company}
                   color={attendee?.color}
+                  position={attendee?.position}
                   src={attendee?.src}
                   linkedin={attendee?.linkedin}
                   key={index}

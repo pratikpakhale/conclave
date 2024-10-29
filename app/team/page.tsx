@@ -24,6 +24,7 @@ export default function Page() {
       <div className="bg-text-col min-h-screen h-full w-full relative">
         <div className="w-full relative text-color1 min-h-screen h-full pt-40  pb-40 items-center bg-text-col flex flex-col">
           <p className="text-5xl text-center font-bold">Team Members</p>
+          {/* <Accordion /> */}
           <Accordion
             Heading="Invitation, Media and Management Committee "
             List={Invitation_Team_Members}

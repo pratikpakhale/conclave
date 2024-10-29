@@ -47,7 +47,7 @@ export default function Cards(attendee: attendees) {
       <div className="w-full items-center flex mt-2 justify-between">
         <div className="">
           <div className="text-lg font-semibold">{attendee?.title}</div>
-          <div className="text-sm leading-3">{attendee?.company}</div>
+          <div className="text-sm leading-4">{attendee?.company}</div>
           <div className="text-xs">{attendee?.position}</div>
         </div>
         <GrAdd className="cursor-pointer font-bold" />

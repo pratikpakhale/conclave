@@ -39,3 +39,17 @@ export interface Testimonials {
   company: string;
   designation: string;
 }
+
+export interface Review {
+  name: string;
+  contactNo?: string;
+  email?: string;
+  graduationYear: number;
+  designation?: string;
+  course?: string;
+  achievements?: string;
+  testimonial: string;
+  memorableExperience?: string;
+  encouragement?: string;
+  photoUrl: string;
+}

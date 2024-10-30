@@ -9,6 +9,8 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    domains: ["avatar.vercel.sh"],
+
   },
   typescript: {
     ignoreBuildErrors: true,

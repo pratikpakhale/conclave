@@ -29,7 +29,7 @@ export function TestimonialMain() {
       vertical
       reverse={reverse}
       pauseOnHover
-      className="[--duration:20s]"
+      className="[--duration:50s]"
     >
       {rowData.map((review, index) => (
         <ReviewCard
@@ -42,7 +42,7 @@ export function TestimonialMain() {
   );
 
   const mobileRenderMarquee = (rowData: Review[], reverse = false) => (
-    <Marquee vertical reverse={reverse} className="[--duration:20s]">
+    <Marquee vertical reverse={reverse} className="[--duration:50s]">
       {rowData.map((review, index) => (
         <ReviewCard
           key={index}

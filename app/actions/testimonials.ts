@@ -60,7 +60,7 @@ export async function createTestimonial(formData: any) {
 
 export async function getTestimonials() {
   try {
-    const testimonials = await client.fetch(`*[_type == "testimonial"]{
+    const testimonials = await client.fetch(`*[_type == "testimonial" && approved]{
       _id,
       name,
       contactNo,

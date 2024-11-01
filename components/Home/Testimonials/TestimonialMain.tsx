@@ -27,8 +27,6 @@ export function TestimonialMain() {
   const thirdRow = reviews.slice(quarterLength * 2, quarterLength * 3);
   const fourthRow = reviews.slice(quarterLength * 3, reviews.length);
 
-  console.log(firstRow, secondRow, thirdRow, fourthRow);
-
   const renderMarquee = (rowData: Review[], reverse = false) => (
     <Marquee
       vertical

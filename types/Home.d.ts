@@ -41,6 +41,7 @@ export interface Testimonials {
 }
 
 export interface Review {
+  _id: string;
   name: string;
   contactNo?: string;
   email?: string;
@@ -52,4 +53,10 @@ export interface Review {
   memorableExperience?: string;
   encouragement?: string;
   photoUrl: string;
+}
+
+export interface PageProps {
+  params: {
+    id: string;
+  };
 }

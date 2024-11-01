@@ -26,7 +26,7 @@ export default function Home() {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
       const locomotiveScroll = new LocomotiveScroll({
-        // lenisOptions: { lerp: 0.05 },
+        lenisOptions: { lerp: 0.03 },
       });
 
       setTimeout(() => {
@@ -37,7 +37,7 @@ export default function Home() {
     })();
   }, []);
   return (
-    <div className="w-full flex flex-col font-grotesk">
+    <div className="w-full flex flex-col bg-color1 font-grotesk">
       {/* <AnimatePresence mode="wait">
         {isLoading && <PreLoader />}
       </AnimatePresence> */}

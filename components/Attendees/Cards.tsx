@@ -18,7 +18,7 @@ export default function Cards(attendee: attendees) {
       >
         <Image
           src={`/Attendees/${attendee?.src}`}
-          alt={attendee?.title}
+          alt={attendee?.name}
           height={0}
           width={0}
           sizes="100%"
@@ -46,7 +46,7 @@ export default function Cards(attendee: attendees) {
 
       <div className="w-full items-center flex mt-2 justify-between">
         <div className="">
-          <div className="text-lg font-semibold">{attendee?.title}</div>
+          <div className="text-lg font-semibold">{attendee?.name}</div>
           <div className="text-sm leading-4">{attendee?.company}</div>
           <div className="text-xs">{attendee?.position}</div>
         </div>

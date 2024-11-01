@@ -41,15 +41,7 @@ export default function page() {
               {/* <Cards /> */}
               {/* <Cards /> */}
               {Cheif_Guests?.map((guest, index) => (
-                <Cards
-                  title={guest?.title}
-                  company={guest?.company}
-                  color={guest?.color}
-                  position={guest?.position}
-                  src={guest?.src}
-                  linkedin={guest?.linkedin}
-                  key={index}
-                />
+                <Cards {...guest} key={index} />
               ))}
             </div>
 
@@ -58,15 +50,8 @@ export default function page() {
             </div>
             <div className="my-6 mx-auto gap-4 grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center">
               {Attendees?.map((attendee, index) => (
-                <Cards
-                  title={attendee?.title}
-                  company={attendee?.company}
-                  color={attendee?.color}
-                  position={attendee?.position}
-                  src={attendee?.src}
-                  linkedin={attendee?.linkedin}
-                  key={index}
-                />
+                <Cards {...attendee} key={index} />
+                // <AttendeesCard {...attendee} key={index} />
               ))}
             </div>
 

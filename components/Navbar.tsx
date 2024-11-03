@@ -32,7 +32,7 @@ const navs = [
     name: "Sponsorship",
   },
   {
-    href: "/testimonials",
+    href: "/testimonial",
     name: "Testimonials",
   },
   {

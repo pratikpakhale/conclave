@@ -130,7 +130,7 @@ export default function Footer() {
                 <Link href={"/rsvp"}>RSVP</Link>
                 <Link href={"/sponsorship"}>Sponsorship</Link>
                 <Link href={"/developers"}>Team</Link>
-                <Link href={"/testimonials"}>Testimonials</Link>
+                <Link href={"/testimonial"}>Testimonials</Link>
               </div>
               <div className="pr-20 flex flex-col gap-12px">
                 <div className="font-bold mb-4">Follow Us</div>
@@ -164,7 +164,7 @@ export default function Footer() {
             <div className="grid grid-cols-2 text-xs">
               <div className="pr-20 flex flex-col gap-8px">
                 <div className="font-bold mb-2">Site Map</div>
-                <Link href={"/testimonials"}>Testimonials</Link>
+                <Link href={"/testimonial"}>Testimonials</Link>
                 <Link href={"/rsvp"}>RSVP</Link>
                 <Link href={"/attendee"}>Attendee</Link>
                 <Link href={"/team"}>Committee</Link>

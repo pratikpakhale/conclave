@@ -119,14 +119,14 @@ export default function HRConclaveRSVP() {
               Chief Guest: Honourable Prahlad Joshi, Cabinet Minister
             </h2>
           </div>
+          {/* <CountdownTimer /> */}
         </div>
       </div>
       <div
-        className={`relative rounded-xl p-8 w-full max-w-4xl text-white 
+        className={`relative rounded-xl p-1 md:p-8 w-full max-w-4xl text-white 
                              transform transition-all duration-1000 ease-out ${isMounted ? "translate-y-0 scale-100 opacity-100" : "translate-y-20 scale-95 opacity-0"}`}
       >
         {" "}
-        {/* <CountdownTimer /> */}
         <form ref={formRef} action={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="w-full flex-1 border-t border-t-slate-700 py-10">
@@ -208,7 +208,7 @@ export default function HRConclaveRSVP() {
               </div>
             </div>
 
-            <div className="w-full flex-1 border-t col-span-2 border-t-slate-700 py-10">
+            <div className="w-full flex-1 border-t md:col-span-2 border-t-slate-700 py-10">
               <div className="val flex w-full text-[1.3rem]">
                 <div className="flex flex-col w-full">
                   <div className="mb-4">Photo</div>

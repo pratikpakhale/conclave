@@ -1,56 +1,14 @@
-"use client";
-import React, { useRef, useState } from "react";
+// "use client";
+import React from "react";
 import Image from "next/image";
-import { data1, data2, data3, data4 } from "@/data/over-the-years";
-import { useScroll, useTransform, motion, cubicBezier } from "framer-motion";
-import Link from "next/link";
+import { data1, data2 } from "@/data/over-the-years";
 
 export default function OverTheYears() {
-  const targetRef = useRef(null);
-  const { scrollYProgress: scrollYProgress1 } = useScroll({
-    target: targetRef,
-    offset: ["60% end", "end end"],
-  });
-
-  // Second scroll progress (80% to end)
-  const { scrollYProgress: scrollYProgress2 } = useScroll({
-    target: targetRef,
-    offset: ["80% end", "end end"],
-  });
-
-  const { scrollYProgress: scrollYProgress3 } = useScroll({
-    target: targetRef,
-    offset: ["80% end", "end end"],
-  });
-
-  const size = useTransform(scrollYProgress1, [0, 1], ["50%", "4500%"], {
-    ease: cubicBezier(0.17, 0.67, 0.83, 0.67),
-  });
-
-  const opacity = useTransform(scrollYProgress1, [0, 1], [0, 1], {
-    ease: cubicBezier(0.17, 0.67, 0.83, 0.67),
-  });
-
-  const width = useTransform(scrollYProgress2, [0, 1], ["0vw", "96vw"], {
-    ease: cubicBezier(0.17, 0.67, 0.83, 0.67),
-  });
-
-  const opac = useTransform(scrollYProgress3, [0, 1], [0, 1], {
-    ease: cubicBezier(0.17, 0.67, 0.83, 0.67),
-  });
-
-  const height = useTransform(scrollYProgress2, [0, 1], ["0vh", "70vh"], {
-    ease: cubicBezier(0.17, 0.67, 0.83, 0.67),
-  });
-
-  const data11 = [...data1, ...data2];
-  const data12 = [...data3, ...data4];
-
   return (
     <section className="block bg-text-col h-[150vh] w-full relative">
       <div className="bg-black h-full w-full flex relative object-cover gap-[2vw] px-[2vw] overflow-hidden justify-center items-center">
-        <motion.div
-          style={{ opacity: opacity }}
+        <div
+          // style={{ opacity: opacity }}
           className="min-w-40 w-[30%] overflow-hidden  h-full relative"
         >
           <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y direction-reverse">
@@ -68,9 +26,9 @@ export default function OverTheYears() {
               />
             ))}
           </div>
-        </motion.div>
-        <motion.div
-          style={{ opacity: opacity }}
+        </div>
+        <div
+          // style={{ opacity: opacity }}
           className="min-w-40 w-[30%] overflow-hidden  h-full relative"
         >
           <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y">
@@ -88,9 +46,9 @@ export default function OverTheYears() {
               />
             ))}
           </div>
-        </motion.div>
-        <motion.div
-          style={{ opacity: opacity }}
+        </div>
+        <div
+          // style={{ opacity: opacity }}
           className="min-w-40 w-[30%] overflow-hidden  h-full relative"
         >
           <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y direction-reverse">
@@ -108,9 +66,9 @@ export default function OverTheYears() {
               />
             ))}
           </div>
-        </motion.div>
-        <motion.div
-          style={{ opacity: opacity }}
+        </div>
+        <div
+          // style={{ opacity: opacity }}
           className="min-w-40 w-[30%] overflow-hidden h-full relative"
         >
           <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y">
@@ -128,7 +86,7 @@ export default function OverTheYears() {
               />
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* mobile */}
 

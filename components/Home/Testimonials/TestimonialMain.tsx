@@ -5,6 +5,7 @@ import { getTestimonials } from "@/app/actions/testimonials";
 import { ReviewCard } from "./DialogCard";
 import { Review } from "@/types/Home";
 import ScrollReveal from "@/components/ScrollReveal";
+import Link from "next/link";
 
 export function TestimonialMain() {
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -101,6 +102,13 @@ export function TestimonialMain() {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-1/5 bg-gradient-to-b from-color1"></div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-color1"></div>
       </div>
+
+      <Link
+        href={"/testimonial"}
+        className="w-fit mx-auto px-5 py-2 rounded-8px bg-slate-50 hover:bg-white text-black"
+      >
+        Show more...
+      </Link>
     </section>
   );
 }

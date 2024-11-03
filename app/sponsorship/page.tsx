@@ -286,6 +286,22 @@ export default function Page() {
 
           <div className="flex flex-col gap-24px">
             <ScrollReveal>
+              <div className="text-16px w-fit">
+                <p className="text-24px font-bold">
+                  Title Sponsor - INR 10 Lakhs
+                </p>
+                <ul className="list-disc pl-16px">
+                  <li>Five complementary registrations.</li>
+                  <li>Exclusive Title Mention as Joint Organizer.</li>
+                  <li>
+                    Keynote Speaking Slot with an opportunity to deliver a
+                    keynote.
+                  </li>
+                  <li>All benefits from the lower tiers included.</li>
+                </ul>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal>
               <div className="text-16px w-full">
                 <p className="text-24px font-bold mt-8">
                   Platinum Sponsor - INR 5 Lakhs
@@ -321,6 +337,17 @@ export default function Page() {
                   <li>Short-time display of customized content on screens.</li>
                   <li>Mention in event brochures and collateral.</li>
                   <li>Logo displayed on banners, screens, and brochures.</li>
+                </ul>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal>
+              <div className="text-16px w-fit">
+                <p className="text-24px font-bold mt-8">
+                  Supporting Sponsor - INR 50K
+                </p>
+                <ul className="list-disc pl-16px">
+                  <li>Logo displayed on brochures and banners.</li>
+                  <li>Recognition in event-related materials.</li>
                 </ul>
               </div>
             </ScrollReveal>

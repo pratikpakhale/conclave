@@ -41,7 +41,7 @@ export default function Page() {
             if (a.graduationYear === b.graduationYear) {
               return a.name.localeCompare(b.name);
             }
-            return b.graduationYear - a.graduationYear; // Reversed to show newest first
+            return a.graduationYear - b.graduationYear; // Reversed to show newest first
           }
         );
 

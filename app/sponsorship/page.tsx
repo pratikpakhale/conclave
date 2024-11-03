@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import HomeAnimation from "@/components/Home/HomeAnimation";
 import Navbar from "@/components/Navbar";
 import ScrollReveal from "@/components/ScrollReveal";
+import Image from "next/image";
 import React from "react";
 
 export default function Page() {
@@ -232,6 +233,52 @@ export default function Page() {
           <ScrollReveal>
             <div className="w-full flex justify-center items-center">
               <span className="bg-clip-text text-48px font-bold text-center text-transparent bg-gradient-to-r from-purple-400 to-blue-500 [-webkit-text-fill-color:transparent] [-webkit-box-decoration-break:clone] [background-size:100%_100%]">
+                Our Sponsors
+              </span>
+            </div>
+          </ScrollReveal>
+
+          <div className="flex flex-col text-center gap-24px">
+            <ScrollReveal>
+              <div className="text-16px w-full">
+                <p className="text-24px font-bold">Title Sponsor</p>
+                <div className="mx-auto w-60 h-auto rounded-8px overflow-hidden bg-white my-10">
+                  <Image
+                    src={"/companies/fbs.png"}
+                    alt="fbs"
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal>
+              <div className="text-16px w-full">
+                <p className="text-24px font-bold mt-8">Supporting Sponsor</p>
+                <div className="mx-auto w-32 h-auto rounded-8px overflow-hidden bg-white my-10">
+                  <Image
+                    src={"/companies/tata-motors.png"}
+                    alt="tata-motors"
+                    height={0}
+                    width={0}
+                    sizes="100%"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-black min-h-[50vh] pt-28">
+        <div className="max-w-7xl w-full mx-auto items-center text-white pb-24 flex flex-col gap-16px text-16px relative">
+          <ScrollReveal>
+            <div className="w-full flex justify-center items-center">
+              <span className="bg-clip-text text-48px font-bold text-center text-transparent bg-gradient-to-r from-purple-400 to-blue-500 [-webkit-text-fill-color:transparent] [-webkit-box-decoration-break:clone] [background-size:100%_100%]">
                 Sponsorship Tiers
               </span>
             </div>
@@ -239,23 +286,7 @@ export default function Page() {
 
           <div className="flex flex-col gap-24px">
             <ScrollReveal>
-              <div className="text-16px w-fit">
-                <p className="text-24px font-bold">
-                  Title Sponsor - INR 10 Lakhs
-                </p>
-                <ul className="list-disc pl-16px">
-                  <li>Five complementary registrations.</li>
-                  <li>Exclusive Title Mention as Joint Organizer.</li>
-                  <li>
-                    Keynote Speaking Slot with an opportunity to deliver a
-                    keynote.
-                  </li>
-                  <li>All benefits from the lower tiers included.</li>
-                </ul>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal>
-              <div className="text-16px w-fit">
+              <div className="text-16px w-full">
                 <p className="text-24px font-bold mt-8">
                   Platinum Sponsor - INR 5 Lakhs
                 </p>
@@ -268,7 +299,7 @@ export default function Page() {
               </div>
             </ScrollReveal>
             <ScrollReveal>
-              <div className="text-16px w-fit">
+              <div className="text-16px w-full">
                 <p className="text-24px font-bold mt-8">
                   Gold Sponsor - INR 2.5 Lakhs
                 </p>
@@ -281,7 +312,7 @@ export default function Page() {
               </div>
             </ScrollReveal>
             <ScrollReveal>
-              <div className="text-16px w-fit">
+              <div className="text-16px w-full">
                 <p className="text-24px font-bold mt-8">
                   Silver Sponsor - INR 1 Lakh
                 </p>
@@ -290,17 +321,6 @@ export default function Page() {
                   <li>Short-time display of customized content on screens.</li>
                   <li>Mention in event brochures and collateral.</li>
                   <li>Logo displayed on banners, screens, and brochures.</li>
-                </ul>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal>
-              <div className="text-16px w-fit">
-                <p className="text-24px font-bold mt-8">
-                  Supporting Sponsor - INR 50K
-                </p>
-                <ul className="list-disc pl-16px">
-                  <li>Logo displayed on brochures and banners.</li>
-                  <li>Recognition in event-related materials.</li>
                 </ul>
               </div>
             </ScrollReveal>

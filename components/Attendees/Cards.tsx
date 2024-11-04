@@ -22,7 +22,7 @@ export default function Cards(attendee: attendees) {
           height={0}
           width={0}
           sizes="100%"
-          className="w-full aspect-square object-cover object-top"
+          className="w-full aspect-square object-cover object-top grayscale"
         />
 
         {/* The motion.div will expand on hover */}

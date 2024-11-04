@@ -4,6 +4,7 @@ import HeroSection from "./HeroSection";
 import { motion } from "framer-motion";
 import { companyIcons, positions } from "@/data/Landing";
 import { Companies, Positions } from "@/types/Home";
+import Image from "next/image";
 
 export function LandingSection() {
   const [companies, setCompanies] = useState<Companies[]>([]);
@@ -40,22 +41,34 @@ export function LandingSection() {
         <div className="max-w-[100vw] block md:hidden absolute left-0 top-0 -translate-y-full overflow-hidden [mask:linear-gradient(90deg,transparent,white_20%,white_80%,transparent)]">
           <div className="[padding-block:1rem] flex gap-16 w-max flex-nowrap animate-infinite-scroll">
             {companiesFirstHalf?.map((company, index) => {
-              const Icon = company?.name;
               return (
-                <Icon
+                <Image
                   key={index}
-                  color={company?.color ? company?.color : "#151517"}
-                  className="h-10 w-10"
+                  className="w-10 h-10"
+                  alt={company?.name}
+                  src={company?.name}
+                  width={0}
+                  height={0}
+                  sizes="100%"
                 />
+                // <Icon
+                //   key={index}
+                //   color={company?.color ? company?.color : "#151517"}
+                //   className="h-10 w-10"
+                // />
               );
             })}
             {companiesFirstHalf?.map((company, index) => {
-              const Icon = company?.name;
+              // const Icon = company?.name;
               return (
-                <Icon
+                <Image
                   key={index}
-                  color={company?.color ? company?.color : "#151517"}
-                  className="h-10 w-10"
+                  className="w-10 h-10"
+                  alt={company?.name}
+                  src={company?.name}
+                  width={0}
+                  height={0}
+                  sizes="100%"
                 />
               );
             })}
@@ -64,28 +77,36 @@ export function LandingSection() {
         <div className="max-w-[100vw] block md:hidden absolute left-0 bottom-0 translate-y-full overflow-hidden [mask:linear-gradient(90deg,transparent,white_20%,white_80%,transparent)] ">
           <div className="[padding-block:1rem] flex gap-16 w-max flex-nowrap animate-infinite-scroll direction-reverse">
             {companiesSecondHalf?.map((company, index) => {
-              const Icon = company?.name;
+              // const Icon = company?.name;
               return (
-                <Icon
+                <Image
                   key={index}
-                  color={company?.color ? company?.color : "#151517"}
-                  className="h-10 w-10"
+                  className="w-10 h-10"
+                  alt={company?.name}
+                  src={company?.name}
+                  width={0}
+                  height={0}
+                  sizes="100%"
                 />
               );
             })}
             {companiesSecondHalf?.map((company, index) => {
-              const Icon = company?.name;
+              // const Icon = company?.name;
               return (
-                <Icon
+                <Image
                   key={index}
-                  color={company?.color ? company?.color : "#151517"}
-                  className="h-10 w-10"
+                  className="w-10 h-10"
+                  alt={company?.name}
+                  src={company?.name}
+                  width={0}
+                  height={0}
+                  sizes="100%"
                 />
               );
             })}
           </div>
         </div>
-        <div className="masker">
+        <div className="">
           <h1 className="text-[clamp(44px,10vw,88px)] leading-[1.2] font-bold text-center text-color1 relative z-20">
             <motion.div
               variants={{

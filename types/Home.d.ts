@@ -1,16 +1,16 @@
 import React from "react";
-import { IconType } from "react-icons/lib";
+// import { IconType } from "react-icons/lib";
 
 export interface LandingComponents {
   top?: string;
   right?: string;
-  icon?: IconType;
+  icon: string;
   transform?: string;
   color: string | null;
 }
 
 export interface Companies {
-  name: IconType;
+  name: string;
   right: string;
   top: string;
   color: string | null;

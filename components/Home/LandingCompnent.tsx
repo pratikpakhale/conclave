@@ -1,8 +1,9 @@
 import React from "react";
 import { LandingComponents } from "@/types/Home";
+import Image from "next/image";
 
 export default function LandingComponent(props: LandingComponents) {
-  const Icon = props?.icon; // Destructure the icon component
+  // const Icon = props?.icon; // Destructure the icon component
 
   return (
     <a
@@ -20,9 +21,17 @@ export default function LandingComponent(props: LandingComponents) {
       }
       onMouseLeave={(e) => (e.currentTarget.style.color = "#797777")}
     >
-      {Icon && (
+      {/* {Icon && (
         <Icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
-      )}
+      )} */}
+      <Image
+        className="w-6 sm:w-8 md:w-20 lg:w-32 h-auto grayscale hover:grayscale-0"
+        alt={"icon"}
+        src={props?.icon}
+        width={0}
+        height={0}
+        sizes="100%"
+      />
     </a>
   );
 }

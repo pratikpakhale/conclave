@@ -115,13 +115,12 @@ export default function Footer() {
           <div className="w-full hidden md:flex flex-col h-full flex-1 justify-between text-12px pt-48px">
             <div className="grid grid-cols-4">
               <div className="h-full flex flex-col">
-                <p>9538156995 (Dr. Manjunath )</p>
-                <p>9916043766 (Dr. Rajesh )</p>
+                <p>9538156995 (Dr. Manjunath)</p>
+                <p>9916043766 (Dr. Rajesh)</p>
               </div>
               <div className="pr-20">
                 Indian Institute of Information Technology (IIIT) Dharwad,
-                Ittigatti Rd, near Sattur Colony, Karnataka 580009 92VG+24 Joga
-                Yellapur, Karnataka
+                Ittigatti Rd, near Sattur Colony, Karnataka - 580009
               </div>
               <div className="pr-20 flex flex-col gap-12px">
                 <div className="font-bold mb-4">Site Map</div>
@@ -158,8 +157,7 @@ export default function Footer() {
           <div className="flex flex-col py-4 gap-4 w-full text-12px md:hidden">
             <div className="">
               Indian Institute of Information Technology (IIIT) Dharwad,
-              Ittigatti Rd, near Sattur Colony, Karnataka 580009 92VG+24 Joga
-              Yellapur, Karnataka
+              Ittigatti Rd, near Sattur Colony, Karnataka - 580009
             </div>
             <div className="grid grid-cols-2 text-xs">
               <div className="pr-20 flex flex-col gap-8px">

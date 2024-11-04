@@ -25,7 +25,7 @@ export default function LandingComponent(props: LandingComponents) {
         <Icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
       )} */}
       <Image
-        className="w-6 sm:w-8 md:w-20 lg:w-32 h-auto grayscale hover:grayscale-0"
+        className="h-6 sm:h-4 md:h-6 lg:h-8 xl:h-10 w-auto grayscale hover:grayscale-0"
         alt={"icon"}
         src={props?.icon}
         width={0}

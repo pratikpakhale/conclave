@@ -38,13 +38,13 @@ export function LandingSection() {
       <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808016_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] "></div>
       <HeroSection />
       <div className="main">
-        <div className="max-w-[100vw] block md:hidden absolute left-0 top-0 -translate-y-full overflow-hidden [mask:linear-gradient(90deg,transparent,white_20%,white_80%,transparent)]">
+        <div className="max-w-[100vw] block md:hidden absolute right-0 left-0 top-0 -translate-y-[150%] overflow-hidden [mask:linear-gradient(90deg,transparent,white_20%,white_80%,transparent)]">
           <div className="[padding-block:1rem] flex gap-16 w-max flex-nowrap animate-infinite-scroll">
             {companiesFirstHalf?.map((company, index) => {
               return (
                 <Image
                   key={index}
-                  className="w-10 h-10"
+                  className="h-8 w-auto"
                   alt={company?.name}
                   src={company?.name}
                   width={0}
@@ -63,7 +63,7 @@ export function LandingSection() {
               return (
                 <Image
                   key={index}
-                  className="w-10 h-10"
+                  className="h-6 w-auto"
                   alt={company?.name}
                   src={company?.name}
                   width={0}
@@ -74,14 +74,14 @@ export function LandingSection() {
             })}
           </div>
         </div>
-        <div className="max-w-[100vw] block md:hidden absolute left-0 bottom-0 translate-y-full overflow-hidden [mask:linear-gradient(90deg,transparent,white_20%,white_80%,transparent)] ">
+        <div className="max-w-[100vw] block md:hidden absolute left-0 right-0 bottom-0 translate-y-[150%] overflow-hidden [mask:linear-gradient(90deg,transparent,white_20%,white_80%,transparent)] ">
           <div className="[padding-block:1rem] flex gap-16 w-max flex-nowrap animate-infinite-scroll direction-reverse">
             {companiesSecondHalf?.map((company, index) => {
               // const Icon = company?.name;
               return (
                 <Image
                   key={index}
-                  className="w-10 h-10"
+                  className="h-10 w-auto"
                   alt={company?.name}
                   src={company?.name}
                   width={0}
@@ -95,7 +95,7 @@ export function LandingSection() {
               return (
                 <Image
                   key={index}
-                  className="w-10 h-10"
+                  className="h-10 w-auto"
                   alt={company?.name}
                   src={company?.name}
                   width={0}

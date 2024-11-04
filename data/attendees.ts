@@ -201,7 +201,7 @@ export const Attendees: attendees[] = [
   },
   {
     name: "Aparna C",
-    company: "Torri Harris",
+    company: "Torry Harris",
     src: "Aparna_C.jpeg",
     position: "Chief Human Resources Officer",
     linkedin: "https://www.linkedin.com/in/aparna2/",
@@ -402,7 +402,7 @@ export const Attendees: attendees[] = [
   {
     name: "Arun Abraham Francis",
     src: "Arun_Abraham_Francis.jpeg",
-    company: "Mesho",
+    company: "Meesho",
     position: "Head, University Relations",
     linkedin: "https://www.linkedin.com/in/arun-abraham-francis/",
     student1_name: "Samuel Naik",

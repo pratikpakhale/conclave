@@ -2,14 +2,14 @@ import { team_member } from "@/types/Teams";
 
 export const Invitation_Team_Members: team_member[] = [
   {
-    title: "Jaishana",
+    title: "Pj Vineeth Kumar",
     src: "img_placeholder.webp",
     position: "Lead",
     color: "#706D63",
     linkedin: "https://in.linkedin.com/",
   },
   {
-    title: "Pj Vineeth Kumar",
+    title: "Jaishana",
     src: "img_placeholder.webp",
     position: "Lead",
     color: "#706D63",

@@ -8,13 +8,15 @@
 // }
 
 export interface attendees {
+  third_year_poc?: string;
+  third_year_linkedin?: string;
+  third_year_contact?: number;
+  fourth_year_poc?: string;
+  fourth_year_linkedin?: string;
+  fourth_year_contact?: number;
+  company?: string;
   name: string;
-  src?: string;
-  company: string;
   position: string;
   linkedin: string;
-  student1_name?: string;
-  student1_phone?: string | null;
-  student2_name?: string;
-  student2_phone?: string | null;
+  src?: string;
 }

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import HeroSection from "./HeroSection";
 import { motion } from "framer-motion";
-import { companyIcons, positions } from "@/data/Landing";
+import { companyIcons, positions, sponsors } from "@/data/Landing";
 import { Companies, Positions } from "@/types/Home";
 import Image from "next/image";
 
@@ -33,6 +33,7 @@ export function LandingSection() {
   const half = Math.ceil(companies.length / 2);
   const companiesFirstHalf = companies.slice(0, half);
   const companiesSecondHalf = companies.slice(half);
+
   return (
     <div className="h-[100dvh] relative w-full bg-text-col flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808016_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] "></div>
@@ -106,7 +107,7 @@ export function LandingSection() {
             })}
           </div>
         </div>
-        <div className="">
+        <div className="masker">
           <h1 className="text-[clamp(44px,10vw,88px)] leading-[1.2] font-bold text-center text-color1 relative z-20">
             <motion.div
               variants={{
@@ -123,6 +124,41 @@ export function LandingSection() {
               <p className="font-bold leading-[1.1] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
                 Conclave 2024
               </p>
+              <div className="flex gap-1 pt-10 text-white flex-col">
+                <p className="text-20px">Powered by</p>
+                <div className="max-w-[20rem] mx-auto block overflow-hidden [mask:linear-gradient(90deg,transparent,white_20%,white_80%,transparent)] ">
+                  <div className="[padding-block:1rem] flex gap-16 w-max flex-nowrap animate-infinite-scroll direction-reverse">
+                    {sponsors?.map((company, index) => {
+                      // const Icon = company?.name;
+                      return (
+                        <Image
+                          key={index}
+                          className="h-12 w-auto"
+                          alt={company?.name}
+                          src={company?.name}
+                          width={0}
+                          height={0}
+                          sizes="100%"
+                        />
+                      );
+                    })}
+                    {sponsors?.map((company, index) => {
+                      // const Icon = company?.name;
+                      return (
+                        <Image
+                          key={index}
+                          className="h-12 w-auto"
+                          alt={company?.name}
+                          src={company?.name}
+                          width={0}
+                          height={0}
+                          sizes="100%"
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </h1>
         </div>

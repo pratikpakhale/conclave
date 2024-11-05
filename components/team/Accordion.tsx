@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Member from "./Member";
-import { team_member } from "@/types/Teams";
+import { member } from "@/types/Teams";
 
 const scaleAnimation = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -26,7 +26,7 @@ export default function Accordion({
   List,
 }: {
   Heading: string;
-  List: team_member[];
+  List: member[];
 }) {
   const [modal, setModal] = useState({ active: false, index: 0 });
   const [isMainExpanded, setIsMainExpanded] = useState(false);
@@ -145,9 +145,9 @@ export default function Accordion({
                 >
                   <Member
                     index={index}
-                    title={project.title}
+                    title={project.studentName}
                     position={project.position || ""}
-                    linkedin={project.linkedin || ""}
+                    linkedin={project.linkedIn || ""}
                     manageModal={manageModal}
                   />
                 </div>
@@ -163,33 +163,34 @@ export default function Accordion({
             variants={scaleAnimation}
             initial="initial"
             animate={active ? "enter" : "closed"}
-            className="fixed top-1/2 left-1/2 bg-white max-md:hidden rounded-8px pointer-events-none overflow-hidden z-3 h-[250px] aspect-square"
+            className="fixed top-1/2 left-1/2 bg-white rounded-8px pointer-events-none overflow-hidden z-3 h-[250px] aspect-square"
           >
             <div
               style={{ top: index * -100 + "%" }}
               className="relative h-full w-full transition-[top_0.5s_cubic-bezier(0.76,0,0.24,1)]"
             >
               {List.map((project, index) => {
-                const { src, color } = project;
+                const { photoUrl } = project;
                 return (
                   <div
                     className="h-full w-full flex items-center justify-center"
-                    style={{ backgroundColor: color }}
                     key={`modal_${index}`}
                   >
                     <Image
-                      src={`/projects/${src}`}
+                      src={
+                        photoUrl ? photoUrl : "https://avatar.vercel.sh/default"
+                      }
                       width={300}
                       height={0}
                       alt="image"
-                      className="h-auto"
+                      className="h-full w-full object-cover"
                     />
                   </div>
                 );
               })}
             </div>
           </motion.div>
-          <motion.div
+          {/* <motion.div
             ref={cursor}
             className="w-[80px] h-[80px] rounded-[50%] max-md:hidden bg-[#8a84e3] text-white fixed z-3 flex items-center justify-center pointer-events-none"
             variants={scaleAnimation}
@@ -204,7 +205,7 @@ export default function Accordion({
             animate={active ? "enter" : "closed"}
           >
             View
-          </motion.div>
+          </motion.div> */}
         </>
       </div>
     </section>

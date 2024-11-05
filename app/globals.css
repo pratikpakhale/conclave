@@ -292,6 +292,7 @@ body {
   background-position: center;
   background-size: cover;
   width: 100%;
+  height: auto;
   z-index: 5;
   padding: 11vw 17vw;
   display: flex;

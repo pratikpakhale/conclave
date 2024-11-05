@@ -242,15 +242,37 @@ export default function Page() {
             <ScrollReveal>
               <div className="text-16px w-full">
                 <p className="text-24px font-bold">Title Sponsor</p>
-                <div className="mx-auto w-60 h-auto rounded-8px overflow-hidden bg-white my-10">
-                  <Image
-                    src={"/companies/fbs.png"}
-                    alt="fbs"
-                    height={0}
-                    width={0}
-                    sizes="100%"
-                    className="h-full w-full object-cover"
-                  />
+                <div className="flex gap-4 mx-auto my-10 w-fit">
+                  <div className="h-28 w-fit rounded-8px px-16px overflow-hidden bg-white">
+                    <Image
+                      src={"/companies/bis.png"}
+                      alt="fbs"
+                      height={0}
+                      width={0}
+                      sizes="100%"
+                      className="h-full w-auto object-cover"
+                    />
+                  </div>
+                  <div className="h-28 w-fit rounded-8px p-16px overflow-hidden bg-white">
+                    <Image
+                      src={"/companies/fbs.png"}
+                      alt="fbs"
+                      height={0}
+                      width={0}
+                      sizes="100%"
+                      className="h-full w-auto object-cover"
+                    />
+                  </div>
+                  <div className="h-28 w-fit rounded-8px p-16px overflow-hidden bg-white">
+                    <Image
+                      src={"/companies/fuel.png"}
+                      alt="fbs"
+                      height={0}
+                      width={0}
+                      sizes="100%"
+                      className="h-full w-auto object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
@@ -258,15 +280,17 @@ export default function Page() {
             <ScrollReveal>
               <div className="text-16px w-full">
                 <p className="text-24px font-bold mt-8">Supporting Sponsor</p>
-                <div className="mx-auto w-32 h-auto rounded-8px overflow-hidden bg-white my-10">
-                  <Image
-                    src={"/companies/tata-motors.png"}
-                    alt="tata-motors"
-                    height={0}
-                    width={0}
-                    sizes="100%"
-                    className="h-full w-full object-cover"
-                  />
+                <div className="flex gap-4 mx-auto w-fit my-10">
+                  <div className="w-32 h-auto rounded-4px p-8px overflow-hidden bg-white">
+                    <Image
+                      src={"/companies/tata-motors.png"}
+                      alt="tata-motors"
+                      height={0}
+                      width={0}
+                      sizes="100%"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </ScrollReveal>

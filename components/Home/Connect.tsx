@@ -36,7 +36,7 @@ export default function Connect() {
           <ScrollReveal delay={index * 0.2} key={index}>
             <motion.div
               key={index}
-              className="rounded-16px cursor-pointer hover:[background:linear-gradient(45deg,white,white)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.300/.48)_80%,_theme(colors.indigo.500)_86%,_theme(colors.indigo.300)_90%,_theme(colors.indigo.500)_94%,_theme(colors.slate.300/.48))_border-box] border-transparent animate-border border-[2px] bg-white aspect-square group relative flex items-center justify-center"
+              className="rounded-16px p-16px cursor-pointer hover:[background:linear-gradient(45deg,white,white)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.300/.48)_80%,_theme(colors.indigo.500)_86%,_theme(colors.indigo.300)_90%,_theme(colors.indigo.500)_94%,_theme(colors.slate.300/.48))_border-box] border-transparent animate-border border-[2px] bg-white aspect-square group relative flex items-center justify-center"
               transition={{ duration: 0.3 }}
             >
               <div className="text-28px xl:text-20px font-medium group-hover:text-24px transition-all duration-500 group-hover:-translate-y-full">

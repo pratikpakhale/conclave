@@ -22,12 +22,13 @@ export default function About() {
       </div>
       <ScrollReveal>
         <div className="relative max-w-7xl w-full mx-auto">
-          The HR Conclave serves as a platform to connect students, academia,
-          and industry experts, fostering discussions on talent acquisition,
-          workforce development, and evolving HR trends. It offers students a
-          chance to engage with industry leaders, gain insights into career
-          development, and explore the latest innovations in the job market,
-          bridging the gap between academia and industry for future success.
+          The IIIT Dharwad Conclave serves as a platform to connect students,
+          academia, and industry experts, fostering discussions on talent
+          acquisition, workforce development, and evolving HR trends. It offers
+          students a chance to engage with industry leaders, gain insights into
+          career development, and explore the latest innovations in the job
+          market, bridging the gap between academia and industry for future
+          success.
         </div>
       </ScrollReveal>
     </section>

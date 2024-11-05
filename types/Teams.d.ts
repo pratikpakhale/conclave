@@ -5,3 +5,13 @@ export interface team_member {
   linkedin: string;
   color: string;
 }
+
+export interface member {
+  _id: string;
+  studentName: string;
+  linkedIn: string;
+  email: string;
+  committeeName: string;
+  position: string;
+  photoUrl: string;
+}

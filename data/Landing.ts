@@ -75,7 +75,7 @@ import { Positions } from "@/types/Home";
 // ];
 
 export const companyIcons = [
-  { icon: "/companies/fbs.png", color: "#1BA0D7" },
+  // { icon: "", color: "#1BA0D7" },
   { icon: "/companies/tata-motors.png", color: "#f9de1c" },
   { icon: "/companies/atlassian.svg", color: "#052FAD" },
   { icon: "/companies/amazon.png", color: "#052FAD" },
@@ -121,11 +121,11 @@ export const companyIcons = [
 
 // Original right and top positions
 export const positions: Positions[] = [
-  { right: "18%", top: "29%" },
-  { right: "30%", top: "30%" },
-  { right: "73%", top: "42%" },
-  { right: "80%", top: "48%" },
-  { right: "46%", top: "61%" },
+  { right: "10%", top: "29%" },
+  { right: "75%", top: "50%" },
+  { right: "85%", top: "42%" },
+  { right: "80%", top: "58%" },
+  { right: "71%", top: "21%" },
   { right: "35%", top: "75%" },
   { right: "18%", top: "40%" },
   { right: "25%", top: "83%" },
@@ -133,15 +133,21 @@ export const positions: Positions[] = [
   { right: "70%", top: "65%" },
   { right: "31%", top: "18%" },
   { right: "50%", top: "10%" },
-  { right: "55%", top: "80%" },
-  { right: "50%", top: "17%" },
-  { right: "45%", top: "30%" },
-  { right: "75%", top: "30%" },
-  { right: "85%", top: "65%" },
+  { right: "65%", top: "80%" },
+  { right: "44%", top: "17%" },
+  { right: "25%", top: "60%" },
+  { right: "80%", top: "28%" },
+  { right: "85%", top: "75%" },
   { right: "44%", top: "80%" },
-  { right: "20%", top: "19%" },
+  { right: "10%", top: "19%" },
   { right: "15%", top: "60%" },
-  { right: "78%", top: "18%" },
+  // { right: "78%", top: "18%" },
   // { right: "25%", top: "65%" },
   // { right: "23%", top: "19%" },
+];
+
+export const sponsors = [
+  { name: "/companies/fbs.png" },
+  { name: "/companies/fuel.png" },
+  { name: "/companies/bis.png" },
 ];

@@ -48,7 +48,7 @@ export default function page() {
             <div className="text-h3 max-w-7xl w-full tracking-[-0.022em] leading-[1.1] font-semibold text-center mx-auto mt-10">
               Attendees
             </div>
-            <div className="my-6 mx-auto gap-4 grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center">
+            <div className="my-6 mx-auto gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {Attendees?.map((attendee, index) => (
                 <Cards {...attendee} key={index} />
                 // <AttendeesCard {...attendee} key={index} />

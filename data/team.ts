@@ -1345,7 +1345,7 @@ export const stageCommitteeMembers: team_member[] = [
 
 export const foodCommitteeMembers = [
   {
-    title: "Zaid",
+    title: "Zaid Ragib",
     src: "img_placeholder.webp",
     position: "Lead",
     color: "#706D63",

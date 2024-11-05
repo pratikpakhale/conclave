@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
-  Phone,
   Mail,
   GraduationCap,
   BookOpen,
@@ -81,12 +80,12 @@ export default function Page({ params }: PageProps) {
                 <span>{review.email}</span>
               </div>
             )}
-            {review.contactNo && (
+            {/* {review.contactNo && (
               <div className="flex items-center gap-2 text-gray-600">
                 <Phone className="w-4 h-4" />
                 <span>{review.contactNo}</span>
               </div>
-            )}
+            )} */}
             {review.course && (
               <div className="flex items-center gap-2 text-gray-600">
                 <BookOpen className="w-4 h-4" />

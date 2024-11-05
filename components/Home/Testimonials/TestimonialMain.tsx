@@ -21,6 +21,7 @@ const distributeReviews = (reviews: Review[], columns: number) => {
 export function TestimonialMain() {
   const [reviews, setReviews] = useState<Review[]>([]);
   // const [selectedReview, setSelectedReview] = useState<Review | null>(null);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
     async function fetchTestimonials() {
@@ -35,9 +36,24 @@ export function TestimonialMain() {
     }
 
     fetchTestimonials();
+
+    setWindowWidth(window.innerWidth);
+
+    // Add window resize listener
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const columnCount = 4; // Or dynamically calculate based on window width if necessary
+  const getColumnCount = () => {
+    if (windowWidth >= 1280) return 4; // xl
+    if (windowWidth >= 1024) return 3; // lg
+    if (windowWidth >= 768) return 2; // md
+    return 1; // smaller screens
+  };
+  const columnCount = getColumnCount();
+
   const distributedReviews = distributeReviews(reviews, columnCount);
 
   // const renderMarquee = (rowData: Review[], reverse = false) => (

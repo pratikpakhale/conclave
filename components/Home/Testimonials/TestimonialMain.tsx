@@ -1,11 +1,22 @@
 "use client";
 import { useState, useEffect } from "react";
-import Marquee from "@/components/ui/marquee";
+// import Marquee from "@/components/ui/marquee";
 import { getTestimonials } from "@/app/actions/testimonials";
 import { ReviewCard } from "./DialogCard";
 import { Review } from "@/types/Home";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
+
+const distributeReviews = (reviews: Review[], columns: number) => {
+  const distributed: Review[][] = Array.from({ length: columns }, () => []);
+
+  reviews.forEach((review, index) => {
+    const columnIndex = index % columns;
+    distributed[columnIndex].push(review);
+  });
+
+  return distributed;
+};
 
 export function TestimonialMain() {
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -15,47 +26,48 @@ export function TestimonialMain() {
     async function fetchTestimonials() {
       const response = await getTestimonials();
       if (response.success && response.testimonials) {
-        setReviews(response.testimonials);
+        // Filter by graduationYear <= 2024 and sort by name
+        const filteredAndSortedTestimonials = response.testimonials
+          .filter((review) => review.graduationYear <= 2024)
+          .sort((a, b) => a.name.localeCompare(b.name));
+        setReviews(filteredAndSortedTestimonials);
       }
     }
 
     fetchTestimonials();
   }, []);
 
-  const quarterLength = Math.floor(reviews.length / 4);
-  const firstRow = reviews.slice(0, quarterLength);
-  const secondRow = reviews.slice(quarterLength, quarterLength * 2);
-  const thirdRow = reviews.slice(quarterLength * 2, quarterLength * 3);
-  const fourthRow = reviews.slice(quarterLength * 3, reviews.length);
+  const columnCount = 4; // Or dynamically calculate based on window width if necessary
+  const distributedReviews = distributeReviews(reviews, columnCount);
 
-  const renderMarquee = (rowData: Review[], reverse = false) => (
-    <Marquee
-      vertical
-      reverse={reverse}
-      pauseOnHover
-      className="[--duration:50s]"
-    >
-      {rowData.map((review, index) => (
-        <ReviewCard
-          key={index}
-          {...review}
-          // onClick={() => setSelectedReview(review)}
-        />
-      ))}
-    </Marquee>
-  );
+  // const renderMarquee = (rowData: Review[], reverse = false) => (
+  //   <Marquee
+  //     vertical
+  //     reverse={reverse}
+  //     pauseOnHover
+  //     className="[--duration:50s]"
+  //   >
+  //     {rowData.map((review, index) => (
+  //       <ReviewCard
+  //         key={index}
+  //         {...review}
+  //         // onClick={() => setSelectedReview(review)}
+  //       />
+  //     ))}
+  //   </Marquee>
+  // );
 
-  const mobileRenderMarquee = (rowData: Review[], reverse = false) => (
-    <Marquee vertical reverse={reverse} className="[--duration:50s]">
-      {rowData.map((review, index) => (
-        <ReviewCard
-          key={index}
-          {...review}
-          // onClick={() => setSelectedReview(review)}
-        />
-      ))}
-    </Marquee>
-  );
+  // const mobileRenderMarquee = (rowData: Review[], reverse = false) => (
+  //   <Marquee vertical reverse={reverse} className="[--duration:50s]">
+  //     {rowData.map((review, index) => (
+  //       <ReviewCard
+  //         key={index}
+  //         {...review}
+  //         // onClick={() => setSelectedReview(review)}
+  //       />
+  //     ))}
+  //   </Marquee>
+  // );
 
   return (
     <section className="w-full px-2 sm:px-4 md:px-8px lg:px-24px xl:px-48px flex flex-col py-20 text-text-col bg-color1">
@@ -75,7 +87,7 @@ export function TestimonialMain() {
         </ScrollReveal>
       </div>
 
-      <div className="relative flex h-[80vh] w-full items-center justify-center overflow-hidden bg-color1 md:shadow-xl">
+      {/* <div className="relative flex h-[80vh] w-full items-center justify-center overflow-hidden bg-color1 md:shadow-xl">
         <div className="md:hidden basis-full md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
           {mobileRenderMarquee(reviews)}
         </div>
@@ -93,12 +105,24 @@ export function TestimonialMain() {
           {renderMarquee(fourthRow, true)}
         </div>
 
-        {/* <ReviewDialog
+        <ReviewDialog
           review={selectedReview}
           isOpen={!!selectedReview}
           onClose={() => setSelectedReview(null)}
-        /> */}
+        />
 
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/5 bg-gradient-to-b from-color1"></div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-color1"></div>
+      </div> */}
+
+      <div className="w-full max-h-[80vh] relative overflow-hidden flex gap-4">
+        {distributedReviews.map((column, columnIndex) => (
+          <div key={columnIndex} className="flex-1 flex flex-col gap-4">
+            {column.map((review, reviewIndex) => (
+              <ReviewCard key={`${columnIndex}-${reviewIndex}`} {...review} />
+            ))}
+          </div>
+        ))}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-1/5 bg-gradient-to-b from-color1"></div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-color1"></div>
       </div>

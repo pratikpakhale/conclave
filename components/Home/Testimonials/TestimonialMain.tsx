@@ -116,14 +116,16 @@ export function TestimonialMain() {
       </div> */}
 
       <div className="w-full max-h-[80vh] relative overflow-hidden flex gap-4">
-        {distributedReviews.map((column, columnIndex) => (
-          <div key={columnIndex} className="flex-1 flex flex-col gap-4">
-            {column.map((review, reviewIndex) => (
-              <ReviewCard key={`${columnIndex}-${reviewIndex}`} {...review} />
-            ))}
-          </div>
-        ))}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/5 bg-gradient-to-b from-color1"></div>
+        <div className="w-full flex gap-4">
+          {distributedReviews.map((column, columnIndex) => (
+            <div key={columnIndex} className="flex-1 flex flex-col gap-4">
+              {column.map((review, reviewIndex) => (
+                <ReviewCard key={`${columnIndex}-${reviewIndex}`} {...review} />
+              ))}
+            </div>
+          ))}
+        </div>
+        {/* <div className="pointer-events-none absolute inset-x-0 top-0 h-1/5 bg-gradient-to-b from-color1"></div> */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-color1"></div>
       </div>
 

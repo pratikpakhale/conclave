@@ -24,7 +24,7 @@ export const ReviewCard = ({
       href={`/testimonial/${_id}`}
       // onClick={onClick}
       className={cn(
-        "relative cursor-pointer overflow-hidden rounded-8px border w-full p-4",
+        "relative cursor-pointer rounded-8px border w-full p-4",
         "border-gray-950/[.1] bg-[#0d1013] hover:bg-[#14181d]"
       )}
     >

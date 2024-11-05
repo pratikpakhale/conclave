@@ -28,67 +28,215 @@ export default function Page() {
           <p className="text-5xl text-center font-bold">Team Members</p>
           <Accordion
             Heading="Invitation, Media and Management Committee "
-            List={members?.filter(
-              (member) => member.committeeName === "invitation_media_management"
-            )}
+            List={members
+              ?.filter(
+                (member) =>
+                  member.committeeName === "invitation_media_management"
+              )
+              .sort((a, b) => {
+                // Sort by position
+                const positionOrder = ["lead", "co-lead", "member"];
+                const positionDiff =
+                  positionOrder.indexOf(a.position) -
+                  positionOrder.indexOf(b.position);
+                if (positionDiff !== 0) {
+                  return positionDiff;
+                }
+
+                // Sort by name
+                return a.studentName.localeCompare(b.studentName);
+              })}
           />
           <Accordion
             Heading="Registration, Feedback and FollowUp Committee  "
-            List={members?.filter(
-              (member) =>
-                member.committeeName === "registration_feedback_followup"
-            )}
+            List={members
+              ?.filter(
+                (member) =>
+                  member.committeeName === "registration_feedback_followup"
+              )
+              .sort((a, b) => {
+                // Sort by position
+                const positionOrder = ["lead", "co-lead", "member"];
+                const positionDiff =
+                  positionOrder.indexOf(a.position) -
+                  positionOrder.indexOf(b.position);
+                if (positionDiff !== 0) {
+                  return positionDiff;
+                }
+
+                // Sort by name
+                return a.studentName.localeCompare(b.studentName);
+              })}
           />
           <Accordion
             Heading="Program and Agenda Committee"
-            List={members?.filter(
-              (member) => member.committeeName === "program_agenda"
-            )}
+            List={members
+              ?.filter((member) => member.committeeName === "program_agenda")
+              .sort((a, b) => {
+                // Sort by position
+                const positionOrder = ["lead", "co-lead", "member"];
+                const positionDiff =
+                  positionOrder.indexOf(a.position) -
+                  positionOrder.indexOf(b.position);
+                if (positionDiff !== 0) {
+                  return positionDiff;
+                }
+
+                // Sort by name
+                return a.studentName.localeCompare(b.studentName);
+              })}
           />
           <Accordion
             Heading="Stage and Memento Committee"
-            List={members?.filter(
-              (member) => member.committeeName === "stage_memento"
-            )}
+            List={members
+              ?.filter((member) => member.committeeName === "stage_memento")
+              .sort((a, b) => {
+                // Sort by position
+                const positionOrder = ["lead", "co-lead", "member"];
+                const positionDiff =
+                  positionOrder.indexOf(a.position) -
+                  positionOrder.indexOf(b.position);
+                if (positionDiff !== 0) {
+                  return positionDiff;
+                }
+
+                // Sort by name
+                return a.studentName.localeCompare(b.studentName);
+              })}
           />
           <Accordion
             Heading="Food Committee"
-            List={members?.filter((member) => member.committeeName === "food")}
+            List={members
+              ?.filter((member) => member.committeeName === "food")
+              .sort((a, b) => {
+                // Sort by position
+                const positionOrder = ["lead", "co-lead", "member"];
+                const positionDiff =
+                  positionOrder.indexOf(a.position) -
+                  positionOrder.indexOf(b.position);
+                if (positionDiff !== 0) {
+                  return positionDiff;
+                }
+
+                // Sort by name
+                return a.studentName.localeCompare(b.studentName);
+              })}
           />
           <Accordion
             Heading="Transportation and Hospitality Committee "
-            List={members?.filter(
-              (member) => member.committeeName === "transportation_hospitality"
-            )}
+            List={members
+              ?.filter(
+                (member) =>
+                  member.committeeName === "transportation_hospitality"
+              )
+              .sort((a, b) => {
+                // Sort by position
+                const positionOrder = ["lead", "co-lead", "member"];
+                const positionDiff =
+                  positionOrder.indexOf(a.position) -
+                  positionOrder.indexOf(b.position);
+                if (positionDiff !== 0) {
+                  return positionDiff;
+                }
+
+                // Sort by name
+                return a.studentName.localeCompare(b.studentName);
+              })}
           />
           <Accordion
             Heading="Sponsorship and Outreach Committee"
-            List={members?.filter(
-              (member) => member.committeeName === "sponsorship_outreach"
-            )}
+            List={members
+              ?.filter(
+                (member) => member.committeeName === "sponsorship_outreach"
+              )
+              .sort((a, b) => {
+                // Sort by position
+                const positionOrder = ["lead", "co-lead", "member"];
+                const positionDiff =
+                  positionOrder.indexOf(a.position) -
+                  positionOrder.indexOf(b.position);
+                if (positionDiff !== 0) {
+                  return positionDiff;
+                }
+
+                // Sort by name
+                return a.studentName.localeCompare(b.studentName);
+              })}
           />
           <Accordion
             Heading="Student Coordination and Volunteers Committee "
-            List={members?.filter(
-              (member) =>
-                member.committeeName === "student_coordination_volunteers"
-            )}
+            List={members
+              ?.filter(
+                (member) =>
+                  member.committeeName === "student_coordination_volunteers"
+              )
+              .sort((a, b) => {
+                // Sort by position
+                const positionOrder = ["lead", "co-lead", "member"];
+                const positionDiff =
+                  positionOrder.indexOf(a.position) -
+                  positionOrder.indexOf(b.position);
+                if (positionDiff !== 0) {
+                  return positionDiff;
+                }
+
+                // Sort by name
+                return a.studentName.localeCompare(b.studentName);
+              })}
           />
           <Accordion
             Heading="Alumni Team"
-            List={members?.filter(
-              (member) => member.committeeName === "alumni"
-            )}
+            List={members
+              ?.filter((member) => member.committeeName === "alumni")
+              .sort((a, b) => {
+                // Sort by position
+                const positionOrder = ["lead", "co-lead", "member"];
+                const positionDiff =
+                  positionOrder.indexOf(a.position) -
+                  positionOrder.indexOf(b.position);
+                if (positionDiff !== 0) {
+                  return positionDiff;
+                }
+
+                // Sort by name
+                return a.studentName.localeCompare(b.studentName);
+              })}
           />
           <Accordion
             Heading="EMCEE Team"
-            List={members?.filter((member) => member.committeeName === "emcee")}
+            List={members
+              ?.filter((member) => member.committeeName === "emcee")
+              .sort((a, b) => {
+                // Sort by position
+                const positionOrder = ["lead", "co-lead", "member"];
+                const positionDiff =
+                  positionOrder.indexOf(a.position) -
+                  positionOrder.indexOf(b.position);
+                if (positionDiff !== 0) {
+                  return positionDiff;
+                }
+
+                // Sort by name
+                return a.studentName.localeCompare(b.studentName);
+              })}
           />
           <Accordion
             Heading="Video Bytes Committee"
-            List={members?.filter(
-              (member) => member.committeeName === "video_bytes"
-            )}
+            List={members
+              ?.filter((member) => member.committeeName === "video_bytes")
+              .sort((a, b) => {
+                // Sort by position
+                const positionOrder = ["lead", "co-lead", "member"];
+                const positionDiff =
+                  positionOrder.indexOf(a.position) -
+                  positionOrder.indexOf(b.position);
+                if (positionDiff !== 0) {
+                  return positionDiff;
+                }
+
+                // Sort by name
+                return a.studentName.localeCompare(b.studentName);
+              })}
           />
         </div>
         {/* <div className="bg-text-col h-40 w-full"></div> */}

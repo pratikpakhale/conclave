@@ -36,7 +36,7 @@ export default function Cards({
                 width={0}
                 height={0}
                 sizes="100%"
-                src={`/attendees/${src}`}
+                src={`/Attendees/${src}`}
                 alt={name}
                 className="w-full h-full object-cover"
               />

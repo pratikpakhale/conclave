@@ -3,7 +3,7 @@ import Cards from "@/components/Attendees/Cards";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Attendees, Cheif_Guests } from "@/data/attendees";
+import { Attendees, Cheif_Guests, Guest_of_Honor } from "@/data/attendees";
 import React from "react";
 
 export default function page() {
@@ -41,6 +41,17 @@ export default function page() {
               {/* <Cards /> */}
               {/* <Cards /> */}
               {Cheif_Guests?.map((guest, index) => (
+                <Cards {...guest} key={index} />
+              ))}
+            </div>
+
+            <div className="text-h3 max-w-7xl w-full tracking-[-0.022em] leading-[1.1] font-semibold text-center mx-auto mt-10">
+              Guest of Honor
+            </div>
+            <div className="my-6 gap-4 flex justify-center">
+              {/* <Cards /> */}
+              {/* <Cards /> */}
+              {Guest_of_Honor?.map((guest, index) => (
                 <Cards {...guest} key={index} />
               ))}
             </div>

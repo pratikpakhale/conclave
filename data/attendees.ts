@@ -11,6 +11,18 @@ export const Cheif_Guests: attendees[] = [
   },
 ];
 
+export const Guest_of_Honor: attendees[] = [
+  {
+    name: "Shri. Arvind Bellad Ji",
+    src: "Bellad.png",
+    company:
+      "Member of Legislative Assembly and Deputy Leader of Opposition, Govt. of Karnataka",
+    position: "",
+    linkedin:
+      "https://www.linkedin.com/posts/indian-institute-of-information-technology-dharwad-karnataka_iiitdharwadconclave-shriarvindbellad-exploreexperienceexcel-activity-7259794776382660609-LKjN/?utm_source=share&utm_medium=member_desktop",
+  },
+];
+
 // export const Attendees: attendees[] = [
 //   {
 //     name: "Naveen Kolli",

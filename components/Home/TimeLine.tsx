@@ -7,7 +7,7 @@ export default function TimeLine() {
   return (
     <section
       // ref={ref}
-      id="timeline"
+      id="agenda"
       className="w-full px-2 z-[-1] relative sm:px-4 text-slate-100 items-center pb-20 bg-color1 md:px-10 lg:px-24 xl:px-44 flex flex-col"
     >
       {/* <Header text="Timeline" /> */}

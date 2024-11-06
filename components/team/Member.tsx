@@ -30,7 +30,9 @@ export default function Member({
       <div className="w-full flex z-[4] justify-between flex-col md:flex-row gap-4 items-center py-6">
         <div className="text-2xl text-[#454e61] font-semibold text-light-text flex flex-col">
           <div>{title}</div>
-          <div className="font-medium text-xs">{position}</div>
+          <div className="font-medium text-xs">
+            {position.charAt(0).toUpperCase() + position.slice(1).toLowerCase()}
+          </div>
         </div>
         <Link href={linkedin}>
           <FaLinkedin />

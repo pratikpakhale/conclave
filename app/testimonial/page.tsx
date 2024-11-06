@@ -57,6 +57,7 @@ export default function Page() {
     }
 
     fetchTestimonials();
+    window.scrollTo(0, 0);
 
     // Set initial window width
     setWindowWidth(window.innerWidth);

@@ -86,7 +86,10 @@ export function TestimonialMain() {
   // );
 
   return (
-    <section className="w-full px-2 sm:px-4 md:px-8px lg:px-24px xl:px-48px flex flex-col py-20 text-text-col bg-color1">
+    <section
+      id="testimonials"
+      className="w-full px-2 sm:px-4 md:px-8px lg:px-24px xl:px-48px flex flex-col py-20 text-text-col bg-color1"
+    >
       <div className="bg-color1 px-4 py-20 w-full text-center leading-[1.1] tracking-tighter flex items-center gap-2 flex-col">
         <ScrollReveal>
           <div className="text-48px font-bold">

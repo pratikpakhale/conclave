@@ -10,14 +10,18 @@ export default function About() {
       <div className="text-h2 max-w-7xl w-full tracking-[-0.022em] leading-[1.1] font-semibold text-center mx-auto mb-28px">
         <ScrollReveal>
           <p>
-            Discover our{" "}
-            <span className="inline-block bg-[0_0] bg-[url('https://www.apple.com/careers/images/fy21/apple_jobs_gradient_final_Apple_Jobs_Gradients_Cool/desktop@2x.png')] bg-clip-text [-webkit-text-fill-color:transparent] [-webkit-box-decoration-break:clone] [background-size:100%_100%]">
+            Breaking Barriers and Setting New Standards:
+            {/* <span className="inline-block bg-[0_0] bg-[url('https://www.apple.com/careers/images/fy21/apple_jobs_gradient_final_Apple_Jobs_Gradients_Cool/desktop@2x.png')] bg-clip-text [-webkit-text-fill-color:transparent] [-webkit-box-decoration-break:clone] [background-size:100%_100%]">
               mission, values, and commitment{" "}
-            </span>
+            </span> */}
           </p>
         </ScrollReveal>
         <ScrollReveal>
-          <p> to shaping futures.</p>
+          <p>
+            <span className="text-48px font-bold leading-[1.1] bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
+              Explore. Experience. Excel.
+            </span>
+          </p>
         </ScrollReveal>
       </div>
       <ScrollReveal>

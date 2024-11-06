@@ -742,20 +742,6 @@ export const Attendees: attendees[] = [
     src: "Gopikrishnan_Rajkumar.jpeg",
   },
   {
-    third_year_poc: "Rishika P ",
-    third_year_linkedin: "https://www.linkedin.com/in/rishika-p-88a57628b/",
-    third_year_contact: 8660972123,
-    fourth_year_poc: "Anand Kumar Singh",
-    fourth_year_linkedin: "https://www.linkedin.com/in/anand930singh",
-    fourth_year_contact: 9696454450,
-    company: "Biocon",
-    name: "Chella Pandian Pitchai",
-    position:
-      "Global Head -Diversity, Equity & Inclusion| Culture & Values| Talent | Sustainability",
-    linkedin: "https://www.linkedin.com/in/pcpandian/",
-    src: "Chella_Pandian_Pitchai.jpeg",
-  },
-  {
     third_year_poc: "Sameera T",
     third_year_linkedin:
       "https://www.linkedin.com/in/sameera-tuttagunta-44129a25b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",

@@ -78,7 +78,7 @@ export const companyIcons = [
   // { icon: "", color: "#1BA0D7" },
   { icon: "/companies/tata-motors.png", color: "#f9de1c" },
   { icon: "/companies/atlassian.svg", color: "#052FAD" },
-  { icon: "/companies/amazon.png", color: "#052FAD" },
+  // { icon: "/companies/amazon.png", color: "#052FAD" },
   // { icon: "/companies/meesho.png", color: "#052FAD" },
   { icon: "/companies/covalenseglobal.png", color: "#000" },
   { icon: "/companies/incture.webp", color: "#000" },
@@ -123,7 +123,7 @@ export const companyIcons = [
 export const positions: Positions[] = [
   { right: "10%", top: "29%" },
   { right: "75%", top: "50%" },
-  { right: "85%", top: "42%" },
+  // { right: "85%", top: "42%" },
   // { right: "80%", top: "58%" },
   { right: "71%", top: "21%" },
   { right: "35%", top: "75%" },

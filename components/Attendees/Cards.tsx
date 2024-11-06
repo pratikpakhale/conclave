@@ -10,9 +10,9 @@ export default function Cards({
   src,
   name,
   third_year_poc,
-  third_year_contact,
+  // third_year_contact,
   fourth_year_poc,
-  fourth_year_contact,
+  // fourth_year_contact,
   linkedin,
   position,
   company,
@@ -88,15 +88,20 @@ export default function Cards({
                     transition={{ delay: 0.1 }}
                     className="space-y-1"
                   >
-                    <h3 className="font-semibold text-lg">{third_year_poc}</h3>
-                    <p className="text-slate-600 leading-4">
+                    <h2 className="font-semibold text-black">Student POC</h2>
+                    <h3 className="font-semibold text-slate-700 text-lg">
+                      {third_year_poc}
+                    </h3>
+                    {/* <p className="text-slate-600 leading-4">
                       {third_year_contact}
-                    </p>
+                    </p> */}
 
-                    <h3 className="font-semibold text-lg">{fourth_year_poc}</h3>
-                    <p className="text-slate-600 leading-4">
+                    <h3 className="font-semibold text-slate-700 leading-4 text-lg">
+                      {fourth_year_poc}
+                    </h3>
+                    {/* <p className="text-slate-600 leading-4">
                       {fourth_year_contact}
-                    </p>
+                    </p> */}
                   </motion.div>
                 </div>
               </motion.div>

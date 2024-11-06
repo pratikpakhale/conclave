@@ -93,7 +93,7 @@ export default function HRConclaveRSVP() {
         <HomeAnimation />
         <div className="text-h2 text-center absolute p-2 bg-black/50 backdrop-blur text-white font-semibold">
           {/* <p className="z-[2]">Sponsorship</p> */}
-          Faculty Testimonials
+          Faculty and Staff Testimonials
           {/* <CountdownTimer /> */}
         </div>
       </div>

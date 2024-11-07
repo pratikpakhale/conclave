@@ -12,7 +12,7 @@ export default function TimeLine() {
     async function fetchTimeline() {
       const response = await getTimeline();
       if (response.success && response.timeline) {
-        setTimeline(response.timeline);
+        setTimeline(response.timeline[0].section);
       }
     }
     fetchTimeline();

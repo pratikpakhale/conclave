@@ -17,10 +17,7 @@ export async function getTimeline() {
   try {
     const timeline = await client.fetch(`*[_type == "timeline"]{
         _id,
-        heading1,
-        heading2,
-        time,
-        timelineComponents
+        section
       }`);
 
     return { success: true, timeline };

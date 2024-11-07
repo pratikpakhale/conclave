@@ -6,6 +6,7 @@ import committee from './committee';
 import facultyTestimonials from './facultyTestimonials';
 import timeline from './timeline';
 import attendes from './hr';
+import linkedinPosts from './linkedinPosts';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -16,5 +17,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     hrRegistration,
     timeline,
     attendes,
+    linkedinPosts,
   ],
 };

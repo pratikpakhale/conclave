@@ -1,9 +1,10 @@
-import { type SchemaTypeDefinition } from "sanity";
-import testimonial from "./testimonial-schema";
-import contactUs from "./contactUs-schema";
-import hrRegistration from "./hrRegistration-schema";
-import committee from "./committee";
-import facultyTestimonials from "./facultyTestimonials";
+import { type SchemaTypeDefinition } from 'sanity';
+import testimonial from './testimonial-schema';
+import contactUs from './contactUs-schema';
+import hrRegistration from './hrRegistration-schema';
+import committee from './committee';
+import facultyTestimonials from './facultyTestimonials';
+import attendes from './hr';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -12,5 +13,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     committee,
     contactUs,
     hrRegistration,
+    attendes,
   ],
 };

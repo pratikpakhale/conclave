@@ -1,9 +1,22 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import TimelineComponent from "./TimelineComponent";
 import ScrollReveal from "../ScrollReveal";
-// import Header from "../Header";
+import { getTimeline } from "@/app/actions/timeline";
+import { Timeline } from "@/types/Home";
 
 export default function TimeLine() {
+  const [timeline, setTimeline] = useState<Timeline[]>([]);
+
+  useEffect(() => {
+    async function fetchTimeline() {
+      const response = await getTimeline();
+      if (response.success && response.timeline) {
+        setTimeline(response.timeline);
+      }
+    }
+    fetchTimeline();
+  }, []);
   return (
     <section
       // ref={ref}
@@ -30,7 +43,42 @@ export default function TimeLine() {
         </ScrollReveal>
       </div>
 
-      <div className="py-20 mx-auto flex-col flex text-center">
+      {timeline?.map((item, index) => (
+        <div key={index} className="w-full">
+          <div className="py-20 mx-auto flex-col flex text-center">
+            <p className="text-28px font-semibold">
+              {item?.heading1} –{" "}
+              <span className="bg-clip-text text-transparent bg-[url('https://www.apple.com/careers/images/fy21/apple_jobs_gradient-final_Apple_Jobs_Gradients_Warm/desktop@2x.png')] [-webkit-text-fill-color:transparent] [-webkit-box-decoration-break:clone] [background-size:100%_100%]">
+                {item?.heading2}
+              </span>
+            </p>
+            <p className="text-20px">{item?.time}</p>
+          </div>
+
+          <div className="relative flex flex-col items-left justify-center w-full">
+            <div className="absolute z-[-2] w-[3px] left-[40px] md:left-[90px] [mask:linear-gradient(0deg,transparent,white_20%,white_80%,transparent)]  h-full bg-[_theme(colors.slate.300/.18)]">
+              <div className="fixed left-auto top-0 right-auto bottom-[50vh] z-[-1] w-[3px] h-[50vh] bg-white bg-[linear-gradient(180deg,_theme(colors.indigo.500)_50%,_theme(colors.blue.300),_theme(colors.indigo.500))]"></div>
+            </div>
+
+            {item?.timelineComponents?.map((component, key) => (
+              <TimelineComponent
+                key={key}
+                time={component?.time}
+                heading={component?.heading}
+                content={
+                  <ul className="list-disc left-6 py-3 relative">
+                    {component?.content?.map((cont, _) => (
+                      <li key={_}>{cont}</li>
+                    ))}
+                  </ul>
+                }
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+
+      {/* <div className="py-20 mx-auto flex-col flex text-center">
         <p className="text-28px font-semibold">
           Invocation Session –{" "}
           <span className="bg-clip-text text-transparent bg-[url('https://www.apple.com/careers/images/fy21/apple_jobs_gradient-final_Apple_Jobs_Gradients_Warm/desktop@2x.png')] [-webkit-text-fill-color:transparent] [-webkit-box-decoration-break:clone] [background-size:100%_100%]">
@@ -38,9 +86,9 @@ export default function TimeLine() {
           </span>
         </p>
         <p className="text-20px">10:00 AM to 11:00 AM</p>
-      </div>
+      </div> */}
 
-      <div className="relative flex flex-col items-left justify-center w-full">
+      {/* <div className="relative flex flex-col items-left justify-center w-full">
         <div className="absolute z-[-2] w-[3px] left-[40px] md:left-[90px] [mask:linear-gradient(0deg,transparent,white_20%,white_80%,transparent)]  h-full bg-[_theme(colors.slate.300/.18)]">
           <div className="fixed left-auto top-0 right-auto bottom-[50vh] z-[-1] w-[3px] h-[50vh] bg-white bg-[linear-gradient(180deg,_theme(colors.indigo.500)_50%,_theme(colors.blue.300),_theme(colors.indigo.500))]"></div>
         </div>
@@ -84,9 +132,9 @@ export default function TimeLine() {
           </span>
         </p>
         <p className="text-20px">11:00 AM to 12:30 PM</p>
-      </div>
+      </div> */}
 
-      <div className="relative flex flex-col items-left justify-center w-full">
+      {/* <div className="relative flex flex-col items-left justify-center w-full">
         <div className="absolute z-[-2] w-[3px] left-[40px] md:left-[90px] [mask:linear-gradient(0deg,transparent,white_20%,white_80%,transparent)]  h-full bg-[_theme(colors.slate.300/.18)]">
           <div className="fixed left-auto top-0 right-auto bottom-[50vh] z-[-1] w-[3px] h-[50vh] bg-white bg-[linear-gradient(180deg,_theme(colors.indigo.500)_50%,_theme(colors.blue.300),_theme(colors.indigo.500))]"></div>
         </div>
@@ -143,9 +191,9 @@ export default function TimeLine() {
           </span>
         </p>
         <p className="text-20px">12:30 PM to 5:30 PM</p>
-      </div>
+      </div> */}
 
-      <div className="relative flex flex-col items-left justify-center w-full">
+      {/* <div className="relative flex flex-col items-left justify-center w-full">
         <div className="absolute z-[-2] w-[3px] left-[40px] md:left-[90px] [mask:linear-gradient(0deg,transparent,white_20%,white_80%,transparent)]  h-full bg-[_theme(colors.slate.300/.18)]">
           <div className="fixed left-auto top-0 right-auto bottom-[50vh] z-[-1] w-[3px] h-[50vh] bg-white bg-[linear-gradient(180deg,_theme(colors.indigo.500)_50%,_theme(colors.blue.300),_theme(colors.indigo.500))]"></div>
         </div>
@@ -221,16 +269,7 @@ export default function TimeLine() {
           heading="Winding up with High Tea and Networking"
           content={<> </>}
         />
-        {/* <TimelineComponent
-          time="Coming Soon"
-          heading="Conclave Event - 9th & 10th November"
-          content={
-            <div className="py-3">
-              <p>Details for this event will be announced soon. Stay tuned!</p>
-            </div>
-          }
-        /> */}
-      </div>
+      </div> */}
     </section>
   );
 }

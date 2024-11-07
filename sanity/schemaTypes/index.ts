@@ -4,7 +4,7 @@ import contactUs from './contactUs-schema';
 import hrRegistration from './hrRegistration-schema';
 import committee from './committee';
 import facultyTestimonials from './facultyTestimonials';
-import attendes from './hr';
+import timeline from './timeline';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -13,6 +13,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     committee,
     contactUs,
     hrRegistration,
-    attendes,
+    timeline,
   ],
 };

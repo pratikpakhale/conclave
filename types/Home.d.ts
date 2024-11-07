@@ -60,3 +60,14 @@ export interface PageProps {
     id: string;
   };
 }
+
+export interface Timeline {
+  heading1: string;
+  heading2: string;
+  time: string;
+  timelineComponents: {
+    heading: string;
+    time: string;
+    content: string[];
+  }[];
+}

@@ -13,21 +13,19 @@ const client = createClient({
   useCdn: false,
 });
 
-export async function getMembers() {
+export async function getTimeline() {
   try {
-    const member = await client.fetch(`*[_type == "committee"]{
+    const timeline = await client.fetch(`*[_type == "timeline"]{
         _id,
-        studentName,
-        linkedIn,
-        email,
-        committeeName,
-        position,
-        "photoUrl": photo.asset->url,
+        heading1,
+        heading2,
+        time,
+        timelineComponents
       }`);
 
-    return { success: true, member };
+    return { success: true, timeline };
   } catch (error: any) {
-    console.error("Error fetching members:", error);
+    console.error("Error fetching testimonials:", error);
     return { success: false, error: error.message };
   }
 }

@@ -18,7 +18,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: 'IIIT Dharwad Conclave 2024',
-  description: 'The official website for HR Conclave 2024, IIIT Dharwad',
+  description: 'The official website for IIIT Dharwad Conclave 2024',
   icons: ['/Brandlogo.png'],
 };
 
@@ -29,6 +29,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <head>
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1.0, maximum-scale=1.0'
+        />
+      </head>
       <body className={` font-grotesk antialiased`}>
         {children}
         <Toaster />

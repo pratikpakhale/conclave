@@ -91,104 +91,104 @@
 //   );
 // }
 
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import React from 'react';
 
 export default function Footer() {
   return (
-    <div className="w-full bg-transparent">
-      <div className=" bg-color1/95 p-28px md:p-48px w-[98vw] mx-auto text-text-col backdrop-blur-2xl rounded-t-24px shadow-[1px_-3px_hsla(0,0%,100%,.149)]">
-        <div className=" flex overflow-clip h-full flex-col items-center justify-between">
-          <div className="flex flex-col gap-4 w-full">
-            <h2 className="text-16px md:text-28px leading-[1.1]">
-              Connect with us to be a part of the HR Conclave 2024 and explore
-              endless opportunities!
+    <div className='w-full bg-transparent'>
+      <div className=' bg-color1/95 p-28px md:p-48px w-[98vw] mx-auto text-text-col backdrop-blur-2xl rounded-t-24px shadow-[1px_-3px_hsla(0,0%,100%,.149)]'>
+        <div className=' flex overflow-clip h-full flex-col items-center justify-between'>
+          <div className='flex flex-col gap-4 w-full'>
+            <h2 className='text-16px md:text-28px leading-[1.1]'>
+              Connect with us to be a part of the IIIT Dharwad Conclave 2024 and
+              explore endless opportunities!
             </h2>
             <Link
-              href={"/contact"}
-              className="w-fit text-color1 bg-text-col px-24px py-12px text-16px rounded-16px"
+              href={'/contact'}
+              className='w-fit text-color1 bg-text-col px-24px py-12px text-16px rounded-16px'
             >
               Contact
             </Link>
           </div>
 
-          <div className="w-full hidden md:flex flex-col h-full flex-1 justify-between text-12px pt-48px">
-            <div className="grid grid-cols-4">
-              <div className="h-full flex flex-col">
+          <div className='w-full hidden md:flex flex-col h-full flex-1 justify-between text-12px pt-48px'>
+            <div className='grid grid-cols-4'>
+              <div className='h-full flex flex-col'>
                 <p>9538156995 (Dr. Manjunath)</p>
                 <p>9916043766 (Dr. Rajesh)</p>
               </div>
-              <div className="pr-20">
+              <div className='pr-20'>
                 Indian Institute of Information Technology (IIIT) Dharwad,
                 Ittigatti Rd, near Sattur Colony, Karnataka - 580009
               </div>
-              <div className="pr-20 flex flex-col gap-12px">
-                <div className="font-bold mb-4">Site Map</div>
-                <Link href={"/attendee"}>Attendee</Link>
-                <Link href={"/team"}>Committee</Link>
-                <Link href={"/rsvp"}>RSVP</Link>
-                <Link href={"/sponsorship"}>Sponsorship</Link>
-                <Link href={"/developers"}>Team</Link>
-                <Link href={"/testimonial"}>Testimonials</Link>
+              <div className='pr-20 flex flex-col gap-12px'>
+                <div className='font-bold mb-4'>Site Map</div>
+                <Link href={'/attendee'}>Attendee</Link>
+                <Link href={'/team'}>Committee</Link>
+                <Link href={'/rsvp'}>RSVP</Link>
+                <Link href={'/sponsorship'}>Sponsorship</Link>
+                <Link href={'/developers'}>Team</Link>
+                <Link href={'/testimonial'}>Testimonials</Link>
               </div>
-              <div className="pr-20 flex flex-col gap-12px">
-                <div className="font-bold mb-4">Follow Us</div>
+              <div className='pr-20 flex flex-col gap-12px'>
+                <div className='font-bold mb-4'>Follow Us</div>
                 <a
-                  target="_blank"
-                  href="https://www.linkedin.com/in/cgc-connect-iiit-dharwad-1a0321333/"
+                  target='_blank'
+                  href='https://www.linkedin.com/in/cgc-connect-iiit-dharwad-1a0321333/'
                 >
                   Linkedin
                 </a>
-                <a target="_blank" href="https://x.com/cgc_iiitdwd">
+                <a target='_blank' href='https://x.com/cgc_iiitdwd'>
                   Twitter
                 </a>
                 <a
-                  target="_blank"
-                  href="https://www.instagram.com/cgc.iiitdwd/"
+                  target='_blank'
+                  href='https://www.instagram.com/cgc.iiitdwd/'
                 >
                   Instagram
                 </a>
               </div>
             </div>
 
-            <div className="">Copyright © IIIT Dharwad - 2024</div>
+            <div className=''>Copyright © IIIT Dharwad - 2024</div>
           </div>
 
-          <div className="flex flex-col py-4 gap-4 w-full text-12px md:hidden">
-            <div className="">
+          <div className='flex flex-col py-4 gap-4 w-full text-12px md:hidden'>
+            <div className=''>
               Indian Institute of Information Technology (IIIT) Dharwad,
               Ittigatti Rd, near Sattur Colony, Karnataka - 580009
             </div>
-            <div className="grid grid-cols-2 text-xs">
-              <div className="pr-20 flex flex-col gap-8px">
-                <div className="font-bold mb-2">Site Map</div>
-                <Link href={"/testimonial"}>Testimonials</Link>
-                <Link href={"/rsvp"}>RSVP</Link>
-                <Link href={"/attendee"}>Attendee</Link>
-                <Link href={"/team"}>Committee</Link>
-                <Link href={"/developers"}>Team</Link>
+            <div className='grid grid-cols-2 text-xs'>
+              <div className='pr-20 flex flex-col gap-8px'>
+                <div className='font-bold mb-2'>Site Map</div>
+                <Link href={'/testimonial'}>Testimonials</Link>
+                <Link href={'/rsvp'}>RSVP</Link>
+                <Link href={'/attendee'}>Attendee</Link>
+                <Link href={'/team'}>Committee</Link>
+                <Link href={'/developers'}>Team</Link>
               </div>
-              <div className="pr-20 flex flex-col gap-12px">
-                <div className="font-bold mb-2">Follow Us</div>
+              <div className='pr-20 flex flex-col gap-12px'>
+                <div className='font-bold mb-2'>Follow Us</div>
                 <a
-                  target="_blank"
-                  href="https://www.linkedin.com/in/cgc-connect-iiit-dharwad-1a0321333/"
+                  target='_blank'
+                  href='https://www.linkedin.com/in/cgc-connect-iiit-dharwad-1a0321333/'
                 >
                   Linkedin
                 </a>
-                <a target="_blank" href="https://x.com/cgc_iiitdwd">
+                <a target='_blank' href='https://x.com/cgc_iiitdwd'>
                   Twitter
                 </a>
                 <a
-                  target="_blank"
-                  href="https://www.instagram.com/cgc.iiitdwd/"
+                  target='_blank'
+                  href='https://www.instagram.com/cgc.iiitdwd/'
                 >
                   Instagram
                 </a>
               </div>
             </div>
-            <div className="h-full flex items-end w-full">
-              <div className="text-end w-full">
+            <div className='h-full flex items-end w-full'>
+              <div className='text-end w-full'>
                 Copyright © IIIT Dharwad - 2024
               </div>
             </div>

@@ -23,10 +23,10 @@ const navs = [
     href: "/team",
     name: "Committee",
   },
-  {
-    href: "/rsvp",
-    name: "RSVP",
-  },
+  // {
+  //   href: "/rsvp",
+  //   name: "RSVP",
+  // },
   {
     href: "/sponsorship",
     name: "Sponsorship",

@@ -52,23 +52,26 @@ export default function Cards({
             {/* Add Button */}
             <a
               href={linkedin}
+              target="_blank"
               className="inline-flex absolute top-4 left-4 items-center space-x-2 text-blue-600 hover:text-blue-700"
             >
               <FaLinkedin className="w-5 h-5" />
             </a>
 
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsOpen(!isOpen)}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center"
-            >
-              <motion.div
-                animate={{ rotate: isOpen ? 45 : 0 }}
-                transition={{ duration: 0.2 }}
+            {third_year_poc && fourth_year_poc && (
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsOpen(!isOpen)}
+                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center"
               >
-                <GrAdd className="w-4 h-4" />
-              </motion.div>
-            </motion.button>
+                <motion.div
+                  animate={{ rotate: isOpen ? 45 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <GrAdd className="w-4 h-4" />
+                </motion.div>
+              </motion.button>
+            )}
           </div>
 
           {/* Expandable Details Section */}

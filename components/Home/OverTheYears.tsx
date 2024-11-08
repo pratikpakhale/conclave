@@ -1,91 +1,96 @@
 // "use client";
-import React from 'react';
-import Image from 'next/image';
-import { data1, data2 } from '@/data/over-the-years';
+import React from "react";
+import Image from "next/image";
+import { data1, data2 } from "@/data/over-the-years";
+import Marquee from "../ui/marquee";
 
 export default function OverTheYears() {
   return (
-    <section className='block bg-text-col h-[150vh] w-full relative'>
-      <div className='bg-black h-full w-full flex relative object-cover gap-[2vw] px-[2vw] overflow-hidden justify-center items-center'>
+    <section className="block bg-text-col h-[150vh] w-full relative">
+      <div className="bg-black h-full w-full flex relative object-cover gap-4 px-[1vw] overflow-hidden justify-center items-center">
         <div
           // style={{ opacity: opacity }}
-          className='min-w-40 w-[30%] overflow-hidden  h-full relative'
+          className="min-w-40 w-[30%] overflow-hidden  h-full relative"
         >
-          <div className='[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y direction-reverse'>
+          <Marquee vertical className="[--duration:40s]">
+            {/* <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y direction-reverse"> */}
             {data1?.map((item, index) => (
               <Image
                 className={`h-auto w-full object-cover rounded-lg`}
-                alt='image1'
+                alt="image1"
                 src={`/over-the-years/${item}`}
                 key={index}
                 height={0}
                 width={0}
-                sizes='100%'
-                placeholder='blur'
-                blurDataURL='/over-the-years/loading.jpg'
+                sizes="100%"
+                placeholder="blur"
+                blurDataURL="/over-the-years/loading.jpg"
               />
             ))}
-          </div>
+          </Marquee>
         </div>
         <div
           // style={{ opacity: opacity }}
-          className='min-w-40 w-[30%] overflow-hidden  h-full relative'
+          className="min-w-40 w-[30%] overflow-hidden  h-full relative"
         >
-          <div className='[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y'>
+          {/* <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y"> */}
+          <Marquee vertical reverse className="[--duration:40s]">
             {data2?.map((item, index) => (
               <Image
                 className={`h-auto w-full object-cover rounded-lg`}
-                alt='image1'
+                alt="image1"
                 src={`/over-the-years/${item}`}
                 key={index}
                 height={0}
                 width={0}
-                sizes='100%'
-                placeholder='blur'
-                blurDataURL='/over-the-years/loading.jpg'
+                sizes="100%"
+                placeholder="blur"
+                blurDataURL="/over-the-years/loading.jpg"
               />
             ))}
-          </div>
+          </Marquee>
         </div>
         <div
           // style={{ opacity: opacity }}
-          className='min-w-40 w-[30%] overflow-hidden  h-full relative'
+          className="min-w-40 w-[30%] overflow-hidden  h-full relative"
         >
-          <div className='[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y direction-reverse'>
+          <Marquee vertical className="[--duration:40s]">
+            {/* <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y direction-reverse"> */}
             {data1?.map((item, index) => (
               <Image
                 className={`h-auto w-full object-cover rounded-lg`}
-                alt='image1'
+                alt="image1"
                 src={`/over-the-years/${item}`}
                 key={index}
                 height={0}
                 width={0}
-                sizes='100%'
-                placeholder='blur'
-                blurDataURL='/over-the-years/loading.jpg'
+                sizes="100%"
+                placeholder="blur"
+                blurDataURL="/over-the-years/loading.jpg"
               />
             ))}
-          </div>
+          </Marquee>
         </div>
         <div
           // style={{ opacity: opacity }}
-          className='min-w-40 w-[30%] overflow-hidden h-full relative'
+          className="min-w-40 w-[30%] overflow-hidden h-full relative"
         >
-          <div className='[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y'>
+          <Marquee reverse vertical className="[--duration:40s]">
+            {/* <div className="[padding-block:1rem] flex flex-col gap-[2vw] h-max flex-nowrap animate-infinite-scroll-y"> */}
             {data2?.map((item, index) => (
               <Image
                 className={`h-auto w-full object-cover rounded-lg`}
-                alt='image1'
+                alt="image1"
                 src={`/over-the-years/${item}`}
                 key={index}
                 height={0}
                 width={0}
-                sizes='100%'
-                placeholder='blur'
-                blurDataURL='/over-the-years/loading.jpg'
+                sizes="100%"
+                placeholder="blur"
+                blurDataURL="/over-the-years/loading.jpg"
               />
             ))}
-          </div>
+          </Marquee>
         </div>
 
         {/* mobile */}

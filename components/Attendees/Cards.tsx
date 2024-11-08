@@ -115,10 +115,10 @@ export default function Cards({
       </motion.div>
 
       <div className="space-y-4">
-        <motion.div className="space-y-1">
+        <motion.div className="space-y-0">
           <h3 className="font-semibold text-lg">{name}</h3>
-          <p className="text-slate-600 leading-5">{position}</p>
-          <p className="text-slate-500 leading-5 text-sm">{company}</p>
+          <p className="text-slate-600 leading-5">{company}</p>
+          <p className="text-slate-500 leading-5 text-sm">{position}</p>
         </motion.div>
       </div>
     </div>

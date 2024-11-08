@@ -133,7 +133,7 @@ export function LandingSection() {
                       return (
                         <Image
                           key={index}
-                          className="h-12 w-auto"
+                          className="h-12 object-cover w-auto"
                           alt={company?.name}
                           src={company?.name}
                           width={0}
@@ -147,7 +147,7 @@ export function LandingSection() {
                       return (
                         <Image
                           key={index}
-                          className="h-12 w-auto"
+                          className="h-12 object-cover w-auto"
                           alt={company?.name}
                           src={company?.name}
                           width={0}

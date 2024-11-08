@@ -150,4 +150,7 @@ export const sponsors = [
   { name: "/companies/fbs.png" },
   { name: "/companies/fuel.png" },
   { name: "/companies/bis.png" },
+  { name: "/companies/canara_bank.png" },
+  { name: "/companies/tata-motors.png" },
+  { name: "/companies/mindcraft.png" },
 ];

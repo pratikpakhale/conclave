@@ -21,7 +21,7 @@ export default function TimelineComponent(props: TimelineType) {
       </div> */}
       <Reveal delay={0.3} width="100%" yPos={false}>
         <div className="w-full py-8 md:py-10 md:block hidden text-text-col pr-2">
-          <p className="text-lg md:text-28px font-semibold">
+          <p className="text-lg md:text-28px leading-9 font-semibold">
             {" "}
             {props?.heading}
           </p>
@@ -39,7 +39,7 @@ export default function TimelineComponent(props: TimelineType) {
         </Reveal>
         <Reveal delay={0.3} width="100%" yPos={false}>
           <div className="w-full text-text-col py-10 pr-2">
-            <p className="text-lg md:text-2xl font-semibold">
+            <p className="text-lg md:text-2xl leading-10 font-semibold">
               {" "}
               {props?.heading}
             </p>

@@ -7,9 +7,11 @@ import facultyTestimonials from './facultyTestimonials';
 import timeline from './timeline';
 import attendes from './hr';
 import linkedinPosts from './linkedinPosts';
+import feedback from './feedback-schema';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
+    feedback,
     facultyTestimonials,
     testimonial,
     committee,

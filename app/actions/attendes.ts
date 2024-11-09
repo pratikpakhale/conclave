@@ -1,8 +1,9 @@
-'use server';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use server";
 
-import { createClient } from 'next-sanity';
+import { createClient } from "next-sanity";
 
-import { apiVersion, dataset, projectId } from '../../sanity/env';
+import { apiVersion, dataset, projectId } from "../../sanity/env";
 
 const client = createClient({
   apiVersion,
@@ -32,7 +33,20 @@ export async function getAttendes() {
 
     return { success: true, attendes };
   } catch (error: any) {
-    console.error('Error fetching attendes:', error);
+    console.error("Error fetching attendes:", error);
+    return { success: false, error: error.message };
+  }
+}
+
+export async function getCompanies() {
+  try {
+    const companies = await client.fetch(`*[_type == "attendees"]{
+      company,
+    }`);
+
+    return { success: true, companies };
+  } catch (error: any) {
+    console.error("Error fetching attendes:", error);
     return { success: false, error: error.message };
   }
 }

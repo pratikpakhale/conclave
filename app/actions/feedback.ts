@@ -1,8 +1,9 @@
 // actions/feedback.ts
-'use server';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use server";
 
-import { createClient } from 'next-sanity';
-import { apiVersion, dataset, projectId } from '../../sanity/env';
+import { createClient } from "next-sanity";
+import { apiVersion, dataset, projectId } from "../../sanity/env";
 
 const client = createClient({
   apiVersion,
@@ -15,7 +16,8 @@ const client = createClient({
 export async function submitFeedback(formData: any) {
   try {
     const feedback = await client.create({
-      _type: 'feedback',
+      _type: "feedback",
+      company: formData.company,
       overallExperience: formData.overallExperience,
       expectations: formData.expectations,
       collaboration: formData.collaboration,
@@ -33,7 +35,7 @@ export async function submitFeedback(formData: any) {
 
     return { success: true, feedback };
   } catch (error: any) {
-    console.error('Error submitting feedback:', error);
+    console.error("Error submitting feedback:", error);
     return { success: false, error: error.message };
   }
 }
@@ -59,7 +61,7 @@ export async function getFeedbacks() {
 
     return { success: true, feedbacks };
   } catch (error: any) {
-    console.error('Error fetching feedbacks:', error);
+    console.error("Error fetching feedbacks:", error);
     return { success: false, error: error.message };
   }
 }

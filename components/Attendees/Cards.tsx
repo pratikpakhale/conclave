@@ -17,6 +17,8 @@ export default function Cards({
   linkedIn: linkedin,
   designation: position,
   company,
+  studentLinkedIn1,
+  studentLinkedIn2,
 }: Attendee) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -58,7 +60,7 @@ export default function Cards({
               <FaLinkedin className="w-5 h-5" />
             </a>
 
-            {third_year_poc && fourth_year_poc && (
+            {(third_year_poc || fourth_year_poc) && (
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
@@ -93,16 +95,24 @@ export default function Cards({
                     className="space-y-1"
                   >
                     <h2 className="font-semibold text-black">Student POC</h2>
-                    <h3 className="font-semibold text-slate-700 text-lg">
+                    <a
+                      href={studentLinkedIn2}
+                      target="_blank"
+                      className="font-semibold text-slate-700 text-lg"
+                    >
                       {third_year_poc}
-                    </h3>
+                    </a>
                     {/* <p className="text-slate-600 leading-4">
                       {third_year_contact}
                     </p> */}
 
-                    <h3 className="font-semibold text-slate-700 leading-4 text-lg">
+                    <a
+                      href={studentLinkedIn1}
+                      target="_blank"
+                      className="font-semibold text-slate-700 leading-4 text-lg"
+                    >
                       {fourth_year_poc}
-                    </h3>
+                    </a>
                     {/* <p className="text-slate-600 leading-4">
                       {fourth_year_contact}
                     </p> */}

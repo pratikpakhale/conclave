@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <img src="public\logo-medium-light.png" width="350" />
+</p>
+<p align="center">
+    <h1 align="center">IIIT Dharwad Conclave Website</h1>
+</p>
+<p align="center">
+    <em><code>► The official repository of the website conclave.iiitdwd.ac.in</code></em>
+</p>
+<p align="center">
+	<img src="https://img.shields.io/github/last-commit/Velocity-IIITDWD/conclave?style=flat-square&logo=git&logoColor=white&color=0080ff" alt="last-commit">
+	<img src="https://img.shields.io/github/languages/top/Velocity-IIITDWD/conclave?style=flat-square&color=0080ff" alt="repo-top-language">
+	<img src="https://img.shields.io/github/languages/count/Velocity-IIITDWD/conclave?style=flat-square&color=0080ff" alt="repo-language-count">
+<p>
+<p align="center">
+		<em>Developed with the software and tools below.</em>
+</p>
+<p align="center">
+	<img src="https://img.shields.io/badge/Sanity-F03E2F?logo=sanity&amp;logoColor=fff&amp;style=plastic" alt="Sanity">
+	<img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=flat&logo=JavaScript&logoColor=black" alt="JavaScript">
+	<img src="https://img.shields.io/badge/PostCSS-DD3A0A.svg?style=flat&logo=PostCSS&logoColor=white" alt="PostCSS">
+	<img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Nextjs">
+	<br>
+	<img src="https://img.shields.io/badge/ESLint-4B32C3.svg?style=flat&logo=ESLint&logoColor=white" alt="ESLint">
+	<img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style=flat&logo=TypeScript&logoColor=white" alt="TypeScript">
+	<img src="https://img.shields.io/badge/GitHub%20Actions-2088FF.svg?style=flat&logo=GitHub-Actions&logoColor=white" alt="GitHub%20Actions">
+	<img src="https://img.shields.io/badge/JSON-000000.svg?style=flat&logo=JSON&logoColor=white" alt="JSON">
+</p>
+<hr>
 
-## Getting Started
+## 📍 Overview
 
-First, run the development server:
+This is a repository which contains the code for the website [concalve.iiitdwd.ac.in](https://conaclave.iiitdwd.ac.in/).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Getting Started
+
+**_Requirements_**
+
+Ensure you have the following dependencies installed on your system:
+
+- **Node**: `v20.15.0 or above`
+- **npm**: `v10.7.0 or above`
+
+### ⚙️ Installation
+
+1. Clone the conclave.iiitdwd.ac.in repository:
+
+```sh
+git clone https://github.com/Velocity-IIITDWD/conclave
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Change to the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+cd conclave
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Install the dependencies:
 
-## Learn More
+```sh
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 🏃‍♂️ Running conclave.iiitdwd.ac.in
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Use the following command to build and run conclave.iiitdwd.ac.in:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+npm run build && npm run start
+```
 
-## Deploy on Vercel
+To run in development mode with live reloading:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sh
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application will be accessible at http://localhost:3000.
+
+---
+
+## 👏 Contributors
+
+This project exists thanks to all the people who contribute.
+
+<p align="left">
+  <a href="https://github.com/Velocity-IIITDWD/conclave/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Velocity-IIITDWD/conclave" />
+  </a>
+</p>
+
+---
